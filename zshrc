@@ -32,10 +32,11 @@ ZSH_THEME="antonishen"
 plugins=(git rvm brew gem osx ruby)
 
 source $ZSH/oh-my-zsh.sh
-
 # Customize to your needs...
 export PATH=/Users/josh/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+export NODE_PATH=/usr/local/lib/node_modules
+
 __rvm_project_rvmrc
 
 # make <C-s> work in terminal vim
