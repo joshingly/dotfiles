@@ -56,7 +56,7 @@ set wildmode=list:longest         " Complete files like a shell.
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
-  set statusline=%t\ (%{&ft})\ %{fugitive#statusline()}\ %m\ %=%-28(%3l,%02c%03V%)\ %4(%p%%%)
+  set statusline=%t\ (%{&ft})\ %{fugitive#statusline()}\ %m\ %=%-15(%3l,%02c%03V%)\ %4(%p%%%)
 endif
 
 let g:solarized_contrast='high'
