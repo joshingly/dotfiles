@@ -18,4 +18,7 @@ echo "------------------------"
 echo "remove sqlite history"
 rm ~/.sqlite_history
 echo "------------------------"
-
+echo "remove vim backups and plugin cache"
+rm -rf ~/.vim/_cache/*
+rm ~/.vim/_backup/*
+echo "------------------------"
