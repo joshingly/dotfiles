@@ -25,7 +25,7 @@ entries.each do |entry|
   puts "-------------------------"
 
   if entry == "vim-javascript"
-    handle_js if entry == "vim-javascript"
+    handle_js
   else
     system "git pull"
   end
