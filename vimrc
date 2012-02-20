@@ -197,6 +197,8 @@ map <Right> :echo "BAD"<cr>
 map <Up>    :echo "BAD"<cr>
 map <Down>  :echo "BAD"<cr>
 
+nnoremap <leader>js :JSHint<cr>
+
 " COMMANDS ----------------------------------------------
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
