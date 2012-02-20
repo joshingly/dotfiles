@@ -13,6 +13,8 @@ entries.delete_if do |entry|
 end
 
 def handle_js
+  system "git co ."
+  system "git pull"
   puts "Moving YOUR syntax file from Code/Syntax"
   system "cp ~/Dropbox/Code/Syntax/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
 end
@@ -21,7 +23,12 @@ entries.each do |entry|
   Dir.chdir(basedir + entry)
   puts entry
   puts "-------------------------"
-  system "git pull"
-  handle_js if entry == "vim-javascript"
+
+  if entry == "vim-javascript"
+    handle_js if entry == "vim-javascript"
+  else
+    system "git pull"
+  end
+
   puts "-------------------------\n\n\n\n"
 end
