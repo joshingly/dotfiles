@@ -16,7 +16,7 @@ def handle_js
   system "git co ."
   system "git pull"
   puts "Moving YOUR syntax file from Code/Syntax"
-  system "cp ~/Dropbox/Code/Syntax/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
+  system "cp ~/Dropbox/Code/Vim/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
 end
 
 entries.each do |entry|
