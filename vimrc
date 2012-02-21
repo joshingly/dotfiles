@@ -110,6 +110,7 @@ if has("gui_running")
 endif
 
 " ctrlp options
+let g:ctrlp_extensions = ["tag"]
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_height = 10
@@ -149,7 +150,26 @@ function! InsertTabWrapper()
     endif
 endfunction
 
+" taken and modified from
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+function! ShowRoutes()
+  :topleft 100 :split __Routes__
+  " Make sure Vim doesn't write __Routes__ as a file
+  :set buftype=nofile
+  " Delete everything
+  :normal 1GdG
+  " Put routes output in buffer
+  :0r! rake -s routes
+  " Size window to number of lines (1 plus rake output length)
+  :exec ":resize " . line("$")
+  " Move cursor to bottom
+  :normal 1GG
+  " Delete empty trailing line
+  :normal dd
+endfunction
+
 " MAPPINGS ----------------------------------------------
+imap jj <Esc>
 
 set pastetoggle=<F2>
 
@@ -169,7 +189,19 @@ nnoremap <leader><leader> <c-^>
 " ctrlp mappings... f5 purges cache and gets new files
 map <leader>f :CtrlP<cr><F5>
 map <leader>F :CtrlPCurFile<cr><F5>
-map <leader>b :CtrlPBuffer<cr><F5>
+map <leader>gt :CtrlPTag<cr><F5>
+
+map <leader>gr :call ShowRoutes()<cr><F5>
+map <leader>gv :CtrlP app/views<cr><F5>
+map <leader>gc :CtrlP app/controllers<cr><F5>
+map <leader>gm :CtrlP app/models<cr><F5>
+map <leader>gh :CtrlP app/helpers<cr><F5>
+
+map <leader>gl :CtrlP lib<cr><F5>
+map <leader>gs :CtrlP spec<cr><F5>
+
+" alternate file shortcut
+map <leader>a :A<cr>
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
@@ -197,7 +229,11 @@ map <Right> :echo "BAD"<cr>
 map <Up>    :echo "BAD"<cr>
 map <Down>  :echo "BAD"<cr>
 
+" run jshint on current file
 nnoremap <leader>js :JSHint<cr>
+
+" ack word under cursor
+nnoremap <silent>K :Ack <cword><CR>
 
 " COMMANDS ----------------------------------------------
 
