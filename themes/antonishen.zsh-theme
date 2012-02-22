@@ -11,9 +11,9 @@ else
   fi
 fi
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # Colors vary depending on time lapsed.
@@ -81,5 +81,5 @@ function git_time_since_commit() {
     fi
 }
 
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}(%c% )$(git_custom_status)
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}%c% $(git_custom_status)
 %{$fg[white]%}⚡ %{$reset_color%}'
