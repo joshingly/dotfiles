@@ -11,7 +11,7 @@ else
   fi
 fi
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
@@ -32,7 +32,7 @@ git_custom_status() {
 }
 
 function my_git_time() {
-  echo "%{$fg[blue]%}(%{$reset_color%}$(git_time_since_commit)%{$fg[blue]%})%{$reset_color%}"
+  echo "%{$fg[white]%}(%{$reset_color%}$(git_time_since_commit)%{$fg[white]%})%{$reset_color%}"
 }
 
 # Determine the time since last commit. If branch is clean,
