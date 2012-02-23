@@ -33,11 +33,13 @@ plugins=(git rvm brew gem osx ruby)
 
 source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
-export PATH=/Users/josh/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 export NODE_PATH=/usr/local/lib/node_modules
 
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 __rvm_project_rvmrc
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # make <C-s> work in terminal vim
 stty -ixon
@@ -57,4 +59,3 @@ alias t="tmux -u new -s"
 alias ta="tmux attach-session -t"
 alias tls="tmux list-sessions"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
