@@ -3,7 +3,6 @@
 cd ~/Dropbox/System/dotfiles
 
 cp ./gemrc ~/.gemrc
-cp ./bash_profile ~/.bash_profile
 cp ./gitconfig ~/.gitconfig
 cp ./tmux.conf ~/.tmux.conf
 cp ./vimrc ~/.vimrc
