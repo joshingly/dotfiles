@@ -76,8 +76,8 @@ set background=dark
 colorscheme solarized
 
 "Invisible character colors
-highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
-highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
+" highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
+" highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
 
 
 
