@@ -45,11 +45,12 @@ set scrolloff=5
 set sidescrolloff=15
 
 set list
-set listchars=""              " reset
-set listchars+=trail:.        " trailing spaces as dots
-set listchars+=tab:▸\         " tabs
+set listchars=""
+set listchars+=tab:▸\
 set listchars+=extends:>
 set listchars+=precedes:<
+set listchars+=trail:.
+
 
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
@@ -73,6 +74,11 @@ endif
 
 set background=dark
 colorscheme solarized
+
+"Invisible character colors
+highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
+highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
+
 
 
 " FILETYPE SPECIFIC OPTIONS ----------------------------------------------
