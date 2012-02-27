@@ -8,7 +8,9 @@ set encoding=utf-8
 set hidden
 set magic
 set autoread " reload file if it was changed outside of vim
+set ttyfast
 
+set history=1000
 set swapfile
 set backup
 set backupdir=~/.vim/_backup    " where to put backup files.
@@ -49,8 +51,12 @@ set listchars=""
 set listchars+=tab:▸\
 set listchars+=extends:>
 set listchars+=precedes:<
-set listchars+=trail:.
 
+" don't show trailing spaces in in sert mode
+augroup trailing
+  au InsertEnter * :set listchars-=trail:·
+  au InsertLeave * :set listchars+=trail:·
+augroup END
 
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
@@ -78,8 +84,6 @@ colorscheme solarized
 "Invisible character colors
 " highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
 " highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
-
-
 
 " FILETYPE SPECIFIC OPTIONS ----------------------------------------------
 
