@@ -100,6 +100,9 @@ endif
 
 " PLUGIN OPTIONS ----------------------------------------------
 
+" auto clean fugitive buffers
+au BufReadPost fugitive://* set bufhidden=delete
+
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
 
