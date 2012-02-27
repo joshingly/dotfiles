@@ -199,19 +199,23 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Switch between last two buffers
 nnoremap <leader><leader> <c-^>
 
+" rake routes
+map <leader>gr :call ShowRoutes()<cr><F5>
+
 " ctrlp mappings... f5 purges cache and gets new files
 map <leader>f :CtrlP<cr><F5>
 map <leader>F :CtrlPCurFile<cr><F5>
-map <leader>gt :CtrlPTag<cr><F5>
 
-map <leader>gr :call ShowRoutes()<cr><F5>
 map <leader>gv :CtrlP app/views<cr><F5>
 map <leader>gc :CtrlP app/controllers<cr><F5>
 map <leader>gm :CtrlP app/models<cr><F5>
 map <leader>gh :CtrlP app/helpers<cr><F5>
 
 map <leader>gl :CtrlP lib<cr><F5>
-map <leader>gs :CtrlP spec<cr><F5>
+map <leader>gt :CtrlP spec<cr><F5>
+
+" fugitive mappings
+map <leader>gs :Gstatus<cr>
 
 " alternate file shortcut
 map <leader>a :A<cr>
