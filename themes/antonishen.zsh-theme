@@ -1,6 +1,18 @@
-# Eastwood theme
-# Modified by Joshua Antonishen
-# time since last commit taken and modified from Soliah theme
+# mashup of eastwood, soliah and juanghurtado themes
+# by Joshua Antonishen
+
+# Color shortcuts
+RED=$fg[red]
+YELLOW=$fg[yellow]
+GREEN=$fg[green]
+WHITE=$fg[white]
+BLUE=$fg[blue]
+RED_BOLD=$fg_bold[red]
+YELLOW_BOLD=$fg_bold[yellow]
+GREEN_BOLD=$fg_bold[green]
+WHITE_BOLD=$fg_bold[white]
+BLUE_BOLD=$fg_bold[blue]
+RESET_COLOR=$reset_color
 
 #RVM settings
 if [[ -s ~/.rvm/scripts/rvm ]] ; then
@@ -10,6 +22,14 @@ else
     RPS1="%{$fg[yellow]%}rbenv%{$fg[blue]%}:%{$reset_color%}%{$fg[red]%}\$(rbenv version | sed -e 's/ (set.*$//')%{$reset_color%} $EPS1"
   fi
 fi
+
+# Format for git_prompt_status()
+ZSH_THEME_GIT_PROMPT_UNMERGED=" %{$RED%}unmerged"
+ZSH_THEME_GIT_PROMPT_DELETED=" %{$RED%}deleted"
+ZSH_THEME_GIT_PROMPT_RENAMED=" %{$YELLOW%}renamed"
+ZSH_THEME_GIT_PROMPT_MODIFIED=" %{$YELLOW%}modified"
+ZSH_THEME_GIT_PROMPT_ADDED=" %{$GREEN%}added"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$WHITE%}untracked"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -22,12 +42,18 @@ ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[blue]%}"
 
+# Format for git_prompt_ahead()
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg[white]%}(⚡)"
+
+# Format for git_prompt_long_sha() and git_prompt_short_sha()
+ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg[yellow]%}::%{$fg[blue]%}"
+ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}"
 
 #Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 git_custom_status() {
   local cb=$(current_branch)
   if [ -n "$cb" ]; then
-    echo "%{$reset_color%} on $ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX$(my_git_time)$(parse_git_dirty)"
+    echo "%{$reset_color%} on $ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$(git_prompt_short_sha)$ZSH_THEME_GIT_PROMPT_SUFFIX $(my_git_time)$(parse_git_dirty)$(git_prompt_status)$(git_prompt_ahead)"
   fi
 }
 
@@ -81,5 +107,6 @@ function git_time_since_commit() {
     fi
 }
 
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}%c% $(git_custom_status)
-%{$fg[white]%}⚡ %{$reset_color%}'
+PROMPT='
+%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}%c% $(git_custom_status)
+%{$fg[blue]%}> %{$reset_color%}'
