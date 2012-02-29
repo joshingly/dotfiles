@@ -216,8 +216,7 @@ map <leader>gl :CtrlP lib<cr><F5>
 " fugitive mappings
 map <leader>cs :Gstatus<cr>
 map <leader>cd :Git diff %<cr>
-map <leader>cla :Git l<cr>
-map <leader>clf :Git l %<cr>
+map <leader>cl :Git l<cr>
 
 " alternate file shortcut
 map <leader>a :A<cr>
