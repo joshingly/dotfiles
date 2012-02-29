@@ -50,10 +50,11 @@ ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg[yellow]%}::%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}"
 
 #Customized git status, oh-my-zsh currently does not allow render dirty status before branch
+# old pos was after current_branch for... $(git_prompt_short_sha)
 git_custom_status() {
   local cb=$(current_branch)
   if [ -n "$cb" ]; then
-    echo "%{$reset_color%} on $ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$(git_prompt_short_sha)$ZSH_THEME_GIT_PROMPT_SUFFIX $(my_git_time)$(parse_git_dirty)$(git_prompt_status)$(git_prompt_ahead)"
+    echo "%{$reset_color%} on $ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX $(my_git_time)$(parse_git_dirty)$(git_prompt_status)$(git_prompt_ahead)"
   fi
 }
 
