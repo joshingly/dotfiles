@@ -35,3 +35,14 @@ alias tls="tmux list-sessions"
 
 # bundler
 alias be="bundle exec"
+
+# git
+alias gco="git checkout"
+alias gci="git commit -v"
+alias grb="git rebase"
+alias ga="git add"
+alias gs="git status"
+alias gb="git branch"
+alias gd="git diff"
+alias gl="git l"
+alias gl="git ll"

@@ -30,11 +30,5 @@
   changed = green
   untracked = cyan
 [alias]
-  co = checkout
-  ci = commit
-  rb = rebase
-  a = add
-  s = status
   l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s' --abbrev-commit --date=short --all"
   ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=short --all --stat"
-  b = branch
