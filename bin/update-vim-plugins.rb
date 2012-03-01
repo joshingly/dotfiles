@@ -13,7 +13,7 @@ entries.delete_if do |entry|
 end
 
 def handle_js
-  system "git co ."
+  system "git checkout ."
   system "git pull"
   puts "Moving YOUR syntax file from Code/Syntax"
   system "cp ~/Dropbox/Code/Vim/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
