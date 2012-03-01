@@ -9,6 +9,9 @@ set hidden
 set magic
 set autoread " reload file if it was changed outside of vim
 set ttyfast
+" set showbreak=↪
+set title
+set lazyredraw
 
 set history=1000
 set swapfile
