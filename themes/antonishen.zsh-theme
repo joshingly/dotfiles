@@ -33,7 +33,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$WHITE%}untracked"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} (*)%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # Colors vary depending on time lapsed.
@@ -51,10 +51,11 @@ ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}"
 
 #Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 # old pos was after current_branch for... $(git_prompt_short_sha)
+# old pos was before dirty status for...$(git_prompt_status)
 git_custom_status() {
   local cb=$(current_branch)
   if [ -n "$cb" ]; then
-    echo "%{$reset_color%} on $ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX $(my_git_time)$(parse_git_dirty)$(git_prompt_status)$(git_prompt_ahead)"
+    echo "%{$reset_color%} on $ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX $(my_git_time)$(parse_git_dirty)$(git_prompt_ahead)"
   fi
 }
 
