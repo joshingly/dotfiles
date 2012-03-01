@@ -225,9 +225,6 @@ map <leader>gs :Gstatus<cr>
 map <leader>gd :Git diff %<cr>
 map <leader>gl :Git l<cr>
 
-" alternate file shortcut
-map <leader>a :A<cr>
-
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
