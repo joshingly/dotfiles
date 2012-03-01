@@ -205,23 +205,25 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <leader><leader> <c-^>
 
 " rake routes
-map <leader>gr :call ShowRoutes()<cr><F5>
+map <leader>rr :call ShowRoutes()<cr><F5>
 
 " ctrlp mappings... f5 purges cache and gets new files
 map <leader>f :CtrlP<cr><F5>
 map <leader>F :CtrlPCurFile<cr><F5>
 
-map <leader>gv :CtrlP app/views<cr><F5>
-map <leader>gc :CtrlP app/controllers<cr><F5>
-map <leader>gm :CtrlP app/models<cr><F5>
-map <leader>gh :CtrlP app/helpers<cr><F5>
-map <leader>gs :CtrlP spec<cr><F5>
-map <leader>gl :CtrlP lib<cr><F5>
+map <leader>et :CtrlPTag<cr><F5>
+
+map <leader>ev :CtrlP app/views<cr><F5>
+map <leader>ec :CtrlP app/controllers<cr><F5>
+map <leader>em :CtrlP app/models<cr><F5>
+map <leader>eh :CtrlP app/helpers<cr><F5>
+map <leader>es :CtrlP spec<cr><F5>
+map <leader>el :CtrlP lib<cr><F5>
 
 " fugitive mappings
-map <leader>cs :Gstatus<cr>
-map <leader>cd :Git diff %<cr>
-map <leader>cl :Git l<cr>
+map <leader>gs :Gstatus<cr>
+map <leader>gd :Git diff %<cr>
+map <leader>gl :Git l<cr>
 
 " alternate file shortcut
 map <leader>a :A<cr>
