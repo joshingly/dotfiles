@@ -186,7 +186,8 @@ function! ShowRoutes()
 endfunction
 
 " MAPPINGS ----------------------------------------------
-imap jj <Esc>
+" esc esc to elimintate lag in terminal vim
+inoremap jk <Esc><Esc>
 
 set pastetoggle=<F2>
 
