@@ -44,7 +44,7 @@ set ruler
 set cursorline
 set showmatch
 set showcmd
-set cmdheight=2
+set cmdheight=1
 set showtabline=2
 set colorcolumn=80
 set scrolloff=5
