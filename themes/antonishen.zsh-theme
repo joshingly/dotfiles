@@ -109,6 +109,5 @@ function git_time_since_commit() {
     fi
 }
 
-PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}%c% $(git_custom_status)
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}%c% $(git_custom_status)
 %{$fg[blue]%}> %{$reset_color%}'
