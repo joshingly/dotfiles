@@ -252,7 +252,7 @@ map <Up>    :echo "BAD"<cr>
 map <Down>  :echo "BAD"<cr>
 
 " run jshint on current file
-nnoremap <leader>js :JSHint<cr>
+nnoremap <leader>js :w <bar> :JSHint<cr>
 
 " ack word under cursor
 nnoremap <silent>K :Ack <cword><CR>
