@@ -135,6 +135,7 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_open_new_file = 'r'
 
 " autoclose options
 let g:AutoCloseExpandEnterOn = "" " make autoclose and endwise work together again
