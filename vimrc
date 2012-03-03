@@ -186,8 +186,11 @@ function! ShowRoutes()
 endfunction
 
 " MAPPINGS ----------------------------------------------
-" esc esc to elimintate lag in terminal vim
-inoremap jk <Esc><Esc>
+" `^ prevents cursuring from moving left
+inoremap jk <Esc>`^
+" gV prevents reselection
+vnoremap <tab> <Esc>gV
+nnoremap <tab> <Esc>
 
 set pastetoggle=<F2>
 
