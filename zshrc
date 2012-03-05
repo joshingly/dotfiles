@@ -15,6 +15,9 @@ __rvm_project_rvmrc
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
 
+setopt auto_cd
+cdpath=($HOME/Dropbox/Code)
+
 # make <C-s> work in terminal vim
 stty -ixon
 
@@ -51,3 +54,16 @@ alias gl="git l"
 alias gll="git ll"
 alias gp="git push"
 alias gm="git merge"
+
+# 'prev' will cd you to the last directory that you cd'ed into
+export PREV_PATH=$HOME/.prev-path
+
+function chpwd {
+  echo $(pwd) >! $PREV_PATH
+}
+
+prev() {
+  if [[ -f $PREV_PATH ]]; then
+    cd "$(cat $PREV_PATH)"
+  fi
+}
