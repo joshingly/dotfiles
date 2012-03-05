@@ -259,7 +259,9 @@ map <Down>  :echo "BAD"<cr>
 nnoremap <leader>js :w <bar> :JSHint<cr>
 
 " send to tmux...
-nnoremap <leader>st :call Send_to_Tmux("\n")<left><left><left><left>
+nnoremap <leader>ts :w <bar> :call Send_to_Tmux("\n")<left><left><left><left>
+nnoremap <leader>tr :w <bar> :call Send_to_Tmux("r\n")<cr>
+
 
 " ack word under cursor
 nnoremap <silent>K :Ack <cword><CR>
