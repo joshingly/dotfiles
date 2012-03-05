@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/Dropbox/System/dotfiles
+cd ~/Dropbox/Code/General/dotfiles
 
 cp ./gemrc ~/.gemrc
 cp ./gitconfig ~/.gitconfig

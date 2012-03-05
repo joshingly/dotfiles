@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-Dir.chdir(File.expand_path("~/Dropbox/System/dotfiles/bin/"))
+Dir.chdir(File.expand_path("~/Dropbox/Code/General/dotfiles/bin/"))
 
 Dir.mkdir(File.expand_path("~/.bin")) unless Dir.exists?(File.expand_path("~/.bin"))
 
