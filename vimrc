@@ -215,14 +215,14 @@ map <leader>rr :call ShowRoutes()<cr><F5>
 map <leader>f :CtrlP<cr><F5>
 map <leader>F :CtrlPCurFile<cr><F5>
 
-map <leader>et :CtrlPTag<cr><F5>
+map <leader>st :CtrlPTag<cr><F5>
 
-map <leader>ev :CtrlP app/views<cr><F5>
-map <leader>ec :CtrlP app/controllers<cr><F5>
-map <leader>em :CtrlP app/models<cr><F5>
-map <leader>eh :CtrlP app/helpers<cr><F5>
-map <leader>es :CtrlP spec<cr><F5>
-map <leader>el :CtrlP lib<cr><F5>
+map <leader>sv :CtrlP app/views<cr><F5>
+map <leader>sc :CtrlP app/controllers<cr><F5>
+map <leader>sm :CtrlP app/models<cr><F5>
+map <leader>sh :CtrlP app/helpers<cr><F5>
+map <leader>ss :CtrlP spec<cr><F5>
+map <leader>sl :CtrlP lib<cr><F5>
 
 " fugitive mappings
 map <leader>gs :Gstatus<cr>
