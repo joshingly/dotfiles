@@ -64,6 +64,7 @@ function chpwd {
 
 prev() {
   if [[ -f $PREV_PATH ]]; then
+    echo "$(cat $PREV_PATH)"
     cd "$(cat $PREV_PATH)"
   fi
 }
