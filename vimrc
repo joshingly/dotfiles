@@ -16,7 +16,7 @@ set lazyredraw
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 
-set history=1000
+set history=10000
 set swapfile
 set backup
 set backupdir=~/.vim/_backup    " where to put backup files.
