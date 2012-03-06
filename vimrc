@@ -134,10 +134,8 @@ endif
 let g:ctrlp_extensions = ["tag"]
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_max_height = 10
-let g:ctrlp_use_caching = 0
+let g:ctrlp_max_height = 15
 let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
-let g:ctrlp_mruf_relative = 1
 let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$'
 let g:ctrlp_open_new_file = 'r'
 
@@ -216,7 +214,7 @@ nnoremap <leader><leader> <c-^>
 map <leader>rr :call ShowRoutes()<cr><F5>
 
 " ctrlp mappings... f5 purges cache and gets new files
-map <leader>f :CtrlP<cr><F5>
+map <leader>f :CtrlP .<cr><F5>
 map <leader>F :CtrlPCurFile<cr><F5>
 
 map <leader>st :CtrlPTag<cr><F5>
