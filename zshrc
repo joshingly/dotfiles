@@ -58,6 +58,7 @@ alias gm="git merge"
 # 'prev' will cd you to the last directory that you cd'ed into
 export PREV_PATH=$HOME/.prev-path
 
+# run everytime you cd
 function chpwd {
   echo $(pwd) >! $PREV_PATH
 }
