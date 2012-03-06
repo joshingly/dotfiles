@@ -14,15 +14,6 @@ WHITE_BOLD=$fg_bold[white]
 BLUE_BOLD=$fg_bold[blue]
 RESET_COLOR=$reset_color
 
-#RVM settings
-if [[ -s ~/.rvm/scripts/rvm ]] ; then
-  RPS1="%{$fg[yellow]%}rvm%{$fg[blue]%}:%{$reset_color%}%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt)%{$reset_color%} $EPS1"
-else
-  if which rbenv &> /dev/null; then
-    RPS1="%{$fg[yellow]%}rbenv%{$fg[blue]%}:%{$reset_color%}%{$fg[red]%}\$(rbenv version | sed -e 's/ (set.*$//')%{$reset_color%} $EPS1"
-  fi
-fi
-
 # Format for git_prompt_status()
 ZSH_THEME_GIT_PROMPT_UNMERGED=" %{$RED%}unmerged"
 ZSH_THEME_GIT_PROMPT_DELETED=" %{$RED%}deleted"
@@ -49,7 +40,15 @@ ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg[white]%}(⚡)"
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg[yellow]%}::%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}"
 
-#Customized git status, oh-my-zsh currently does not allow render dirty status before branch
+#RVM settings
+if [[ -s ~/.rvm/scripts/rvm ]] ; then
+  RPS1="%{$fg[yellow]%}rvm%{$fg[blue]%}:%{$reset_color%}%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt)%{$reset_color%} $EPS1"
+else
+  if which rbenv &> /dev/null; then
+    RPS1="%{$fg[yellow]%}rbenv%{$fg[blue]%}:%{$reset_color%}%{$fg[red]%}\$(rbenv version | sed -e 's/ (set.*$//')%{$reset_color%} $EPS1"
+  fi
+fi
+
 # old pos was after current_branch for... $(git_prompt_short_sha)
 # old pos was before dirty status for...$(git_prompt_status)
 git_custom_status() {
@@ -66,47 +65,47 @@ function my_git_time() {
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
 function git_time_since_commit() {
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-        # Only proceed if there is actually a commit.
-        if [[ $(git log 2>&1 > /dev/null | grep -c "^fatal: bad default revision") == 0 ]]; then
-            # Get the last commit.
-            last_commit=`git log --pretty=format:'%at' -1 2> /dev/null`
-            now=`date +%s`
-            seconds_since_last_commit=$((now-last_commit))
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    # Only proceed if there is actually a commit.
+    if [[ $(git log 2>&1 > /dev/null | grep -c "^fatal: bad default revision") == 0 ]]; then
+      # Get the last commit.
+      last_commit=`git log --pretty=format:'%at' -1 2> /dev/null`
+      now=`date +%s`
+      seconds_since_last_commit=$((now-last_commit))
 
-            # Totals
-            MINUTES=$((seconds_since_last_commit / 60))
-            HOURS=$((seconds_since_last_commit/3600))
+      # Totals
+      MINUTES=$((seconds_since_last_commit / 60))
+      HOURS=$((seconds_since_last_commit/3600))
 
-            # Sub-hours and sub-minutes
-            DAYS=$((seconds_since_last_commit / 86400))
-            SUB_HOURS=$((HOURS % 24))
-            SUB_MINUTES=$((MINUTES % 60))
+      # Sub-hours and sub-minutes
+      DAYS=$((seconds_since_last_commit / 86400))
+      SUB_HOURS=$((HOURS % 24))
+      SUB_MINUTES=$((MINUTES % 60))
 
-            if [[ -n $(git status -s 2> /dev/null) ]]; then
-                if [ "$MINUTES" -gt 30 ]; then
-                    COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG"
-                elif [ "$MINUTES" -gt 10 ]; then
-                    COLOR="$ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM"
-                else
-                    COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT"
-                fi
-            else
-                COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
-            fi
-
-            if [ "$HOURS" -gt 24 ]; then
-                echo "$COLOR${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m%{$reset_color%}"
-            elif [ "$MINUTES" -gt 60 ]; then
-                echo "$COLOR${HOURS}h${SUB_MINUTES}m%{$reset_color%}"
-            else
-                echo "$COLOR${MINUTES}m%{$reset_color%}"
-            fi
+      if [[ -n $(git status -s 2> /dev/null) ]]; then
+        if [ "$MINUTES" -gt 30 ]; then
+          COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG"
+        elif [ "$MINUTES" -gt 10 ]; then
+          COLOR="$ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM"
         else
-            COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
-            echo "%{$reset_color%}"
+          COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT"
         fi
+      else
+        COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
+      fi
+
+      if [ "$HOURS" -gt 24 ]; then
+        echo "$COLOR${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m%{$reset_color%}"
+      elif [ "$MINUTES" -gt 60 ]; then
+        echo "$COLOR${HOURS}h${SUB_MINUTES}m%{$reset_color%}"
+      else
+        echo "$COLOR${MINUTES}m%{$reset_color%}"
+      fi
+    else
+      COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
+      echo "%{$reset_color%}"
     fi
+  fi
 }
 
 PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[cyan]%}%c% $(git_custom_status)
