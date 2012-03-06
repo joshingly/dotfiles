@@ -12,6 +12,9 @@ set ttyfast
 " set showbreak=↪
 set title
 set lazyredraw
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
 
 set history=1000
 set swapfile
