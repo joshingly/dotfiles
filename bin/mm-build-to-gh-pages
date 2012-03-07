@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+# Automate deploying a site built using middleman to github pages
+# Joshua Antonishen
+
+# PROCESS...
+# builds, moves output to /tmp, checks out gh-pages branch
+# removes ALL files(except CNAME), moves files from /tmp/build
+# into working directory, removes /tmp/build
+#
+# execute from the ROOT of your middleman project
+
+not_dirty = `git status`["nothing to commit"] ? true : false
+branch_exists = `git branch`["gh-pages"] ? true : false
+
+if Dir.glob('*').include?("config.rb") && Dir.glob('*').include?("source") && not_dirty && branch_exists
+  system "mm-build"
+
+  puts "\n\n"
+  puts "moving build directory to /tmp"
+  system "mv build /tmp/"
+
+  puts "\n\n"
+  puts "checkout gh-pages branch and clear it out"
+  system "git checkout gh-pages"
+  Dir.glob('*').each do |entry|
+    unless entry.eql? "CNAME"
+      puts "removing #{entry}"
+      system "rm -rf ./#{entry}"
+    end
+  end
+
+  puts "\n\n"
+  puts "moving built site into repo"
+  system "cp -R /tmp/build/ ."
+  system "rm -rf .sass-cache"
+
+  puts "\n\n"
+  puts "clean up"
+  system "rm -rf /tmp/build"
+else
+  puts "you are not in the root of a middleman project, you have"
+  puts "uncommitted changes, or the gh-pages branch doesn't exist"
+end
