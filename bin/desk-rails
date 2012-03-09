@@ -1,0 +1,20 @@
+#!/bin/bash
+
+tmux start-server
+tmux -u new -d -s rails
+tmux neww -t rails
+tmux neww -t rails
+tmux neww -t rails
+
+tmux rename-window -t rails:1 vim
+tmux rename-window -t rails:2 shell
+tmux rename-window -t rails:3 console
+tmux rename-window -t rails:4 server
+
+tmux send-keys -t rails:1 "rvm gemset use rails; prev" C-m
+tmux send-keys -t rails:2 "rvm gemset use rails; prev" C-m
+tmux send-keys -t rails:3 "rvm gemset use rails; prev" C-m
+tmux send-keys -t rails:4 "rvm gemset use rails; prev" C-m
+
+tmux select-window -t rails:1
+tmux attach-session -t rails
