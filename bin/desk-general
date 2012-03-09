@@ -1,0 +1,11 @@
+#!/bin/bash
+
+tmux start-server
+tmux -u new -d -s work
+tmux neww -t work
+
+tmux rename-window -t work:1 vim
+tmux rename-window -t work:2 shell
+
+tmux select-window -t work:1
+tmux attach-session -t work
