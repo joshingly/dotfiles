@@ -5,6 +5,7 @@
   whitespace = fix,-indent-with-non-tab,trailing-space
   pager = less -FRX
   editor = /usr/local/bin/vim
+  excludesfile = ~/.gitignore_global
 [branch]
   autosetupmerge = true
 [color]
