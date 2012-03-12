@@ -11,7 +11,7 @@ set autoread " reload file if it was changed outside of vim
 set ttyfast
 " set showbreak=↪
 set title
-set lazyredraw
+" set lazyredraw
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
