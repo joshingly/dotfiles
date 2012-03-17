@@ -12,6 +12,9 @@ echo "------------------------"
 echo "remove pry history"
 rm ~/.pry_history
 echo "------------------------"
+echo "remove irb history"
+rm ~/.irb-history
+echo "------------------------"
 echo "remove less history"
 rm ~/.lesshst
 echo "------------------------"
