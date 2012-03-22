@@ -33,7 +33,7 @@ bindkey "^E" end-of-line
 # ALIASES
 alias rm="rm -i"
 
-# TMUX
+# tmux
 alias t="tmux -u new -s"
 alias ta="tmux attach-session -t"
 alias tls="tmux list-sessions"
@@ -56,6 +56,9 @@ alias gl="git l"
 alias gll="git ll"
 alias gp="git push"
 alias gm="git merge"
+
+# rvm
+alias rgu="rvm gemset use"
 
 # 'prev' will cd you to the last directory that you cd'ed into
 export PREV_PATH=$HOME/.prev-path
