@@ -48,7 +48,7 @@ set cursorline
 set showmatch
 set showcmd
 set cmdheight=1
-set showtabline=2
+" set showtabline=2
 set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=15
@@ -264,9 +264,11 @@ nnoremap <leader>js :w <bar> :JSHint<cr>
 nnoremap <leader>ts :w <bar> :call Send_to_Tmux("\n")<left><left><left><left>
 nnoremap <leader>tr :w <bar> :call Send_to_Tmux("r\n")<cr>
 
-
 " ack word under cursor
 nnoremap <silent>K :Ack <cword><CR>
+
+" Open a Quickfix window for the last search.
+nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
 " COMMANDS ----------------------------------------------
 
