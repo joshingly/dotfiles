@@ -12,6 +12,7 @@ tmux rename-window -t rails:3 console
 tmux rename-window -t rails:4 server
 
 tmux send-keys -t rails:1 "rvm gemset use rails; cd $(pwd)" C-m
+tmux send-keys -t rails:1 "vim" C-m
 
 tmux send-keys -t rails:2 "rvm gemset use rails; cd $(pwd)" C-m
 
