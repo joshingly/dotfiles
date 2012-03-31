@@ -140,10 +140,6 @@ let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
 let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$'
 let g:ctrlp_open_new_file = 'r'
 
-" autoclose options
-let g:AutoCloseExpandEnterOn = "" " make autoclose and endwise work together again
-let g:AutoClosePairs_add = "|"
-
 " FUNCTIONS ----------------------------------------------
 
 function s:setup_wrapping()
