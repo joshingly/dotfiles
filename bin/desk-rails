@@ -5,11 +5,13 @@ tmux -u new -d -s rails
 tmux neww -t rails
 tmux neww -t rails
 tmux neww -t rails
+tmux neww -t rails
 
 tmux rename-window -t rails:1 vim
 tmux rename-window -t rails:2 shell
 tmux rename-window -t rails:3 console
 tmux rename-window -t rails:4 server
+tmux rename-window -t rails:5 guard
 
 tmux send-keys -t rails:1 "rvm gemset use rails; cd $(pwd)" C-m
 tmux send-keys -t rails:1 "vim" C-m
@@ -21,6 +23,9 @@ tmux send-keys -t rails:3 "rails console" C-m
 
 tmux send-keys -t rails:4 "rvm gemset use rails; cd $(pwd)" C-m
 tmux send-keys -t rails:4 "rails server" C-m
+
+tmux send-keys -t rails:5 "rvm gemset use rails; cd $(pwd)" C-m
+tmux send-keys -t rails:5 "guard" C-m
 
 tmux select-window -t rails:1
 tmux attach-session -t rails
