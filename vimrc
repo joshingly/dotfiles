@@ -90,6 +90,15 @@ set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
 
+" Use a bar-shaped cursor for insert mode, even through tmux.
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
 "Invisible character colors
 " highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
 " highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
