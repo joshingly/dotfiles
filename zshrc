@@ -60,6 +60,10 @@ alias gm="git merge"
 # rvm
 alias rgu="rvm gemset use"
 
+# rails
+alias rg="rails generate"
+alias rd="rails destroy"
+
 # 'prev' will cd you to the last directory that you cd'ed into
 export PREV_PATH=$HOME/.prev-path
 
