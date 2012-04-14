@@ -92,6 +92,10 @@ colorscheme solarized
 
 " Use a bar-shaped cursor for insert mode, even through tmux.
 if exists('$TMUX')
+  augroup tmux_cursor
+    au InsertEnter * :redraw!
+  augroup END
+
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
