@@ -2,6 +2,8 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 
+"==============================================================================
+" ######################################################## GENERAL EDITOR STUFF
 syntax enable
 set nocompatible
 set encoding=utf-8
@@ -42,7 +44,17 @@ set ignorecase
 set hlsearch
 set smartcase
 
-" UI
+augroup last_position
+  au!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
+
+"==============================================================================
+" ########################################################################## UI
 set rnu
 set ruler
 set cursorline
@@ -107,21 +119,12 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-augroup last_position
-  au!
-  " Jump to last cursor position unless it's invalid or in an event handler
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-augroup END
-
 "Invisible character colors
 " highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
 " highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
 
-" FILETYPE SPECIFIC OPTIONS ----------------------------------------------
-
+"==============================================================================
+" ################################################### FILETYPE SPECIFIC OPTIONS
 augroup file_type
   au!
 
@@ -135,8 +138,8 @@ augroup file_type
   au BufNewFile,BufRead *.json set ft=javascript
 augroup END
 
-" PLUGIN OPTIONS ----------------------------------------------
-
+"==============================================================================
+" ############################################################## PLUGIN OPTIONS
 augroup fugitive
   au!
   " auto clean fugitive buffers
@@ -171,8 +174,8 @@ let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
 let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$'
 let g:ctrlp_open_new_file = 'r'
 
-" FUNCTIONS ----------------------------------------------
-
+"==============================================================================
+" ################################################################### FUNCTIONS
 function s:setup_wrapping()
   set wrap
   set wrapmargin=2
@@ -216,7 +219,8 @@ function! ShowRoutes()
   :normal dd
 endfunction
 
-" MAPPINGS ----------------------------------------------
+"==============================================================================
+" #################################################################### MAPPINGS
 " yank/paste to/from clipboard
 map <leader>y "*y
 map <leader>p "*p
@@ -312,7 +316,8 @@ nnoremap <silent>K :Ack <cword><CR>
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
-" COMMANDS ----------------------------------------------
+"==============================================================================
+" #################################################################### COMMANDS
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
