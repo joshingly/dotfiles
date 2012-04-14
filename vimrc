@@ -62,6 +62,7 @@ set listchars+=precedes:<
 
 " don't show trailing spaces in in sert mode
 augroup trailing
+  au!
   au InsertEnter * :set listchars-=trail:·
   au InsertLeave * :set listchars+=trail:·
 augroup END
@@ -92,16 +93,28 @@ colorscheme solarized
 
 " Use a bar-shaped cursor for insert mode, even through tmux.
 if exists('$TMUX')
-  augroup tmux_cursor
-    au InsertEnter * :redraw!
-  augroup END
-
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+  " fix for borked rendering in tmux due to changing cursor between normal
+  " and insert mode
+  augroup tmux_cursor
+    au!
+    au InsertEnter * :redraw!
+  augroup END
 else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+augroup last_position
+  au!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
 "Invisible character colors
 " highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
@@ -109,21 +122,26 @@ endif
 
 " FILETYPE SPECIFIC OPTIONS ----------------------------------------------
 
-if has("autocmd")
+augroup file_type
+  au!
+
   " In Makefiles, use real tabs, not tabs expanded to spaces
-  au FileType make set noexpandtab
+  au FileType make setlocal noexpandtab
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setup_wrapping()
   au BufRead,BufNewFile *.{txt} setf txt | call s:setup_wrapping()
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
-endif
+augroup END
 
 " PLUGIN OPTIONS ----------------------------------------------
 
-" auto clean fugitive buffers
-au BufReadPost fugitive://* set bufhidden=delete
+augroup fugitive
+  au!
+  " auto clean fugitive buffers
+  au BufReadPost fugitive://* set bufhidden=delete
+augroup END
 
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
