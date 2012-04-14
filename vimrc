@@ -259,6 +259,8 @@ map <leader>sv :CtrlP app/views<cr><F5>
 map <leader>sc :CtrlP app/controllers<cr><F5>
 map <leader>sm :CtrlP app/models<cr><F5>
 map <leader>sh :CtrlP app/helpers<cr><F5>
+map <leader>sc :CtrlP app/assets/stylesheets<cr><F5>
+map <leader>sj :CtrlP app/assets/javascripts<cr><F5>
 map <leader>ss :CtrlP spec<cr><F5>
 map <leader>sl :CtrlP lib<cr><F5>
 
