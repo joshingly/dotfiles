@@ -199,6 +199,10 @@ function! ShowRoutes()
 endfunction
 
 " MAPPINGS ----------------------------------------------
+" yank/paste to/from clipboard
+map <leader>y "*y
+map <leader>p "*p
+
 " `^ prevents cursuring from moving left
 inoremap jk <Esc>`^
 " gV prevents reselection
