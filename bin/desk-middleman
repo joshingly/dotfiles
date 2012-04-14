@@ -9,12 +9,12 @@ tmux rename-window -t mm:1 vim
 tmux rename-window -t mm:2 shell
 tmux rename-window -t mm:3 server
 
-tmux send-keys -t mm:1 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t mm:1 "rvm gemset use webdev" C-m
 tmux send-keys -t mm:1 "vim" C-m
 
-tmux send-keys -t mm:2 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t mm:2 "rvm gemset use webdev" C-m
 
-tmux send-keys -t mm:3 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t mm:3 "rvm gemset use webdev" C-m
 tmux send-keys -t mm:3 "mm-server" C-m
 
 tmux select-window -t mm:1

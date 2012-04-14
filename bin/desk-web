@@ -11,14 +11,14 @@ tmux rename-window -t web:2 shell
 tmux rename-window -t web:3 server
 tmux rename-window -t web:4 guard
 
-tmux send-keys -t web:1 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t web:1 "rvm gemset use webdev" C-m
 tmux send-keys -t web:1 "vim" C-m
 
-tmux send-keys -t web:2 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t web:2 "rvm gemset use webdev" C-m
 
-tmux send-keys -t web:3 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t web:3 "rvm gemset use webdev" C-m
 
-tmux send-keys -t web:4 "rvm gemset use webdev; cd $(pwd)" C-m
+tmux send-keys -t web:4 "rvm gemset use webdev" C-m
 tmux send-keys -t web:4 "guard -c" C-m
 
 tmux select-window -t web:1
