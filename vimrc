@@ -155,11 +155,10 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 " solarized dark
-hi IndentGuidesEven ctermbg=0
-hi IndentGuidesOdd ctermbg=0
+hi IndentGuidesEven ctermbg=237
+hi IndentGuidesOdd ctermbg=242
 " solarized light
 " hi IndentGuidesEven ctermbg=7
-" hi IndentGuidesOdd ctermbg=0
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
@@ -188,19 +187,21 @@ function! SwapNumberRelative()
   if &number == 0
     set number
   else
+
     set rnu
+
   endif
 endfunction
 
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://overstimulate.com/articles/vim-ruby)
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-      return "\<tab>"
-    else
-      return "\<c-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
 endfunction
 
 " taken and modified from
