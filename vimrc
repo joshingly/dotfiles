@@ -76,7 +76,7 @@ set listchars+=precedes:<
 augroup trailing
   au!
   au InsertEnter * :set listchars-=trail:·
-  au InsertLeave * :set listchars+=trail:·
+  au InsertLeave,BufReadPost * :set listchars+=trail:·
 augroup END
 
 set wildmenu                      " Enhanced command line completion.
@@ -152,12 +152,14 @@ so $VIMRUNTIME/macros/matchit.vim
 " indent-guides config
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=2
+let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 " solarized dark
 hi IndentGuidesEven ctermbg=0
+hi IndentGuidesOdd ctermbg=0
 " solarized light
 " hi IndentGuidesEven ctermbg=7
+" hi IndentGuidesOdd ctermbg=0
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
