@@ -100,7 +100,7 @@ if has("gui_running")
 endif
 
 set t_Co=256 " 256 colors
-set background=dark
+set background=light
 colorscheme solarized
 
 " Use a bar-shaped cursor for insert mode, even through tmux.
@@ -155,10 +155,11 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 " solarized dark
-hi IndentGuidesEven ctermbg=237
-hi IndentGuidesOdd ctermbg=242
+" hi IndentGuidesEven ctermbg=237
+" hi IndentGuidesOdd ctermbg=242
 " solarized light
-" hi IndentGuidesEven ctermbg=7
+hi IndentGuidesEven ctermbg=252
+hi IndentGuidesOdd ctermbg=252
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
@@ -187,9 +188,7 @@ function! SwapNumberRelative()
   if &number == 0
     set number
   else
-
     set rnu
-
   endif
 endfunction
 
