@@ -57,11 +57,11 @@ augroup END
 " ########################################################################## UI
 set rnu
 set ruler
-set cursorline
 set showmatch
 set showcmd
 set cmdheight=1
 " set showtabline=2
+set cursorline
 set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=15
@@ -103,22 +103,6 @@ set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
 
-" Use a bar-shaped cursor for insert mode, even through tmux.
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-  " fix for borked rendering in tmux due to changing cursor between normal
-  " and insert mode
-  augroup tmux_cursor
-    au!
-    au InsertEnter * :redraw!
-  augroup END
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
 "Invisible character colors
 " highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
 " highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
@@ -155,11 +139,19 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 " solarized dark
-hi IndentGuidesEven ctermbg=237
-hi IndentGuidesOdd ctermbg=242
+" hi IndentGuidesEven ctermbg=237
+" hi IndentGuidesOdd ctermbg=242
+hi IndentGuidesEven ctermbg=0
+hi IndentGuidesOdd ctermbg=0
 " solarized light
 " hi IndentGuidesEven ctermbg=252
 " hi IndentGuidesOdd ctermbg=252
+"
+augroup hide_cursor_line
+  au!
+  au InsertEnter * :set nocursorline
+  au InsertLeave * :set cursorline
+augroup END
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
@@ -255,15 +247,13 @@ map <leader>rr :call ShowRoutes()<cr><F5>
 map <leader>f :CtrlP .<cr><F5>
 map <leader>F :CtrlPCurFile<cr><F5>
 
-map <leader>st :CtrlPTag<cr><F5>
-
 map <leader>sv :CtrlP app/views<cr><F5>
 map <leader>sc :CtrlP app/controllers<cr><F5>
 map <leader>sm :CtrlP app/models<cr><F5>
 map <leader>sh :CtrlP app/helpers<cr><F5>
-map <leader>sc :CtrlP app/assets/stylesheets<cr><F5>
+map <leader>ss :CtrlP app/assets/stylesheets<cr><F5>
 map <leader>sj :CtrlP app/assets/javascripts<cr><F5>
-map <leader>ss :CtrlP spec<cr><F5>
+map <leader>st :CtrlP spec<cr><F5>
 map <leader>sl :CtrlP lib<cr><F5>
 
 " fugitive mappings
