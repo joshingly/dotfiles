@@ -34,7 +34,7 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[blue]%}"
 
 # Format for git_prompt_ahead()
-ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg[white]%}(⚡)"
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg[blue]%}(⚡)"
 
 # Format for git_prompt_long_sha() and git_prompt_short_sha()
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg[yellow]%}::%{$fg[blue]%}"
@@ -59,7 +59,7 @@ git_custom_status() {
 }
 
 function my_git_time() {
-  echo "%{$fg[white]%}(%{$reset_color%}$(git_time_since_commit)%{$fg[white]%})%{$reset_color%}"
+  echo "%{$reset_color%}(%{$reset_color%}$(git_time_since_commit)%{$reset_color%})"
 }
 
 # Determine the time since last commit. If branch is clean,
