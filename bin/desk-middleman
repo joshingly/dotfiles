@@ -8,6 +8,7 @@ tmux neww -t mm
 tmux rename-window -t mm:1 vim
 tmux rename-window -t mm:2 shell
 tmux rename-window -t mm:3 server
+tmux rename-window -t mm:4 guard
 
 tmux send-keys -t mm:1 "cd $(pwd)" C-m
 tmux send-keys -t mm:1 "rvm gemset use webdev" C-m
@@ -19,6 +20,10 @@ tmux send-keys -t mm:2 "rvm gemset use webdev" C-m
 tmux send-keys -t mm:3 "cd $(pwd)" C-m
 tmux send-keys -t mm:3 "rvm gemset use webdev" C-m
 tmux send-keys -t mm:3 "mm-server" C-m
+
+tmux send-keys -t mm:4 "cd $(pwd)" C-m
+tmux send-keys -t mm:4 "rvm gemset use webdev" C-m
+tmux send-keys -t mm:4 "guard -c" C-m
 
 tmux select-window -t mm:1
 tmux attach-session -t mm
