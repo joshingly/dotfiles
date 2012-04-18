@@ -27,7 +27,7 @@ set directory=~/.vim/_temp      " where to put swap files.
 set wildignore+=*.rbc,*.scssc,*.sassc
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=.ds_store,.gitkeep
-set wildignore+=.rbx
+set wildignore+=.rbx,.jhw-cache
 
 " text
 set backspace=indent,eol,start "backspace through everything in indent mode
