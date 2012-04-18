@@ -4,6 +4,7 @@ tmux start-server
 tmux -u new -d -s mm
 tmux neww -t mm
 tmux neww -t mm
+tmux neww -t mm
 
 tmux rename-window -t mm:1 vim
 tmux rename-window -t mm:2 shell
