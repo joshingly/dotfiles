@@ -24,10 +24,9 @@ set backup
 set backupdir=~/.vim/_backup    " where to put backup files.
 set directory=~/.vim/_temp      " where to put swap files.
 
-set wildignore+=*.rbc,*.scssc,*.sassc
+set wildignore+=*.rbc,*.scssc,*.sassc,.rbx,.jhw-cache
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=.ds_store,.gitkeep
-set wildignore+=.rbx,.jhw-cache
 
 " text
 set backspace=indent,eol,start "backspace through everything in indent mode
@@ -72,7 +71,7 @@ set listchars+=tab:▸\
 set listchars+=extends:>
 set listchars+=precedes:<
 
-" don't show trailing spaces in in sert mode
+" don't show trailing spaces in insert mode
 augroup trailing
   au!
   au InsertEnter * :set listchars-=trail:·
