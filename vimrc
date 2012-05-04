@@ -78,6 +78,12 @@ augroup trailing
   au InsertLeave,BufReadPost * :set listchars+=trail:·
 augroup END
 
+augroup hide_cursor_line
+  au!
+  au InsertEnter * :set nocursorline
+  au InsertLeave * :set cursorline
+augroup END
+
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
@@ -145,12 +151,8 @@ hi IndentGuidesOdd ctermbg=0
 " solarized light
 " hi IndentGuidesEven ctermbg=252
 " hi IndentGuidesOdd ctermbg=252
-"
-augroup hide_cursor_line
-  au!
-  au InsertEnter * :set nocursorline
-  au InsertLeave * :set cursorline
-augroup END
+
+let g:Powerline_colorscheme='skwp'
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
