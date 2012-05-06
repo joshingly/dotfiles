@@ -11,9 +11,8 @@ set hidden
 set magic
 set autoread " reload file if it was changed outside of vim
 set ttyfast
-" set showbreak=↪
 set title
-" set lazyredraw
+
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
@@ -59,7 +58,6 @@ set ruler
 set showmatch
 set showcmd
 set cmdheight=1
-" set showtabline=2
 set cursorline
 set colorcolumn=80
 set scrolloff=5
