@@ -152,7 +152,7 @@ hi IndentGuidesOdd ctermbg=0
 " hi IndentGuidesEven ctermbg=252
 " hi IndentGuidesOdd ctermbg=252
 
-let g:Powerline_colorscheme='skwp'
+let g:Powerline_colorscheme='josh'
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
