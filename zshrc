@@ -7,6 +7,7 @@ plugins=(git rvm brew gem osx ruby rails)
 source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:${PATH}
+export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 export NODE_PATH=/usr/local/lib/node_modules
 
 export JASMINE_BROWSER=chrome
