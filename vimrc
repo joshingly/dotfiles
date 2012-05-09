@@ -300,6 +300,8 @@ map <Leader>rl :RunLastVimTmuxCommand<CR>
 map <Leader>ri :InspectVimTmuxRunner<CR>
 " Close all other tmux panes in current window
 map <Leader>rx :CloseVimTmuxPanes<CR>
+" Close vim tmux runner opened by RunVimTmuxCommand
+map <Leader>rq :CloseVimTmuxRunner<CR>
 " Interrupt any command running in the runner pane
 map <Leader>rs :InterruptVimTmuxRunner<CR>
 
