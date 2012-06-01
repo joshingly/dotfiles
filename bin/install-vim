@@ -33,17 +33,27 @@ def install_plugins(root_path, plugins)
   end
 end
 
+def install_plugin_customizations
+  # js syntax file
+  system "cp ~/Dropbox/Code/General/dotfiles/custom/syntax/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
+  # powerline theme
+  system "cp ~/Dropbox/Code/General/dotfiles/custom/themes/powerline/josh.vim ~/.vim/bundle/vim-powerline/autoload/Powerline/Colorschemes/josh.vim"
+end
+
 def do_install(root_path, plugins)
   Dir.chdir(File.expand_path(root_path))
 
-  puts "creating directory structure"
+  puts "\n\ncreating directory structure\n\n"
   system "mkdir -p #{root_path}.vim/{_backup,_temp,_cache,autoload,bundle}"
 
-  puts "installing pathogen"
+  puts "\n\ninstalling pathogen\n\n"
   system "curl https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim > #{root_path}.vim/autoload/pathogen.vim"
 
-  puts "installing plugins"
+  puts "\n\ninstalling plugins\n\n"
   install_plugins(root_path, plugins)
+
+  puts "\n\ninstalling your plugin customizations\n\n"
+  install_plugin_customizations
 end
 
 do_install(root_path, plugins) unless Dir.exists?(File.expand_path("#{root_path}.vim"))
