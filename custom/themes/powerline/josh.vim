@@ -63,7 +63,7 @@ call Pl#Hi#Allocate({
 let g:Powerline#Colorschemes#josh#colorscheme = Pl#Colorscheme#Init([
 	\ Pl#Hi#Segments(['SPLIT'], {
 		\ 'n': ['white', 'base02'],
-		\ 'N': ['white', 'base02'],
+		\ 'N': ['white', 'gray1'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['mode_indicator'], {
@@ -86,11 +86,12 @@ let g:Powerline#Colorschemes#josh#colorscheme = Pl#Colorscheme#Init([
 	\
 	\ Pl#Hi#Segments(['fileinfo', 'filename', 'filepath'], {
 		\ 'n': ['base2', 'darkestblue', ['bold']],
-		\ 'N': ['base1', 'base02', ['bold']],
+		\ 'N': ['gray10', 'gray2', ['bold']],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['fileinfo.filepath'], {
 		\ 'n': ['mediumcyan'],
+		\ 'N': ['gray7'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['static_str'], {
@@ -101,7 +102,7 @@ let g:Powerline#Colorschemes#josh#colorscheme = Pl#Colorscheme#Init([
 	\
 	\ Pl#Hi#Segments(['fileinfo.flags'], {
 		\ 'n': ['base03', ['bold']],
-		\ 'N': ['gray5'],
+		\ 'N': ['gray7'],
 		\ 'i': ['base03', ['bold']],
 		\ }),
 	\
