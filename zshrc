@@ -24,12 +24,11 @@ cdpath=($HOME/Dropbox/Code)
 # make <C-s> work in terminal vim
 stty -ixon
 
+# disable autocorrect
+unsetopt correct_all
+
 # ignore duplicate history entries
 setopt histignoredups
-
-# Bindings
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
 
 # ALIASES
 alias rm="rm -i"
