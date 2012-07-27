@@ -42,6 +42,12 @@ set ignorecase
 set hlsearch
 set smartcase
 
+" highlight all occurrences of the same word
+" run :so $VIMRUNTIME/syntax/hitest.vim to see more colors
+" augroup highlight_same
+"   autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+" augroup END
+
 augroup last_position
   au!
   " Jump to last cursor position unless it's invalid or in an event handler
