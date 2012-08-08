@@ -28,6 +28,7 @@ end
 entries.each do |entry|
   path = basedir + entry
   Dir.chdir(File.expand_path path)
+  puts entry
   puts "-------------------------"
 
   case entry
