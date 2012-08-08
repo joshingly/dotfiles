@@ -19,7 +19,7 @@ __rvm_project_rvmrc
 PATH=$PATH:$HOME/.rvm/bin
 
 setopt auto_cd
-cdpath=($HOME/Dropbox/Code)
+cdpath=($HOME/Dropbox/Code;$HOME/Dropbox/Work)
 
 # make <C-s> work in terminal vim
 stty -ixon
