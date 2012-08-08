@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-basedir = "/Users/josh/.vim/bundle/"
-Dir.chdir(basedir)
+basedir = "~/.vim/bundle/"
+Dir.chdir(File.expand_path basedir)
 
 entries = Dir.glob("*")
 
@@ -9,7 +9,7 @@ entries = Dir.glob("*")
 # why would there be any?
 entries.delete_if do |entry|
   path_to_entry = basedir + entry
-  not File.directory?(path_to_entry)
+  not File.directory?(File.expand_path path_to_entry)
 end
 
 def handle_js
@@ -26,8 +26,8 @@ def handle_powerline
 end
 
 entries.each do |entry|
-  Dir.chdir(basedir + entry)
-  puts entry
+  path = basedir + entry
+  Dir.chdir(File.expand_path path)
   puts "-------------------------"
 
   case entry
