@@ -12,6 +12,7 @@ set magic
 set autoread " reload file if it was changed outside of vim
 set ttyfast
 set title
+set noesckeys " fix lag after hitting escape
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
