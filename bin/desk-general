@@ -1,14 +1,14 @@
 #!/bin/bash
 
 tmux start-server
-tmux -u new -d -s work
-tmux neww -t work
+tmux -u new -d -s general
+tmux neww -t general
 
-tmux rename-window -t work:1 vim
-tmux rename-window -t work:2 shell
+tmux rename-window -t general:1 vim
+tmux rename-window -t general:2 shell
 
-tmux send-keys -t work:1 "cd $(pwd); vim" C-m
-tmux send-keys -t work:2 "cd $(pwd)" C-m
+tmux send-keys -t general:1 "cd $(pwd); vim" C-m
+tmux send-keys -t general:2 "cd $(pwd)" C-m
 
-tmux select-window -t work:1
-tmux attach-session -t work
+tmux select-window -t general:1
+tmux attach-session -t general
