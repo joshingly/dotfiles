@@ -28,3 +28,6 @@ echo "remove vim backups and plugin cache"
 rm -rf ~/.vim/_cache/*
 rm ~/.vim/_backup/*
 echo "------------------------"
+echo "remove xcode derived data"
+rm -rf ~/Library/Developer/Xcode/DerivedData
+echo "------------------------"
