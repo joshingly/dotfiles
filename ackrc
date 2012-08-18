@@ -1,0 +1,10 @@
+--type-add=css=.sass,.scss
+--type-add=html=.slim,.haml,.erb
+--type-add=js=.coffee
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=tmp
+--sort-files
+--color
+--follow
+--group
