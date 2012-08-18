@@ -10,3 +10,4 @@ cp ./vimrc ~/.vimrc
 cp ./zshrc ~/.zshrc
 cp ./custom/themes/zsh/antonishen.zsh-theme ~/.oh-my-zsh/themes/
 cp ./pryrc ~/.pryrc
+cp ./ackrc ~/.ackrc
