@@ -13,6 +13,8 @@ set autoread " reload file if it was changed outside of vim
 set ttyfast
 set title
 set noesckeys " fix lag after hitting escape
+set splitbelow
+set splitright
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
@@ -224,6 +226,14 @@ endfunction
 " yank/paste to/from clipboard
 map <leader>y "*y
 map <leader>p "*p
+
+nnoremap Y y$
+
+" center after jumping
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap } }zz
+nnoremap { {zz
 
 " `^ prevents cursuring from moving left
 inoremap jk <Esc>`^
