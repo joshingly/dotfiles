@@ -1,6 +1,7 @@
 --type-add=css=.sass,.scss
 --type-add=html=.slim,.haml,.erb
---type-add=js=.coffee
+--type-add=js=.coffee,.json
+--type-set=MARKDOWN=md,mkd,markdown
 --ignore-dir=vendor
 --ignore-dir=log
 --ignore-dir=tmp
