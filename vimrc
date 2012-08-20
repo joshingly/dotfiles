@@ -328,6 +328,9 @@ nnoremap <silent>K :Ack <cword><CR>
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
+" Annoyance
+nnoremap <F1> <nop>
+
 "==============================================================================
 " #################################################################### COMMANDS
 
