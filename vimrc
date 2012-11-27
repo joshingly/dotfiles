@@ -103,7 +103,7 @@ let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
 if has("gui_running")
-  set guifont=Consolas\ for\ BBEdit:h12
+  set guifont=Source\ Code\ Pro:h12
   set guioptions=egmrt " turn off toolbar
   set vb " disable visual bell
   set antialias
