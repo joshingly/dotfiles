@@ -188,6 +188,14 @@ function s:setup_wrapping()
   set textwidth=72
 endfunction
 
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+
 function! SwapNumberRelative()
   if &number == 0
     set number
@@ -310,6 +318,9 @@ map <Down>  :echo "BAD"<cr>
 " run jshint on current file
 nnoremap <leader>js :w <bar> :JSHint<cr>
 
+" diff current file against saved version
+nnoremap <leader>d :DiffSaved<cr>
+
 " Vimux commands
 " Run the current file with rspec
 map <Leader>rb :call RunVimTmuxCommand("clear; rspec " . bufname("%"))<CR>
@@ -341,3 +352,4 @@ nnoremap <F1> <nop>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
+command! DiffSaved call s:DiffWithSaved()
