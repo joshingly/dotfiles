@@ -91,6 +91,12 @@ augroup hide_cursor_line
   au InsertLeave * :set cursorline
 augroup END
 
+" fix gutter when closing after diffing a buffer against a saved file
+augroup fix_gutter
+  au!
+  au BufEnter * :set foldcolumn=0
+augroup END
+
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
