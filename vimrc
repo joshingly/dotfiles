@@ -91,12 +91,6 @@ augroup hide_cursor_line
   au InsertLeave * :set cursorline
 augroup END
 
-" fix gutter when closing after diffing a buffer against a saved file
-augroup fix_gutter
-  au!
-  au BufEnter * :set foldcolumn=0
-augroup END
-
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
@@ -192,14 +186,6 @@ function s:setup_wrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
-endfunction
-
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 
 function! SwapNumberRelative()
@@ -358,4 +344,4 @@ nnoremap <F1> <nop>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
-command! DiffSaved call s:DiffWithSaved()
+command! DiffSaved :w !diff % - -u
