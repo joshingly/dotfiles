@@ -14,12 +14,10 @@ export JASMINE_BROWSER=chrome
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-__rvm_project_rvmrc
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
+export rvm_project_rvmrc=0
 
 setopt auto_cd
-cdpath=($HOME/Dropbox/Code;$HOME/Dropbox/Work)
+export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
 
 # make <C-s> work in terminal vim
 stty -ixon
