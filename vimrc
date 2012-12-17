@@ -345,3 +345,4 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :w !diff % - -u | colordiff
+command! JSONPretty :normal :.!jsonpp %<cr>
