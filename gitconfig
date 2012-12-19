@@ -37,6 +37,8 @@
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
   tool = Kaleidoscope
+  renames = copies
+  mnemonicprefix = true
 [difftool]
   prompt = false
 [mergetool "Kaleidoscope"]
@@ -45,3 +47,4 @@
   prompt = false
 [merge]
   tool = Kaleidoscope
+  stat = true
