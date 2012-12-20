@@ -14,6 +14,7 @@ export JASMINE_BROWSER=chrome
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export rvm_project_rvmrc=0
 
 setopt auto_cd
