@@ -283,10 +283,9 @@ map <leader>gl :Git l<cr>
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
 
 " swap between relative line numbers and regular line numbers
-map <c-n> :call SwapNumberRelative()<cr> <space>
+nmap <c-n> :call SwapNumberRelative()<cr> <space>
 
 " don't use Ex mode, use Q for formatting
 map Q gq
