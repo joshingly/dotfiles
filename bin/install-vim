@@ -23,7 +23,9 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/slim-template/vim-slim",
             "https://github.com/benmills/vimux",
             "https://github.com/Lokaltog/vim-powerline",
-            "https://github.com/altercation/vim-colors-solarized" ]
+            "https://github.com/altercation/vim-colors-solarized",
+            "https://github.com/vim-scripts/Smooth-Scroll",
+            "https://github.com/sjl/clam.vim" ]
 
 def install_plugins(root_path, plugins)
   Dir.chdir(File.expand_path("#{root_path}.vim/bundle/"))
