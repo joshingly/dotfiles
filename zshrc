@@ -29,6 +29,9 @@ unsetopt correct_all
 # ignore duplicate history entries
 setopt histignoredups
 
+# BINDINGS
+bindkey "^b" beginning-of-line
+
 # ALIASES
 alias rm="rm -i"
 
