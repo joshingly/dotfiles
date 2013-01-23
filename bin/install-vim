@@ -22,7 +22,6 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/walm/jshint.vim",
             "https://github.com/slim-template/vim-slim",
             "https://github.com/benmills/vimux",
-            "https://github.com/Lokaltog/vim-powerline",
             "https://github.com/altercation/vim-colors-solarized",
             "https://github.com/sjl/clam.vim" ]
 
@@ -37,8 +36,6 @@ end
 def install_plugin_customizations
   # js syntax file
   system "cp ~/Dropbox/Code/General/dotfiles/custom/syntax/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
-  # powerline theme
-  system "cp ~/Dropbox/Code/General/dotfiles/custom/themes/powerline/josh.vim ~/.vim/bundle/vim-powerline/autoload/Powerline/Colorschemes/josh.vim"
 end
 
 def do_install(root_path, plugins)
