@@ -102,7 +102,7 @@ if has("statusline") && !&cp
   set statusline+=%=                             " seperate between right- and left-aligned
   set statusline+=\ \ %{fugitive#statusline()}\ \  " git status
   set statusline+=%1*\ %{&ft}\ %*%*              " file type
-  set statusline+=\ \ %((%l/%L)%)                " line and column
+  set statusline+=\ \ %12((%l/%L)%)                " line and column
   set statusline+=\ \ %P\ \                      " percentage of file
 endif
 
