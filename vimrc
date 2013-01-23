@@ -96,7 +96,14 @@ set wildmode=list:longest         " Complete files like a shell.
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
-  set statusline=%t\ (%{&ft})\ %{fugitive#statusline()}\ %m\ %=%-15(%3l,%02c%03V%)\ %4(%p%%%)
+  set statusline+=%<                             " cut at start
+  set statusline+=%2*\ %n%H%M%R%W\ %*            " buffer number, and flags
+  set statusline+=\ %-40f                        " relative path
+  set statusline+=%=                             " seperate between right- and left-aligned
+  set statusline+=\ \ %{fugitive#statusline()}\ \  " git status
+  set statusline+=%1*\ %{&ft}\ %*%*              " file type
+  set statusline+=\ \ %((%l/%L)%)                " line and column
+  set statusline+=\ \ %P\ \                      " percentage of file
 endif
 
 let g:solarized_contrast='high'
@@ -162,8 +169,6 @@ hi IndentGuidesOdd ctermbg=0
 " solarized light
 " hi IndentGuidesEven ctermbg=252
 " hi IndentGuidesOdd ctermbg=252
-
-let g:Powerline_colorscheme='josh'
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
