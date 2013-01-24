@@ -98,7 +98,7 @@ if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
   set statusline=
   set statusline+=%2*\ %n%H%M%R%W\ %*              " buffer number & flags
-  set statusline+=\ %t                             " relative path
+  set statusline+=%<\ %t                           " cut here, relative path
   set statusline+=%=                               " seperate between right & left
   set statusline+=\ \ %{fugitive#statusline()}\ \  " git status
   set statusline+=%1*\ %{&ft}\ %*%*                " file type
