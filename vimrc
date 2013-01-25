@@ -103,7 +103,7 @@ if has("statusline") && !&cp
   set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
   set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*%*  " file type or ???
   set statusline+=\ \ %3(%c%)                          " column
-  set statusline+=%12(\ \ (%l/%L)%)                    " line
+  set statusline+=%10(\ \ %l/%L%)                    " line
   set statusline+=\ \ %P\ \                            " percentage through file
 endif
 
