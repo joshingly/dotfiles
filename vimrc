@@ -97,13 +97,14 @@ set wildmode=list:longest         " Complete files like a shell.
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
   set statusline=
-  set statusline+=%2*\ %n%H%M%R%W\ %*              " buffer number & flags
-  set statusline+=%<\ %t                           " cut here, relative path
-  set statusline+=%=                               " seperate between right & left
-  set statusline+=\ \ %{fugitive#statusline()}\ \  " git status
-  set statusline+=%1*\ %{&ft}\ %*%*                " file type
-  set statusline+=\ \ %12((%l/%L)%)                " line
-  set statusline+=\ \ %P\ \                        " percentage through file
+  set statusline+=%2*\ %n%H%M%R%W\ %*                  " buffer number & flags
+  set statusline+=%<\ %-.75F                           " cut here, path
+  set statusline+=%=                                   " seperate between right & left
+  set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
+  set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*%*  " file type or ???
+  set statusline+=\ \ %3(%c%)                          " column
+  set statusline+=%12(\ \ (%l/%L)%)                    " line
+  set statusline+=\ \ %P\ \                            " percentage through file
 endif
 
 let g:solarized_contrast='high'
