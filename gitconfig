@@ -33,6 +33,7 @@
 [alias]
   l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s' --abbrev-commit --date=short --all"
   ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=short --all --stat"
+  ld = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=short --all --stat --diff-filter=D"
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
