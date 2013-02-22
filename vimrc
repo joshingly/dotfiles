@@ -154,6 +154,9 @@ augroup fugitive
   au BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
+" For vim-gitgutter
+highlight clear SignColumn
+
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
 
