@@ -8,6 +8,8 @@
   excludesfile = ~/.gitignore_global
 [branch]
   autosetupmerge = true
+[push]
+  default = matching
 [color]
   ui = auto
   diff = auto
