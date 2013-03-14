@@ -242,8 +242,8 @@ map <leader>y "*y
 map <leader>p "*p
 
 " Git Gutter
-nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
-nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
+nmap <silent> ]h :execute v:count1 . "GitGutterNextHunk"<CR>
+nmap <silent> [h :execute v:count1 . "GitGutterPrevHunk"<CR>
 
 " ctrl u / ctrl d distance
 nnoremap <c-u> 10k
