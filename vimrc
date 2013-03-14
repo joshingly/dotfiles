@@ -158,6 +158,10 @@ augroup END
 highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
 
+augroup gitgutter
+  autocmd BufEnter * call GitGutter()
+augroup END
+
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
 
@@ -242,8 +246,8 @@ map <leader>y "*y
 map <leader>p "*p
 
 " Git Gutter
-nmap <silent> ]h :execute v:count1 . "GitGutterNextHunk"<CR>
-nmap <silent> [h :execute v:count1 . "GitGutterPrevHunk"<CR>
+nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
+nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 
 " ctrl u / ctrl d distance
 nnoremap <c-u> 10k
