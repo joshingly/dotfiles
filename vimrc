@@ -155,7 +155,8 @@ augroup fugitive
 augroup END
 
 " For vim-gitgutter
-highlight clear SignColumn
+highlight SignColumn ctermbg=NONE
+highlight SignColumn guibg=NONE
 
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
@@ -239,6 +240,10 @@ endfunction
 " yank/paste to/from clipboard
 map <leader>y "*y
 map <leader>p "*p
+
+" Git Gutter
+nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
+nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 
 " ctrl u / ctrl d distance
 nnoremap <c-u> 10k
