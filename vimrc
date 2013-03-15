@@ -158,10 +158,6 @@ augroup END
 highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
 
-augroup gitgutter
-  autocmd BufEnter * call GitGutter()
-augroup END
-
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
 
