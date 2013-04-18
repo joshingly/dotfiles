@@ -98,12 +98,12 @@ if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
   set statusline=
   set statusline+=%2*\ %n%H%M%R%W\ %*                  " buffer number & flags
-  set statusline+=%<\ %-.75f                           " cut here, path
+  set statusline+=%<\ %-.75t                           " cut here, path
   set statusline+=%=                                   " seperate between right & left
   set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
   set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*%*  " file type or ???
   set statusline+=\ \ %3(%c%)                          " column
-  set statusline+=%10(\ \ %l/%L%)                    " line
+  set statusline+=%10(\ \ %l/%L%)                      " line
   set statusline+=\ \ %P\ \                            " percentage through file
 endif
 
@@ -235,6 +235,18 @@ function! ShowRoutes()
   :normal dd
 endfunction
 
+" taken and modified from
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+
 "==============================================================================
 " #################################################################### MAPPINGS
 " yank/paste to/from clipboard
@@ -271,6 +283,15 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+" cowboy coding!!!
+nnoremap <leader>t :w <bar> ! ruby % <cr>
+
+" open alternate file
+nnoremap <leader>. :A<cr>
+
+" show path of file
+nnoremap <leader>p :echo expand('%:p')<cr>
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -363,3 +384,4 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :w !diff % - -u | colordiff
 command! JSONPretty :normal :.!jsonpp %<cr>
+command! RenameFile :call RenameFile()<cr>
