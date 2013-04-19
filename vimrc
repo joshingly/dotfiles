@@ -291,7 +291,7 @@ nnoremap <leader>t :w <bar> ! ruby % <cr>
 nnoremap <leader>. :A<cr>
 
 " show path of file
-nnoremap <leader>p :echo expand('%:p')<cr>
+nnoremap <leader>g :echo expand('%:p')<cr>
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
