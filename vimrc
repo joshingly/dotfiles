@@ -290,9 +290,6 @@ nnoremap <leader>t :w <bar> ! ruby % <cr>
 " open alternate file
 nnoremap <leader>. :A<cr>
 
-" show path of file
-nnoremap <leader>g :echo expand('%:p')<cr>
-
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
@@ -385,3 +382,4 @@ command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :w !diff % - -u | colordiff
 command! JSONPretty :normal :.!jsonpp %<cr>
 command! RenameFile :call RenameFile()<cr>
+command! Path :echo expand('%:p')
