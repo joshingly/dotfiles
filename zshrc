@@ -34,6 +34,7 @@ bindkey "^b" beginning-of-line
 
 # ALIASES
 alias rm="rm -i"
+alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
 
 # tmux
 alias t="tmux -u new -s"
