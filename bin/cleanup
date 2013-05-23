@@ -15,6 +15,9 @@ echo "------------------------"
 echo "remove irb history"
 rm ~/.irb-history
 echo "------------------------"
+echo "guard history"
+rm ~/.guard_history
+echo "------------------------"
 echo "remove less history"
 rm ~/.lesshst
 echo "------------------------"
