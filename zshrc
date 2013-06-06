@@ -35,6 +35,9 @@ bindkey "^b" beginning-of-line
 # ALIASES
 alias rm="rm -i"
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
+alias cl="fc -e -|pbcopy" # copy output of last command
+alias cpwd='pwd|tr -d "\n"|pbcopy' # copy working dir
+
 
 # tmux
 alias t="tmux -u new -s"
@@ -58,6 +61,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gl="git l"
 alias gll="git ll"
+alias glf="git ll -u"
 alias gld="git ld"
 alias gp="git push"
 alias gm="git merge"
