@@ -2,20 +2,14 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="antonishen"
 
-plugins=(git rvm brew gem osx ruby rails)
+plugins=(git brew gem osx ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 export PATH=/usr/local/lib/node_modules:/usr/local/share/npm/bin/:$PATH
-
-export JASMINE_BROWSER=chrome
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export rvm_project_rvmrc=0
+export PATH=$HOME/.ruby/bin:$PATH
 
 setopt auto_cd
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
@@ -74,9 +68,6 @@ alias gr2="git reset HEAD~2"
 alias grh="git reset --hard"
 alias grh1="git reset HEAD~ --hard"
 alias grh2="git reset HEAD~2 --hard"
-
-# rvm
-alias rgu="rvm gemset use"
 
 # rails
 alias rg="rails generate"
