@@ -12,3 +12,4 @@ cp ./custom/themes/zsh/antonishen.zsh-theme ~/.oh-my-zsh/themes/
 cp ./pryrc ~/.pryrc
 cp ./ackrc ~/.ackrc
 cp ./colordiffrc ~/.colordiffrc
+cp ./xvimrx ~/.xvimrc
