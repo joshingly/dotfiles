@@ -15,7 +15,7 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/tpope/vim-unimpaired",
             "https://github.com/tpope/vim-markdown",
             "https://github.com/vim-ruby/vim-ruby",
-            "https://github.com/pangloss/vim-javascript",
+            "https://github.com/jelera/vim-javascript-syntax",
             "https://github.com/tpope/vim-haml",
             "https://github.com/cakebaker/scss-syntax.vim",
             "https://github.com/kchmck/vim-coffee-script",
@@ -24,8 +24,7 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/benmills/vimux",
             "https://github.com/altercation/vim-colors-solarized",
             "https://github.com/airblade/vim-gitgutter",
-            "https://github.com/tpope/vim-dispatch",
-            "https://github.com/sjl/clam.vim", ]
+            "https://github.com/tpope/vim-dispatch" ]
 
 def install_plugins(root_path, plugins)
   Dir.chdir(File.expand_path("#{root_path}.vim/bundle/"))
@@ -36,8 +35,6 @@ def install_plugins(root_path, plugins)
 end
 
 def install_plugin_customizations
-  # js syntax file
-  system "cp ~/Dropbox/Code/General/dotfiles/custom/syntax/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
 end
 
 def do_install(root_path, plugins)
