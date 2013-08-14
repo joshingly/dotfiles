@@ -12,33 +12,13 @@ entries.delete_if do |entry|
   not File.directory?(File.expand_path path_to_entry)
 end
 
-def handle_js
-  system "git checkout ."
-  system "git pull"
-  puts "Copying YOUR syntax file"
-  system "cp ~/Dropbox/Code/General/dotfiles/custom/syntax/javascript.vim ~/.vim/bundle/vim-javascript/syntax/javascript.vim"
-end
-
-def handle_powerline
-  system "git pull"
-  puts "Copying YOUR theme file"
-  system "cp ~/Dropbox/Code/General/dotfiles/custom/themes/powerline/josh.vim ~/.vim/bundle/vim-powerline/autoload/Powerline/Colorschemes/josh.vim"
-end
-
 entries.each do |entry|
   path = basedir + entry
   Dir.chdir(File.expand_path path)
   puts entry
   puts "-------------------------"
 
-  case entry
-  when "vim-javascript"
-    handle_js
-  when "vim-powerline"
-    handle_powerline
-  else
-    system "git pull"
-  end
+  system "git pull"
 
   puts "-------------------------\n\n\n\n"
 end
