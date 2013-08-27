@@ -133,7 +133,8 @@ augroup file_type
   au!
 
   " In Makefiles, use real tabs, not tabs expanded to spaces
-  au FileType make setlocal noexpandtab
+  au filetype make setlocal noexpandtab
+  au filetype gitcommit setlocal nolist
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setup_wrapping()
   au BufRead,BufNewFile *.{txt} setf txt | call s:setup_wrapping()
