@@ -212,6 +212,16 @@ function! SwapNumberRelative()
   endif
 endfunction
 
+" run rspec command in a new tmux window
+function! RspecWindow()
+  if exists('$TMUX')
+    let output = system("tmux neww -n output -d -P -F '#I' -c " . getcwd())
+    let window = split(output, '\n')[0] " remove the newline
+    call system("tmux send-keys -t " . window . " \"bundle exec rspec\" C-m")
+    call system("tmux select-window -t " . window)
+  endif
+endfunction
+
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://overstimulate.com/articles/vim-ruby)
 function! InsertTabWrapper()
@@ -372,4 +382,5 @@ command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :w !diff % - -u | colordiff
 command! JSONPretty :normal :.!jsonpp %<cr>
 command! RenameFile :call RenameFile()
+command! RspecWindow :call RspecWindow()
 command! Path :echo expand('%:p')
