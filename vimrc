@@ -132,9 +132,6 @@ colorscheme solarized
 augroup file_type
   au!
 
-  " defualt compiler is rspec with bundle exec
-  au BufRead * compiler rspec | set makeprg=bundle\ exec\ rspec\ --format\ progress\ --no-profile
-
   " In Makefiles, use real tabs, not tabs expanded to spaces
   au filetype make setlocal noexpandtab
   au filetype gitcommit setlocal nolist
@@ -153,10 +150,14 @@ augroup END
 
 "==============================================================================
 " ############################################################## PLUGIN OPTIONS
-augroup fugitive
+augroup plugins
   au!
+
   " auto clean fugitive buffers
   au BufReadPost fugitive://* set bufhidden=delete
+
+  " default compiler is rspec with bundle exec
+  au BufRead * compiler rspec | set makeprg=bundle\ exec\ rspec\ --format\ progress\ --no-profile
 augroup END
 
 " For vim-gitgutter
