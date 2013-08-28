@@ -204,14 +204,6 @@ function s:setup_wrapping()
   set textwidth=72
 endfunction
 
-function! SwapNumberRelative()
-  if &number == 0
-    set number
-  else
-    set rnu
-  endif
-endfunction
-
 " run rspec command in a new tmux window
 function! RspecWindow()
   if exists('$TMUX')
@@ -335,9 +327,6 @@ map <leader>gl :Git l<cr>
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-" swap between relative line numbers and regular line numbers
-nmap <c-n> :call SwapNumberRelative()<cr> <space>
 
 " don't use Ex mode, use Q for formatting
 map Q gq
