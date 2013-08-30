@@ -119,6 +119,10 @@ if has("gui_running")
   set showtabline=1
 endif
 
+if &term =~ 'screen'
+  let g:solarized_termcolors=256
+endif
+
 set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
