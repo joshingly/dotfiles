@@ -109,6 +109,7 @@ endif
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
+let g:solarized_termcolors=256
 
 if has("gui_running")
   set guifont=Source\ Code\ Pro:h12
