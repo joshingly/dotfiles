@@ -109,7 +109,10 @@ endif
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
-let g:solarized_termcolors=256
+
+if &term == "xterm-ipad"
+  let g:solarized_termcolors=256
+endif
 
 if has("gui_running")
   set guifont=Source\ Code\ Pro:h12
