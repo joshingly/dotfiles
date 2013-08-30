@@ -110,10 +110,6 @@ endif
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
-if &term == "xterm-ipad"
-  let g:solarized_termcolors=256
-endif
-
 if has("gui_running")
   set guifont=Source\ Code\ Pro:h12
   set guioptions=egmrt " turn off toolbar
