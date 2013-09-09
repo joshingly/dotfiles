@@ -208,7 +208,7 @@ endfunction
 function! RspecWindow()
   if exists('$TMUX')
     " tmux neww with the -d option renames the current window
-    " so get the current window name and index number to rename the current window
+    " so get the current window name and index number to unrename the current window
     let names = system("tmux list-windows -F '#F#W'")
     let names_array = split(names, '\n')
     for name in names_array
