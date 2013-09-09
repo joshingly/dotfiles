@@ -370,10 +370,13 @@ map <Down>  :echo "BAD"<cr>
 nnoremap <leader>js :w <bar> :JSHint<cr>
 
 " diff current file against saved version
-nnoremap <leader>d :DiffSaved<cr>
+nnoremap <leader>sd :DiffSaved<cr>
 
 " ack word under cursor
-nnoremap <silent>K :Ack <cword><CR>
+nnoremap <silent>K :Ack <cword><cr>
+
+" call dispatch
+nnoremap <leader>d :Dispatch!<cr>
 
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
