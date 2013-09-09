@@ -207,7 +207,26 @@ endfunction
 " run rspec command in a new tmux window
 function! RspecWindow()
   if exists('$TMUX')
+    " tmux neww with the -d option renames the current window
+    " so get the current window name and index number to rename the current window
+    let names = system("tmux list-windows -F '#F#W'")
+    let names_array = split(names, '\n')
+    for name in names_array
+      if name =~ "^*"
+        let windowname = split(name, '*')[0]
+      endif
+    endfor
+
+    let indices = system("tmux list-windows -F '#F#I'")
+    let indices_array = split(indices, '\n')
+    for index in indices_array
+      if index =~ "^*"
+        let indexnum = split(index, '*')[0]
+      endif
+    endfor
+
     let output = system("tmux neww -n output -d -P -F '#I' -c " . getcwd())
+    call system("tmux rename-window -t " . indexnum . " " . windowname)
     let window = split(output, '\n')[0] " remove the newline
     call system("tmux send-keys -t " . window . " \"bundle exec rspec\" C-m")
     call system("tmux select-window -t " . window)
