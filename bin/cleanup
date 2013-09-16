@@ -34,3 +34,6 @@ echo "------------------------"
 echo "remove xcode derived data"
 rm -rf ~/Library/Developer/Xcode/DerivedData
 echo "------------------------"
+echo "removing conflicted files from dropbox"
+find ~/Dropbox -type f -name "* conflicted *" -exec rm -f {} \;
+echo "------------------------"
