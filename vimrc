@@ -63,6 +63,7 @@ augroup END
 "==============================================================================
 " ########################################################################## UI
 set rnu
+set number
 set ruler
 set showmatch
 set showcmd
@@ -137,8 +138,8 @@ augroup file_type
   au filetype gitcommit setlocal nolist
   au filetype qf setlocal nolist
 
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setup_wrapping()
-  au BufRead,BufNewFile *.{txt} setf txt | call s:setup_wrapping()
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call SetupWrapping()
+  au BufRead,BufNewFile *.{txt} setf txt | call SetupWrapping()
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
@@ -198,7 +199,7 @@ let g:ctrlp_open_new_file = 'r'
 
 "==============================================================================
 " ################################################################### FUNCTIONS
-function s:setup_wrapping()
+function! SetupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
