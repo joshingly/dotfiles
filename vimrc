@@ -396,3 +396,4 @@ command! JSONPretty :normal :.!jsonpp %<cr>
 command! RenameFile :call RenameFile()
 command! RspecWindow :call RspecWindow()
 command! Path :echo expand('%:p')
+command! ReloadAll :bufdo e
