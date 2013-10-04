@@ -205,6 +205,11 @@ function! SetupWrapping()
   set textwidth=72
 endfunction
 
+function! ReloadAll()
+  :GitGutterAll
+  :checktime
+endfunction
+
 " run rspec command in a new tmux window
 function! RspecWindow()
   if exists('$TMUX')
@@ -396,4 +401,4 @@ command! JSONPretty :normal :.!jsonpp %<cr>
 command! RenameFile :call RenameFile()
 command! RspecWindow :call RspecWindow()
 command! Path :echo expand('%:p')
-command! ReloadAll :windo e
+command! ReloadAll :call ReloadAll()
