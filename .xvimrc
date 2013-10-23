@@ -1,5 +1,0 @@
-imap jk <Esc>
-set incsearch
-set wrapscan
-set noerrorbells
-set ignorecase
