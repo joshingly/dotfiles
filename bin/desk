@@ -4,8 +4,7 @@ tmux start-server
 tmux -u new -d -s general
 tmux neww -t general
 
-tmux send-keys -t general:1 "cd $(pwd); vim" C-m
-tmux send-keys -t general:2 "cd $(pwd)" C-m
+tmux send-keys -t general:1 "vim" C-m
 
 tmux rename-window -t general:1 vim
 
