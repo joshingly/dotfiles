@@ -51,15 +51,6 @@ set smartcase
 "   autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 " augroup END
 
-augroup last_position
-  au!
-  " Jump to last cursor position unless it's invalid or in an event handler
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-augroup END
-
 "==============================================================================
 " ########################################################################## UI
 set rnu
