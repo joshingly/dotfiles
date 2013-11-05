@@ -373,7 +373,7 @@ nnoremap <leader>sd :DiffSaved<cr>
 nnoremap <silent>K :Ack <cword><cr>
 
 " call dispatch
-nnoremap <leader>d :Dispatch<cr>
+nnoremap <leader>d :w <bar> :Dispatch<cr>
 
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
