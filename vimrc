@@ -315,7 +315,7 @@ nnoremap <leader>t :w <bar> ! ruby % <cr>
 nnoremap <leader>. :A<cr>
 
 " Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Space> :let @/ = ""<bar>:nohlsearch<Bar>:echo<CR>
 
 " Switch between last two buffers
 nnoremap <leader><leader> <c-^>
