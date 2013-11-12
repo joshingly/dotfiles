@@ -197,6 +197,14 @@ function! SetupWrapping()
   set textwidth=72
 endfunction
 
+function! DiffSaved()
+  if has("gui_running")
+    :w !diff % - -u
+  else
+    :w !diff % - -u | colordiff
+  endif
+endfunction
+
 function! ReloadAll()
   :GitGutterAll
   :checktime
@@ -388,7 +396,7 @@ nnoremap <F1> <nop>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
-command! DiffSaved :w !diff % - -u | colordiff
+command! DiffSaved :call DiffSaved()
 command! JSONPretty :normal :.!jsonpp %<cr>
 command! RenameFile :call RenameFile()
 command! RspecWindow :call RspecWindow()
