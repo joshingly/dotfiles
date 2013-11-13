@@ -127,6 +127,7 @@ augroup file_type
   " In Makefiles, use real tabs, not tabs expanded to spaces
   au filetype make setlocal noexpandtab
   au filetype gitcommit setlocal nolist
+  au filetype git setlocal nolist
   au filetype qf setlocal nolist
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call SetupWrapping()
