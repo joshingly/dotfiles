@@ -216,18 +216,25 @@ endfunction
 " run rspec command in a new tmux window
 function! RspecWindow()
   if exists('$TMUX')
-    let indices = system("tmux list-windows -F '#F#I'")
-    let indices_array = split(indices, '\n')
-    for index in indices_array
-      if index =~ "^*"
-        let indexnum = split(index, '*')[0]
-      endif
-    endfor
-
-    let output = system("tmux neww -n output -d -P -F '#I' -c " . getcwd())
+    let output = system("tmux neww -n rspec-output -d -P -F '#I' -c " . getcwd())
     let window = split(output, '\n')[0] " remove the newline
     call system("tmux send-keys -t " . window . " \"bundle exec rspec\" C-m")
     call system("tmux select-window -t " . window)
+  endif
+endfunction
+
+" run rspec command in a new tmux window
+function! CloseRspecWindows()
+  if exists('$TMUX')
+    let windows = system("tmux list-windows -F '#I #W'")
+    let windows_array = split(windows, '\n')
+    for window in windows_array
+      if window =~ "rspec-output"
+        let indexnum = split(window, ' ')[0]
+        call system("tmux kill-window -t " . indexnum)
+      endif
+    endfor
+
   endif
 endfunction
 
@@ -392,5 +399,6 @@ command! DiffSaved :call DiffSaved()
 command! JSONPretty :normal :.!jsonpp %<cr>
 command! RenameFile :call RenameFile()
 command! RspecWindow :call RspecWindow()
+command! CloseRspecWindows :call CloseRspecWindows()
 command! Path :echo expand('%:p')
 command! ReloadAll :call ReloadAll()
