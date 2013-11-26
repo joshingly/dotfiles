@@ -1,23 +1,60 @@
-# http://brainscraps.wikidot.com/tmux-renum
-#!/bin/bash
+#!/usr/bin/env ruby
 
-set -e
+# Author: Joshua Antonishen
 
-for session in $(tmux ls | awk -F: '{print $1}') ;do
-  active_window=$(tmux lsw -t ${session} | awk -F: '/\(active\)$/ {print $1}')
-  inum=
-  for window in $(tmux lsw -t ${session} | awk -F: '{print $1}') ;do
-    if [[ ${window} == 'layout' ]]; then
-      continue
-    fi
-    if [[ ${window} -gt ${inum} ]] ;then
-      echo "${session}:${window} -> ${session}:${inum}"
-      tmux movew -d -s ${session}:${window} -t ${session}:${inum}
-    fi
-    if [[ ${window} == ${active_window} ]] ;then
-      new_active_window=${inum}
-    fi
-    inum=$((${inum}+1))
-  done
-  tmux select-window -t ${session}:${new_active_window}
-done
+def get_windows
+  windows = `tmux list-windows -F '#I #W #F'`.split("\n").map do |window|
+    data = window.split(" ")
+    {
+      number: data.first.to_i,
+      name: data[1],
+      current: data.last == "*" ? true : false
+    }
+  end
+end
+
+def fill_holes(windows)
+  padding_indices = []
+  current = 1
+
+  windows.each do |window|
+    if (current) != window[:number]
+      (current).upto(window[:number] - 1).each do |i|
+        `tmux new-window -d -n padding`
+        padding_indices << i
+        current = window[:number] + 1
+      end
+    else
+      current += 1
+    end
+  end
+
+  padding_indices.reverse
+end
+
+def swap_windows(windows, padding_indices)
+  current = 1
+  windows.each do |window|
+    next if window[:name] == "padding"
+    if window[:number] != current
+      target = padding_indices.pop
+      `tmux swap-window #{!window[:current] ? "-d" : ""} -s #{window[:number]} -t #{target}`
+      padding_indices << window[:number]
+      padding_indices = padding_indices.sort.reverse
+    elsif
+      current += 1
+    end
+  end
+end
+
+def remove_padding(windows)
+  windows.each do |window|
+    if window[:name] == "padding"
+      `tmux send-keys -t #{window[:number]} "exit" C-m`
+    end
+  end
+end
+
+padding_indices = fill_holes(get_windows)
+swap_windows(get_windows, padding_indices)
+remove_padding(get_windows)
