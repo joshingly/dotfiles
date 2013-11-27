@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-# Author: Joshua Antonishen
-
 def get_windows
   windows = `tmux list-windows -F '#I #W #F'`.split("\n").map do |window|
     data = window.split(" ")
@@ -50,7 +48,7 @@ end
 def remove_padding(windows)
   windows.each do |window|
     if window[:name] == "padding"
-      `tmux send-keys -t #{window[:number]} "exit" C-m`
+      `tmux kill-window -t #{window[:number]}`
     end
   end
 end
