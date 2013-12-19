@@ -192,7 +192,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_height = 15
 let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
-let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|bower_components'
 let g:ctrlp_open_new_file = 'r'
 
 "==============================================================================
