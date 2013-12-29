@@ -136,6 +136,7 @@ augroup file_type
   au filetype qf setlocal nolist
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call SetupWrapping()
+  au BufRead,BufNewFile filetype vimwiki call SetupWrapping()
   au BufRead,BufNewFile *.{txt} setf txt | call SetupWrapping()
 
   " Treat JSON files like JavaScript
@@ -164,6 +165,9 @@ augroup END
 " For vim-gitgutter
 highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
