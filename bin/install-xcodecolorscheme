@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+theme_path = File.expand_path("#{__FILE__}/../../custom/themes/xcode/solarized-dark.dvtcolortheme")
+destination = File.expand_path("~/Library/Developer/Xcode/UserData/FontAndColorThemes")
+system("mkdir #{destination}") unless File.exists?(destination)
+system("cp #{theme_path} #{destination}/#{File.basename(theme_path)}")
+system("chmod +x #{destination}/#{File.basename(theme_path)}")
