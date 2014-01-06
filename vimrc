@@ -164,7 +164,7 @@ highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
 
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
