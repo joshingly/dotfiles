@@ -142,9 +142,6 @@ augroup file_type
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
-  " fix slim highlighting
-  au BufReadPost *.{slim} set ft=slim
-
   " Highlighting for rspec files
   au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
   highlight def link rubyRspec Function
