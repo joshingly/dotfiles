@@ -136,7 +136,7 @@ augroup file_type
   au filetype qf setlocal nolist
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call SetupWrapping()
-  au BufRead,BufNewFile filetype vimwiki call SetupWrapping()
+  au BufRead,BufNewFile *.wiki call SetupWrapping()
   au BufRead,BufNewFile *.{txt} setf txt | call SetupWrapping()
 
   " Treat JSON files like JavaScript
