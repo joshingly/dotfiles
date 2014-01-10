@@ -135,9 +135,7 @@ augroup file_type
   au filetype git setlocal nolist
   au filetype qf setlocal nolist
 
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call SetupWrapping()
-  au BufRead,BufNewFile *.wiki call SetupWrapping()
-  au BufRead,BufNewFile *.{txt} setf txt | call SetupWrapping()
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call SetupWrapping()
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
@@ -164,7 +162,8 @@ highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
 
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
