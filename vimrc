@@ -134,7 +134,6 @@ augroup file_type
   au filetype gitcommit setlocal nolist
   au filetype git setlocal nolist
   au filetype qf setlocal nolist
-  au filetype markdown :WritegoodEnable
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call SetupWrapping()
 
