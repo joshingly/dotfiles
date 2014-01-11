@@ -14,6 +14,8 @@ export PATH=$HOME/.ruby/bin:$PATH
 setopt auto_cd
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
 
+export GOPATH=$HOME/.go
+
 # make <C-s> work in terminal vim
 stty -ixon
 
