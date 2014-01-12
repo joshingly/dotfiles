@@ -11,10 +11,11 @@ export PATH=/Applications/Postgres93.app/Contents/MacOS/bin:$PATH
 export PATH=/usr/local/lib/node_modules:/usr/local/share/npm/bin/:$PATH
 export PATH=$HOME/.ruby/bin:$PATH
 
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
+
 setopt auto_cd
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
-
-export GOPATH=$HOME/.go
 
 # make <C-s> work in terminal vim
 stty -ixon
