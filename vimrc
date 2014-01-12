@@ -180,6 +180,12 @@ let g:indent_guides_indent_levels=10
 " hi IndentGuidesOdd ctermbg=242
 hi IndentGuidesEven ctermbg=0
 hi IndentGuidesOdd ctermbg=0
+augroup highlights
+  au!
+  au BufLeave *.go hi IndentGuidesOdd ctermbg=0
+  au BufEnter *.go hi IndentGuidesOdd ctermbg=8
+augroup END
+
 " solarized light
 " hi IndentGuidesEven ctermbg=252
 " hi IndentGuidesOdd ctermbg=252
