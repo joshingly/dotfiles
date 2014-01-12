@@ -45,12 +45,6 @@ set ignorecase
 set hlsearch
 set smartcase
 
-" highlight all occurrences of the same word
-" run :so $VIMRUNTIME/syntax/hitest.vim to see more colors
-" augroup highlight_same
-"   autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-" augroup END
-
 "==============================================================================
 " ########################################################################## UI
 set rnu
@@ -120,10 +114,6 @@ set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
 
-"Invisible character colors
-" highlight NonText guifg=0 ctermfg=0 ctermbg=8 guibg=8
-" highlight SpecialKey guifg=8 ctermfg=8 ctermbg=0 guibg=0
-
 "==============================================================================
 " ################################################### FILETYPE SPECIFIC OPTIONS
 augroup file_type
@@ -175,9 +165,6 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 let g:indent_guides_indent_levels=10
-" solarized dark
-" hi IndentGuidesEven ctermbg=237
-" hi IndentGuidesOdd ctermbg=242
 hi IndentGuidesEven ctermbg=0
 hi IndentGuidesOdd ctermbg=0
 augroup highlights
@@ -185,10 +172,6 @@ augroup highlights
   au BufLeave *.go hi IndentGuidesOdd ctermbg=0
   au BufEnter *.go hi IndentGuidesOdd ctermbg=8
 augroup END
-
-" solarized light
-" hi IndentGuidesEven ctermbg=252
-" hi IndentGuidesOdd ctermbg=252
 
 " use auto colors for indent guides in the gui
 if has("gui_running")
