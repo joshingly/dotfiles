@@ -130,10 +130,9 @@ augroup file_type
   au!
 
   " In Makefiles, use real tabs, not tabs expanded to spaces
-  au filetype make setlocal noexpandtab
-  au filetype gitcommit setlocal nolist
-  au filetype git setlocal nolist
-  au filetype qf setlocal nolist
+  au filetype make,go setlocal noexpandtab
+  au filetype gitcommit,git,qf,go setlocal nolist
+  au fileType go au BufWritePre <buffer> Fmt
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call SetupWrapping()
 
@@ -144,6 +143,8 @@ augroup file_type
   au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
   highlight def link rubyRspec Function
 augroup END
+
+let g:gofmt_command = "goimports"
 
 "==============================================================================
 " ############################################################## PLUGIN OPTIONS
