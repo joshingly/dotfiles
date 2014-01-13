@@ -34,8 +34,6 @@ set wildignore+=.ds_store,.gitkeep
 set backspace=indent,eol,start "backspace through everything in indent mode
 set nowrap
 set expandtab
-set shiftwidth=2
-set tabstop=2
 set ai " autoindent
 set si " smartindent
 
@@ -118,7 +116,9 @@ colorscheme solarized
 augroup file_type
   au!
 
-  " In Makefiles, use real tabs, not tabs expanded to spaces
+  au filetype * set tabstop=2 | set shiftwidth=2
+  au filetype markdown,vimwiki set tabstop=4 | set shiftwidth=4
+
   au filetype make,go setlocal noexpandtab
   au filetype gitcommit,git,qf,go setlocal nolist
   au fileType go au BufWritePre <buffer> Fmt
