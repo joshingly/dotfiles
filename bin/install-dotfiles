@@ -13,3 +13,4 @@ cp ./pryrc ~/.pryrc
 cp ./ackrc ~/.ackrc
 cp ./colordiffrc ~/.colordiffrc
 cp ./xvimrc ~/.xvimrc
+cp ./psqlrc ~/.psqlrc
