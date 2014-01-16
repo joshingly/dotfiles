@@ -10,6 +10,8 @@
   autosetupmerge = true
 [push]
   default = matching
+[pull]
+  rebase = true
 [color]
   ui = auto
   diff = auto
