@@ -233,7 +233,7 @@ function! RspecWindow()
   endif
 endfunction
 
-" run rspec command in a new tmux window
+" close window created by RspecWindow
 function! CloseRspecWindows()
   if exists('$TMUX')
     let windows = system("tmux list-windows -F '#I #W'")
