@@ -1,0 +1,44 @@
+# installs
+install git
+install python
+install mercurial
+install zsh
+install ruby-install
+install ack
+install colordiff
+install jsonpp
+install node
+install wrk
+install tree
+install vim --HEAD
+install tmux
+install reattach-to-user-namespace
+install htop
+
+# taps
+tap phinze/homebrew-cask
+install brew-cask
+tap caskroom/versions
+
+# casks
+cask install iterm2
+cask install alfred
+cask install the-unarchiver
+cask install kaleidoscope
+cask install moom
+cask install sigil
+cask install transmission
+cask install istat-menus
+cask install transmit
+cask install cleanmymac
+cask install cocktail
+cask install marked2
+cask install bartender
+cask install vmware-fusion
+cask install flux
+cask install knox
+cask install dropbox
+cask install droplr
+
+# links
+cask alfred link
