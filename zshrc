@@ -40,6 +40,25 @@ setopt HIST_FIND_NO_DUPS
 # BINDINGS
 bindkey "^b" beginning-of-line
 
+# vim
+bindkey -v
+bindkey "^?" backward-delete-char
+bindkey -M viins "jk" vi-cmd-mode
+bindkey -M vicmd "q" push-line
+bindkey -M vicmd "/" history-incremental-search-backward
+bindkey -M vicmd "?" history-incremental-search-forward
+bindkey -M viins '^P' history-beginning-search-backward
+bindkey -M viins '^N' history-beginning-search-forward
+bindkey -M vicmd '^P' history-beginning-search-backward
+bindkey -M vicmd '^N' history-beginning-search-forward
+bindkey -M menuselect '^P' reverse-menu-complete
+bindkey -M menuselect '^N' menu-complete
+bindkey -M vicmd 'G' end-of-history
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '!' edit-command-line
+
 # ALIASES
 alias rm="rm -i"
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
