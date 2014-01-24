@@ -37,9 +37,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 
-# BINDINGS
-bindkey "^b" beginning-of-line
-
 # vim
 bindkey -v
 bindkey "^?" backward-delete-char
