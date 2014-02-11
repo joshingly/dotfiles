@@ -39,6 +39,8 @@ cask install flux
 cask install knox
 cask install dropbox
 cask install droplr
+tap jimbojsb/launchrocket
+cask install launchrocket
 
 # links
 cask alfred link
