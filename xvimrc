@@ -1,4 +1,6 @@
 imap jk <Esc>
+map <C-n> <Down>
+map <C-p> <Up>
 set incsearch
 set wrapscan
 set noerrorbells
