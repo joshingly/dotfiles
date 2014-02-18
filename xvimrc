@@ -1,6 +1,7 @@
 imap jk <Esc>
 map <C-n> <Down>
 map <C-p> <Up>
+nmap \f :xccmd openQuickly<cr>
 set incsearch
 set wrapscan
 set noerrorbells
