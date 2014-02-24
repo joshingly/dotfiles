@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# From http://blog.bogojoker.com/2009/03/data-uris/
+# Quick & Dirty data URI for a file
+
+require 'base64'
+require 'uri'
+
+# Filename and Contents
+filename = ARGV[0]
+contents = File.read(filename)
+base64 = Base64.encode64(contents).gsub("\n",'')
+
+# Mime Type for the Filename
+output = `file --mime #{filename}`
+mime = output.match( /: (.*)$/ )[1].downcase.gsub(/\s/,'')
+
+# Make Data URI
+datauri = "data:#{mime};base64,#{base64}"
+
+# Output
+puts datauri
