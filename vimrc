@@ -411,3 +411,4 @@ command! RspecWindow :call RspecWindow()
 command! CloseRspecWindows :call CloseRspecWindows()
 command! Path :echo expand('%:p')
 command! ReloadAll :call ReloadAll()
+command! JSONPretty :normal :.!jsonpp %<cr>
