@@ -37,13 +37,8 @@ if Dir.glob('*').include?("config.rb") && Dir.glob('*').include?("source") && no
   system "rm -rf .sass-cache"
 
   puts "\n\n"
-  puts "clean up dir in temp and remove any dirs in js folder... you should be using sprockets"
+  puts "clean up dir in temp..."
   system "rm -rf /tmp/build"
-  Dir.glob('javascripts/*') do |entry|
-    if File.directory?(File.expand_path("./#{entry}"))
-      system "rm -rf ./#{entry}"
-    end
-  end
 else
   puts "you are not in the root of a middleman project, you have"
   puts "uncommitted changes, or the gh-pages branch doesn't exist"
