@@ -190,9 +190,9 @@ let g:ctrlp_open_new_file = 'r'
 "==============================================================================
 " ################################################################### FUNCTIONS
 function! SetupWrapping()
-  set wrap
-  set wrapmargin=2
-  set textwidth=72
+  setlocal wrap
+  setlocal wrapmargin=2
+  setlocal textwidth=72
 endfunction
 
 function! DiffSaved()
