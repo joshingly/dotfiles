@@ -102,18 +102,3 @@ alias grh2="git reset HEAD~2 --hard"
 # rails
 alias rg="rails generate"
 alias rd="rails destroy"
-
-# 'prev' will cd you to the last directory that you cd'ed into
-export PREV_PATH=$HOME/.prev-path
-
-# run everytime you cd
-function chpwd {
-  echo $(pwd) >! $PREV_PATH
-}
-
-prev() {
-  if [[ -f $PREV_PATH ]]; then
-    echo "$(cat $PREV_PATH)"
-    cd "$(cat $PREV_PATH)"
-  fi
-}
