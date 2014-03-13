@@ -23,6 +23,8 @@ stty -ixon
 unsetopt correct_all
 
 # history
+SAVEHIST=10000
+HISTSIZE=10000
 setopt histignoredups
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -49,7 +51,8 @@ bindkey -M vicmd '^P' history-beginning-search-backward
 bindkey -M vicmd '^N' history-beginning-search-forward
 bindkey -M menuselect '^P' reverse-menu-complete
 bindkey -M menuselect '^N' menu-complete
-bindkey -M vicmd 'G' end-of-history
+bindkey -M vicmd 'GG' end-of-history
+bindkey -M viins 'GG' end-of-history
 
 autoload -U edit-command-line
 zle -N edit-command-line
