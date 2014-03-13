@@ -33,7 +33,7 @@ cask install istat-menus
 cask install transmit
 cask install cleanmymac
 cask install cocktail
-cask install marked2
+cask install marked
 cask install bartender
 cask install vmware-fusion
 cask install flux
