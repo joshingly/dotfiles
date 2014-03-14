@@ -208,39 +208,45 @@ function! ReloadAll()
   :checktime
 endfunction
 
-" run rspec command in a new tmux window
-function! RspecWindow()
+" run command in a new tmux window
+let g:outputswitch = 1
+let g:outputcmd = "bundle exec rspec"
+function! OutputWindow()
   if exists('$TMUX')
     let windows = system("tmux list-windows -F '#I #W'")
     let windows_array = split(windows, '\n')
     let found = 0
     for window in windows_array
-      if window =~ "rspec-output"
+      if window =~ "output"
         let indexnum = split(window, ' ')[0]
         call system("tmux send-keys -t " . indexnum . " \"clear\" C-m")
-        call system("tmux send-keys -t " . indexnum . " \"bundle exec rspec\" C-m")
-        call system("tmux select-window -t " . indexnum)
+        call system("tmux send-keys -t " . indexnum . " \"" . g:outputcmd . "\" C-m")
+        if g:outputswitch == 1
+          call system("tmux select-window -t " . indexnum)
+        endif
         let found = 1
       endif
     endfor
 
     if found == 0
-      let output = system("tmux neww -n rspec-output -d -P -F '#I' -c " . getcwd())
+      let output = system("tmux neww -n output -d -P -F '#I' -c " . getcwd())
       let indexnum = split(output, '\n')[0] " remove the newline
-      call system("tmux send-keys -t " . indexnum . " \"bundle exec rspec\" C-m")
-      call system("tmux select-window -t " . indexnum)
+      call system("tmux send-keys -t " . indexnum . " \"" . g:outputcmd . "\" C-m")
+      if g:outputswitch == 1
+        call system("tmux select-window -t " . indexnum)
+      endif
     endif
 
   endif
 endfunction
 
-" close window created by RspecWindow
-function! CloseRspecWindows()
+" close window created by OutputWindow
+function! CloseOutputWindow()
   if exists('$TMUX')
     let windows = system("tmux list-windows -F '#I #W'")
     let windows_array = split(windows, '\n')
     for window in windows_array
-      if window =~ "rspec-output"
+      if window =~ "output"
         let indexnum = split(window, ' ')[0]
         call system("tmux kill-window -t " . indexnum)
       endif
@@ -407,7 +413,7 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :call DiffSaved()
 command! RenameFile :call RenameFile()
-command! RspecWindow :call RspecWindow()
+command! OutputWindow :call OutputWindow()
 command! CloseRspecWindows :call CloseRspecWindows()
 command! Path :echo expand('%:p')
 command! ReloadAll :call ReloadAll()
