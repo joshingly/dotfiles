@@ -414,7 +414,7 @@ command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :call DiffSaved()
 command! RenameFile :call RenameFile()
 command! OutputWindow :call OutputWindow()
-command! CloseRspecWindows :call CloseRspecWindows()
+command! CloseOutputWindow :call CloseOutputWindow()
 command! Path :echo expand('%:p')
 command! ReloadAll :call ReloadAll()
 command! JSONPretty :normal :.!jsonpp %<cr>
