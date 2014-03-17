@@ -333,7 +333,7 @@ vnoremap j gj
 vnoremap k gk
 
 " cowboy coding!!!
-nnoremap <leader>t :w <bar> ! ruby % <cr>
+nnoremap <leader>t :w <bar> ! bundle exec ruby % <cr>
 
 " open alternate file
 nnoremap <leader>. :A<cr>
