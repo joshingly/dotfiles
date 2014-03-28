@@ -254,17 +254,6 @@ function! CloseOutputWindow()
   endif
 endfunction
 
-" Remap the tab key to do autocompletion or indentation depending on the
-" context (from http://overstimulate.com/articles/vim-ruby)
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-
 " taken and modified from
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 function! ShowRoutes()
@@ -364,9 +353,6 @@ map <leader>sl :CtrlP lib<cr><F5>
 map <leader>gs :Gstatus<cr>
 map <leader>gd :Git diff %<cr>
 map <leader>gl :Git l<cr>
-
-" tab completion
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " don't use Ex mode, use Q for formatting
 map Q gq
