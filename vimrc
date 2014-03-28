@@ -405,6 +405,10 @@ nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " Annoyance
 nnoremap <F1> <nop>
 
+" split join
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
+
 "==============================================================================
 " #################################################################### COMMANDS
 
