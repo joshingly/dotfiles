@@ -29,6 +29,7 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/AndrewRadev/splitjoin.vim",
             "https://github.com/kana/vim-textobj-user",
             "https://github.com/nelstrom/vim-textobj-rubyblock",
+            "https://github.com/Valloric/YouCompleteMe",
             "https://github.com/tpope/vim-dispatch" ]
 
 def install_plugins(root_path, plugins)
@@ -39,7 +40,11 @@ def install_plugins(root_path, plugins)
   end
 end
 
-def install_plugin_customizations
+def extra_steps(root_path)
+  puts "installing YouCompleteMe"
+  Dir.chdir("#{root_path}.vim/bundle/YouCompleteMe")
+  system "git submodule update --init --recursive"
+  system "./install.sh"
 end
 
 def do_install(root_path, plugins)
@@ -58,8 +63,8 @@ def do_install(root_path, plugins)
   puts "\n\ninstalling plugins\n\n"
   install_plugins(root_path, plugins)
 
-  puts "\n\ninstalling your plugin customizations\n\n"
-  install_plugin_customizations
+  puts "\n\nrunning extra steps\n\n"
+  extra_steps(root_path)
 end
 
 do_install(root_path, plugins) unless Dir.exists?(File.expand_path("#{root_path}.vim"))
