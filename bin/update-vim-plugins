@@ -12,24 +12,11 @@ entries.delete_if do |entry|
   not File.directory?(File.expand_path path_to_entry)
 end
 
-def update_you_complete_me
-  system "git pull"
-  system "git submodule update --init --recursive"
-  system "./install.sh"
-end
-
 entries.each do |entry|
   path = basedir + entry
   Dir.chdir(File.expand_path path)
   puts entry
   puts "-------------------------"
-
-  case entry
-  when 'YouCompleteMe'
-    update_you_complete_me
-  else
-    system "git pull"
-  end
-
+  system "git pull"
   puts "-------------------------\n\n\n\n"
 end
