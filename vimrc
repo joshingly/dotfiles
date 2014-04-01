@@ -5,6 +5,7 @@ filetype plugin indent on
 "==============================================================================
 " ######################################################## GENERAL EDITOR STUFF
 syntax enable
+set synmaxcol=160
 set nocompatible
 set encoding=utf-8
 set hidden
