@@ -143,9 +143,6 @@ augroup plugins
 
   " auto clean fugitive buffers
   au BufReadPost fugitive://* set bufhidden=delete
-
-  " default compiler is rspec with bundle exec
-  au BufRead * compiler rspec | set makeprg=bundle\ exec\ rspec\ --format\ progress\ --no-profile
 augroup END
 
 " For vim-gitgutter
@@ -398,7 +395,7 @@ nnoremap <leader>sd :DiffSaved<cr>
 nnoremap <silent>K :Ack <cword><cr>
 
 " call dispatch
-nnoremap <leader>d :w <bar> :Dispatch<cr>
+nnoremap <leader>d :w <bar> :Dispatch bundle exec rspec --format progress --no-profile<cr>
 
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
