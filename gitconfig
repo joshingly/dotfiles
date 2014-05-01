@@ -3,7 +3,7 @@
   email = joshua@antonishen.com
 [core]
   whitespace = fix,-indent-with-non-tab,trailing-space
-  pager = less -S
+  pager = less -FRXS
   editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore_global
 [branch]
