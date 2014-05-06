@@ -50,7 +50,7 @@
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
 [mergetool]
- prompt = false
+  prompt = false
 [merge]
   tool = Kaleidoscope
   stat = true
