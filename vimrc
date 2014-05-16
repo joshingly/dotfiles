@@ -385,6 +385,10 @@ map <Right> :echo "BAD"<cr>
 map <Up>    :echo "BAD"<cr>
 map <Down>  :echo "BAD"<cr>
 
+" command-line mode history completion
+cmap <c-n> <up>
+cmap <c-p> <down>
+
 " run jshint on current file
 nnoremap <leader>js :w <bar> :JSHint<cr>
 
