@@ -24,7 +24,7 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/altercation/vim-colors-solarized",
             "https://github.com/airblade/vim-gitgutter",
             "https://github.com/vimwiki/vimwiki",
-            "https://github.com/jnwhiteh/vim-golang",
+            "https://github.com/fatih/vim-go",
             "https://github.com/tpope/vim-jdaddy",
             "https://github.com/tpope/vim-dispatch" ]
 
