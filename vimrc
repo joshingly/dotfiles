@@ -122,7 +122,6 @@ augroup file_type
 
   au filetype make,go setlocal noexpandtab
   au filetype gitcommit,git,qf,go setlocal nolist
-  au fileType go au BufWritePre <buffer> Fmt
 
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call SetupWrapping()
 
