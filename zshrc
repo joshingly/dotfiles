@@ -13,6 +13,8 @@ export PATH=$HOME/.ruby/bin:$PATH
 export GOPATH=$HOME/Dropbox/Code/Go
 export PATH=$GOPATH/bin:$PATH
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/
+
 setopt auto_cd
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
 
