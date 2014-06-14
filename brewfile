@@ -41,8 +41,6 @@ cask install knox
 cask install dropbox
 cask install droplr
 cask install vagrant
-tap jimbojsb/launchrocket
-cask install launchrocket
 
 # links
 cask alfred link
