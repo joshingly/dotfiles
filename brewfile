@@ -41,6 +41,9 @@ cask install knox
 cask install dropbox
 cask install droplr
 cask install vagrant
+cask install things
+cask install arq
+cask install cloak
 
 # links
 cask alfred link
