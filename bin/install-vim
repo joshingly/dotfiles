@@ -37,10 +37,6 @@ def install_plugins(root_path, plugins)
 end
 
 def extra_steps(root_path)
-  puts "installing YouCompleteMe"
-  Dir.chdir("#{root_path}.vim/bundle/YouCompleteMe")
-  system "git submodule update --init --recursive"
-  system "./install.sh"
 end
 
 def do_install(root_path, plugins)
