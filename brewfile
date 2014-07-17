@@ -44,6 +44,7 @@ cask install vagrant
 cask install things
 cask install arq
 cask install cloak
+cask install google-chrome
 
 # links
 cask alfred link
