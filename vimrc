@@ -416,7 +416,7 @@ nmap sk :SplitjoinJoin<cr>
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
-command! Marked :normal :!open -a Marked.app '%:p'<cr> :redraw!<cr>
+command! Marked :normal :!open -a Marked\ 2.app '%:p'<cr> :redraw!<cr>
 command! DiffSaved :call DiffSaved()
 command! RenameFile :call RenameFile()
 command! OutputWindow :call OutputWindow()
