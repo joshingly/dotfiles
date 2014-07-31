@@ -6,17 +6,18 @@ plugins=(git brew gem osx ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
-export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
-export PATH=$HOME/.ruby/bin:$PATH
+setopt auto_cd
 
 export GOPATH=$HOME/Dropbox/Code/Go
-export PATH=$GOPATH/bin:$PATH
-
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/
-
-setopt auto_cd
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
+
+if [[ -z $TMUX ]]; then
+  export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
+  export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
+  export PATH=$HOME/.ruby/bin:$PATH
+  export PATH=$GOPATH/bin:$PATH
+fi
 
 # make <C-s> work in terminal vim
 stty -ixon
