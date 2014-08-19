@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 setopt auto_cd
 
 export GOPATH=$HOME/Dropbox/Code/Go
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
