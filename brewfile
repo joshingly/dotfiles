@@ -15,6 +15,7 @@ install tmux
 install reattach-to-user-namespace
 install htop
 install tig
+install httrack
 
 # taps
 tap phinze/homebrew-cask
