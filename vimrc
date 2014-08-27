@@ -424,3 +424,6 @@ command! CloseOutputWindow :call CloseOutputWindow()
 command! Path :echo expand('%:p')
 command! ReloadAll :call ReloadAll()
 command! JSONPretty :normal :.!jsonpp %<cr>
+command! -range=% SoftWrap
+            \ <line2>put _ |
+            \ <line1>,<line2>g/.\+/ .;-/^$/ join | normal $xx
