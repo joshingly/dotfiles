@@ -72,7 +72,6 @@ alias cpwd='pwd|tr -d "\n"|pbcopy' # copy working dir
 alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
 # tmux
-alias t="tmux -u new -s"
 alias ta="tmux attach-session -t"
 alias tls="tmux list-sessions"
 
