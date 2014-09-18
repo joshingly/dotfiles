@@ -134,8 +134,6 @@ augroup file_type
   highlight def link rubyRspec Function
 augroup END
 
-let g:gofmt_command = "goimports"
-
 "==============================================================================
 " ############################################################## PLUGIN OPTIONS
 augroup plugins
@@ -184,6 +182,9 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
 let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|bower_components$\|node_modules$\|\.keep$\|\.cache$\|Godeps$\|\.vagrant$'
 let g:ctrlp_open_new_file = 'r'
+
+" vim-go options
+let g:go_fmt_command = "goimports"
 
 "==============================================================================
 " ################################################################### FUNCTIONS
