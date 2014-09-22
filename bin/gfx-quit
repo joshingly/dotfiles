@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-system %Q(osascript -e 'tell application "Sparrow" to quit')
-system %Q(osascript -e 'tell application "Justnotes" to quit')
-system %Q(osascript -e 'tell application "ReadKit" to quit')
