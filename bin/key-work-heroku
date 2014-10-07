@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ssh-add ~/Dropbox/Work/Keys/work-heroku/heroku
