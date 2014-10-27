@@ -24,7 +24,6 @@ tap 'caskroom/versions'
 
 cask 'iterm2'
 cask 'alfred'
-cask 'the-unarchiver'
 cask 'kaleidoscope'
 cask 'moom'
 cask 'sigil'
