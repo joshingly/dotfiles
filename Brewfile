@@ -17,6 +17,7 @@ brew 'reattach-to-user-namespace'
 brew 'htop'
 brew 'tig'
 brew 'httrack'
+brew 'ansible'
 
 tap 'phinze/homebrew-cask'
 brew 'brew-cask'
