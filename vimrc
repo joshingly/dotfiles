@@ -427,4 +427,4 @@ command! ReloadAll :call ReloadAll()
 command! JSONPretty :normal :.!jsonpp %<cr>
 command! -range=% SoftWrap
             \ <line2>put _ |
-            \ <line1>,<line2>g/.\+/ .;-/^$/ join | normal $xx
+            \ <line1>,<line2>g/.\+/ .;-/^$/ join | normal $x
