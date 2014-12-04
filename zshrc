@@ -68,9 +68,6 @@ alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
 alias cl="fc -e -|pbcopy" # copy output of last command
 alias cpwd='pwd|tr -d "\n"|pbcopy' # copy working dir
 
-# ios
-alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
-
 # tmux
 alias ta="tmux attach-session -t"
 alias tls="tmux list-sessions"
