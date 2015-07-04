@@ -1,0 +1,132 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'thor'
+
+include Thor::Actions
+
+config = <<eos
+after_configuration do
+  if defined?(RailsAssets)
+    RailsAssets.load_paths.each do |path|
+      sprockets.append_path path
+    end
+  end
+end
+
+compass_config do |config|
+  config.output_style = :compact
+end
+
+configure :development do
+  activate :livereload
+end
+
+activate :deploy do |deploy|
+  deploy.build_before = true
+  deploy.clean = true
+  deploy.method = :rsync
+  deploy.user = ""
+  deploy.host = ""
+  deploy.path = ""
+end
+
+activate :directory_indexes
+
+set :css_dir, 'stylesheets'
+
+set :js_dir, 'javascripts'
+
+set :images_dir, 'images'
+
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+  activate :asset_hash
+  activate :relative_assets
+  activate :gzip
+end
+eos
+
+layout = <<eos
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+    title = current_page.data.title
+    = stylesheet_link_tag "all"
+    = javascript_include_tag "all"
+
+  body
+    == yield
+eos
+
+index = <<eos
+---
+title: TITLE OF PAGE
+---
+eos
+
+all_sass = <<eos
+@import 'compass'
+@import 'normalize'
+
+*, *:before, *:after
+  @include box-sizing(border-box)
+eos
+
+all_js = <<eos
+//= require jquery
+//= require velocity
+//= require velocity/velocity.ui
+//= require lodash/lodash
+
+//= require_tree ./vendor
+//= require_tree ./lib
+
+//= require _app
+eos
+
+gems = <<eos
+\n\ngem 'slim'
+gem 'middleman-deploy'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-normalize.css'
+  gem 'rails-assets-lodash'
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-velocity'
+end
+eos
+
+fail 'must provide name' unless name = ARGV[0]
+
+system "middleman new #{name}"
+Dir.chdir("./#{name}")
+
+FileUtils.rm Dir.glob('source/images/*')
+
+IO.write 'config.rb', config
+
+File.open('Gemfile', 'a') { |gf| gf << gems}
+
+# html
+FileUtils.rm 'source/index.html.erb'
+FileUtils.rm 'source/layouts/layout.erb'
+IO.write 'source/layouts/layout.slim', layout
+IO.write 'source/index.html.slim', index
+
+# javascripts
+Dir.mkdir 'source/javascripts/vendor'
+Dir.mkdir 'source/javascripts/lib'
+FileUtils.touch 'source/javascripts/_app.coffee'
+IO.write 'source/javascripts/all.js', all_js
+
+# stylesheets
+Dir.mkdir 'source/stylesheets/vendor'
+FileUtils.rm 'source/stylesheets/normalize.css'
+FileUtils.rm 'source/stylesheets/all.css'
+IO.write 'source/stylesheets/all.sass', all_sass
+
+system 'bundle'
