@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+system('rails new -m ~/Dropbox/Code/Rails/rails-template/base.rb ' + ARGV.join(' '))
