@@ -18,6 +18,7 @@ brew 'htop'
 brew 'tig'
 brew 'httrack'
 brew 'ansible'
+brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
 
 tap 'phinze/homebrew-cask'
 brew 'brew-cask'
