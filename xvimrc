@@ -1,3 +1,4 @@
+vmap <tab> <Esc>
 imap jk <Esc>
 map <C-n> <Down>
 map <C-p> <Up>
