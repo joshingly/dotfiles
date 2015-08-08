@@ -63,9 +63,6 @@ set listchars+=tab:▸\
 set listchars+=extends:>
 set listchars+=precedes:<
 
-" set netrw default liststyle
-let g:netrw_liststyle=3
-
 " don't show trailing spaces in insert mode
 augroup trailing
   au!
