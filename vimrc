@@ -291,6 +291,23 @@ function! RenameFile()
   endif
 endfunction
 
+" Open today's journal file, add header (date) if it is new, switch to index
+" file and update links, then switch back to today's journal file
+function! OpenTodaysJournal()
+  exe "VimwikiMakeDiaryNote"
+
+  if !filereadable(expand('%:p'))
+    exe ":normal i" . "# " . expand("%:t:r") . "\r"
+  endif
+
+  exe ":w"
+  exe "VimwikiDiaryIndex"
+  exe "VimwikiDiaryGenerateLinks"
+  exe ":w"
+
+  exe "VimwikiMakeDiaryNote"
+endfunc
+
 "==============================================================================
 " #################################################################### MAPPINGS
 " yank/paste to/from clipboard
@@ -401,6 +418,9 @@ nnoremap <leader>d :w <bar> :Dispatch bundle exec rspec --format progress --no-p
 
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Open today's journal file
+nnoremap <silent> <leader>jf :call OpenTodaysJournal()<cr>
 
 " Annoyance
 nnoremap <F1> <nop>
