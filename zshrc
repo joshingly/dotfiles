@@ -2,7 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="antonishen"
 
-plugins=(git brew gem osx ruby rails)
+plugins=(git brew brew-cask vagrant terraform osx postgres gem ruby rails golang)
 
 source $ZSH/oh-my-zsh.sh
 
