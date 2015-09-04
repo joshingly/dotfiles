@@ -306,6 +306,7 @@ function! OpenTodaysJournal()
   exe ":w"
 
   exe "VimwikiMakeDiaryNote"
+  exe ":normal G"
 endfunc
 
 "==============================================================================
