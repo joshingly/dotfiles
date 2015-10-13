@@ -37,3 +37,9 @@ echo "------------------------"
 echo "removing conflicted files from dropbox"
 find ~/Dropbox -type f -name "* conflicted *" -exec rm -f {} \;
 echo "------------------------"
+echo "remove safari js console history"
+rm -rf ~/Library/WebKit/com.apple.Safari/WebsiteData/LocalStorage/*
+echo "------------------------"
+echo "remove chrome js console history"
+rm -rf ~/Library/Application\ Support/Google/Chrome/Profile\ 1/Local\ Storage/chrome-devtools_devtools_*
+echo "------------------------"
