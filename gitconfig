@@ -1,6 +1,8 @@
 [user]
   name = Joshua Antonishen
   email = joshua@antonishen.com
+[github]
+  user = joshingly
 [core]
   whitespace = fix,-indent-with-non-tab,trailing-space
   pager = less -FRXS
