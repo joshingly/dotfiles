@@ -8,3 +8,4 @@ set wrapscan
 set noerrorbells
 set ignorecase
 set relativenumber
+set clipboard = unnamed
