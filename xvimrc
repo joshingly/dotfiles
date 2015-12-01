@@ -2,8 +2,11 @@ vmap <tab> <Esc>
 imap jk <Esc>
 map <C-n> <Down>
 map <C-p> <Up>
+nmap <space> :nohlsearch <cr>
 nmap \f :xccmd openQuickly<cr>
+highlight Search guibg=#557075
 set incsearch
+set hlsearch
 set wrapscan
 set noerrorbells
 set ignorecase
