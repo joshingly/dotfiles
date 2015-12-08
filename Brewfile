@@ -19,9 +19,7 @@ brew 'httrack'
 brew 'ansible'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
 
-tap 'phinze/homebrew-cask'
-brew 'brew-cask'
-tap 'caskroom/versions'
+brew 'caskroom/cask/brew-cask'
 
 cask 'vmware-fusion'
 cask 'vagrant'
