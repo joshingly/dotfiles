@@ -28,6 +28,7 @@ unsetopt correct_all
 # history
 SAVEHIST=10000
 HISTSIZE=10000
+HISTIGNORE="heroku config*set*:"
 setopt histignoredups
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
