@@ -12,7 +12,7 @@ export GOPATH=$HOME/Dropbox/Code/Go
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
-export PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=$HOME/.ruby/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
