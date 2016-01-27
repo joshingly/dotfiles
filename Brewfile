@@ -17,6 +17,7 @@ brew 'htop'
 brew 'tig'
 brew 'httrack'
 brew 'ansible'
+brew 'ranger'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
 
 brew 'caskroom/cask/brew-cask'
