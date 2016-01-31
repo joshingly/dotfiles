@@ -1,5 +1,7 @@
 # Use Brewdler gem to install (brewdle install)
 
+brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
 brew 'coreutils'
 brew 'git'
 brew 'python'
