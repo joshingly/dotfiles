@@ -1,5 +1,6 @@
 # Use Brewdler gem to install (brewdle install)
 
+brew 'coreutils'
 brew 'git'
 brew 'python'
 brew 'mercurial'
