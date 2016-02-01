@@ -117,3 +117,6 @@ alias grh2="git reset HEAD~2 --hard"
 # rails
 alias rg="rails generate"
 alias rd="rails destroy"
+
+# tig
+alias tig="tig --all"
