@@ -1,12 +1,25 @@
-ZSH=$HOME/.oh-my-zsh
-
-ZSH_THEME="antonishen"
-
-plugins=(git brew brew-cask vagrant terraform osx postgres gem ruby rails golang)
-
-source $ZSH/oh-my-zsh.sh
-
+autoload -U compinit && compinit
 setopt auto_cd
+setopt nocasematch
+setopt menucomplete
+
+# directory / file colors
+alias ls=' gls -C -F -h --color=always'
+export CLICOLOR=1
+export LSCOLORS="gxfxcxdxbxegedabagacad"
+eval `gdircolors -b ~/.zsh/dircolors.256dark`
+
+# enable syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# load prompt
+source ~/.zsh/prompt.zsh
+
+# load completions (homebrew)
+export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
+
+# case insensitive completions
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
 export GOPATH=$HOME/Dropbox/Code/Go
 export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
@@ -26,6 +39,7 @@ stty -ixon
 unsetopt correct_all
 
 # history
+HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
 HISTIGNORE="heroku config*set*:"
@@ -53,8 +67,8 @@ bindkey -M viins '^P' history-beginning-search-backward
 bindkey -M viins '^N' history-beginning-search-forward
 bindkey -M vicmd '^P' history-beginning-search-backward
 bindkey -M vicmd '^N' history-beginning-search-forward
-bindkey -M menuselect '^P' reverse-menu-complete
-bindkey -M menuselect '^N' menu-complete
+# bindkey -M menuselect '^P' reverse-menu-complete
+# bindkey -M menuselect '^N' menu-complete
 bindkey -M vicmd 'GG' end-of-history
 bindkey -M viins 'GG' end-of-history
 

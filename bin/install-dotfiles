@@ -9,7 +9,9 @@ cp ./tmux.conf ~/.tmux.conf
 cp ./vimrc ~/.vimrc
 cp ./zshrc ~/.zshrc
 cp ./zprofile ~/.zprofile
-cp ./custom/themes/zsh/antonishen.zsh-theme ~/.oh-my-zsh/themes/
+mkdir ~/.zsh
+cp ./zsh/prompt.zsh ~/.zsh/prompt.zsh
+cp ./zsh/dircolors.256dark ~/.zsh/dircolors.256dark
 cp ./pryrc ~/.pryrc
 cp ./ackrc ~/.ackrc
 cp ./colordiffrc ~/.colordiffrc
