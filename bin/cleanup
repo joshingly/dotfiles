@@ -27,6 +27,9 @@ echo "------------------------"
 echo "remove psql history"
 rm ~/.psql_history
 echo "------------------------"
+echo "remove redis history"
+rm ~/.rediscli_history
+echo "------------------------"
 echo "remove vim backups and plugin cache"
 rm -rf ~/.vim/_cache/*
 rm ~/.vim/_backup/*
