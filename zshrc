@@ -67,8 +67,6 @@ bindkey -M viins '^P' history-beginning-search-backward
 bindkey -M viins '^N' history-beginning-search-forward
 bindkey -M vicmd '^P' history-beginning-search-backward
 bindkey -M vicmd '^N' history-beginning-search-forward
-# bindkey -M menuselect '^P' reverse-menu-complete
-# bindkey -M menuselect '^N' menu-complete
 bindkey -M vicmd 'GG' end-of-history
 bindkey -M viins 'GG' end-of-history
 
