@@ -3,6 +3,7 @@ autoload -U colors && colors
 
 setopt prompt_subst
 
+# Git prompt from: https://gist.github.com/joshdick/4415470
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$reset_color%}on "
 GIT_PROMPT_PREFIX="%{$fg[white]%}(%{$reset_color%}"
