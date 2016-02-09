@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+location = `which ruby`
+
+fail "don't use the system ruby" if location =~ /\/usr\/bin\/ruby/
+
+system 'gem uninstall -aIx'
+system 'gem install awesome_print pry-byebug forward middleman rails'
