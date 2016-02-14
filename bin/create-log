@@ -7,7 +7,7 @@ month = sprintf '%02d', now.month
 year = now.year
 
 name = "#{year}-#{month}-#{day}.md"
-path = File.expand_path "~/Dropbox/Documents/Logs/#{name}"
+path = File.expand_path "~/Dropbox/Wiki/Journal/#{name}"
 
 unless File.exists?(path)
   IO.write(path, "# #{year}-#{month}-#{day}\n")
