@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd ~
-ruby-install ruby -i ~/.ruby
-rm -rf ~/src
-~/.ruby/bin/gem install bundler awesome_print pry pry-byebug forward
