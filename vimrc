@@ -85,7 +85,8 @@ if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
   set statusline=
   set statusline+=%2*\ %n%H%M%R%W\ %*                  " buffer number & flags
-  set statusline+=%<\ %-.75t                           " cut here, path
+  set statusline+=%<\%{expand('%:h')}/                 " relative path
+  set statusline+=%<\%t%*                              " file name
   set statusline+=%=                                   " seperate between right & left
   set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
   set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*%*  " file type or ???
