@@ -11,7 +11,7 @@
 [branch]
   autosetupmerge = true
 [push]
-  default = matching
+  default = simple
 [pull]
   rebase = true
 [color]
