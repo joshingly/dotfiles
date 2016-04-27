@@ -148,7 +148,7 @@ highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'journal/', 'diary_header': 'Journal', 'diary_index': 'index'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/Documents/Writing/Wiki/', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'journal/', 'diary_header': 'Journal', 'diary_index': 'index'}]
 let g:vimwiki_global_ext = 0
 
 " load matchit plugin
