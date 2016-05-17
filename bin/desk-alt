@@ -1,3 +1,0 @@
-#!/bin/bash
-
-tmux -u new -s general-alt -t general
