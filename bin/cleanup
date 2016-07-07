@@ -9,6 +9,10 @@ echo "------------------------"
 echo "remove viminfo"
 rm  ~/.viminfo
 echo "------------------------"
+echo "remove atom data"
+rm -rf ~/Library/Application\ Support/Atom/
+rm -rf ~/.atom/storage/*
+echo "------------------------"
 echo "remove pry history"
 rm ~/.pry_history
 echo "------------------------"
