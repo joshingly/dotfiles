@@ -15,7 +15,5 @@ tmux rename-window -t general:1 vim
 tmux rename-window -t general:2 ranger
 tmux rename-window -t general:3 zsh
 
-find . -name "*.taskpaper" -exec open {} +
-
 tmux select-window -t general:1
 tmux attach-session -t general
