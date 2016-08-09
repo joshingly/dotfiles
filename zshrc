@@ -75,7 +75,7 @@ zle -N edit-command-line
 bindkey -M vicmd '!' edit-command-line
 
 # ALIASES
-alias rm="rm -i"
+alias rm="trash"
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
 alias cl="fc -e -|pbcopy" # copy output of last command
 alias cpwd='pwd|tr -d "\n"|pbcopy' # copy working dir
