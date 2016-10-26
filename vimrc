@@ -147,8 +147,11 @@ augroup plugins
 augroup END
 
 " For vim-gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/Dropbox/Documents/Writing/Wiki/', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'journal/', 'diary_header': 'Journal', 'diary_index': 'index'}]
