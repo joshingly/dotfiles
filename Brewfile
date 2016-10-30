@@ -1,5 +1,3 @@
-# Use Brewdler gem to install (brewdle install)
-
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 brew 'coreutils'
@@ -24,9 +22,8 @@ brew 'ranger'
 brew 'trash'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
 
-brew 'caskroom/cask/brew-cask'
+tap 'caskroom/cask'
 
-cask 'vmware-fusion'
-cask 'vagrant'
-cask 'macvim'
-cask 'osxfuse'
+cask install 'vagrant'
+cask install 'macvim'
+cask install 'osxfuse'
