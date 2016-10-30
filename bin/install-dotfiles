@@ -1,19 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-cd ~/Dropbox/Code/General/dotfiles
+source = File.expand_path(File.dirname(__FILE__) + '/..')
+destination = File.expand_path('~')
 
-cp ./gemrc ~/.gemrc
-cp ./gitconfig ~/.gitconfig
-cp ./gitignore_global ~/.gitignore_global
-cp ./tmux.conf ~/.tmux.conf
-cp ./vimrc ~/.vimrc
-cp ./zshrc ~/.zshrc
-cp ./zprofile ~/.zprofile
-mkdir ~/.zsh
-cp ./zsh/prompt.zsh ~/.zsh/prompt.zsh
-cp ./zsh/dircolors.256dark ~/.zsh/dircolors.256dark
-cp ./pryrc ~/.pryrc
-cp ./ackrc ~/.ackrc
-cp ./colordiffrc ~/.colordiffrc
-cp ./xvimrc ~/.xvimrc
-cp ./psqlrc ~/.psqlrc
+File.symlink("#{source}/gemrc", "#{destination}/.gemrc")
+File.symlink("#{source}/gitconfig", "#{destination}/.gitconfig")
+File.symlink("#{source}/gitignore_global", "#{destination}/.gitignore_global")
+File.symlink("#{source}/tmux.conf", "#{destination}/.tmux.conf")
+File.symlink("#{source}/vimrc", "#{destination}/.vimrc")
+File.symlink("#{source}/zshrc", "#{destination}/.zshrc")
+File.symlink("#{source}/zprofile", "#{destination}/.zprofile")
+File.symlink("#{source}/zsh", "#{destination}/.zsh")
+File.symlink("#{source}/pryrc", "#{destination}/.pryrc")
+File.symlink("#{source}/ackrc", "#{destination}/.ackrc")
+File.symlink("#{source}/colordiffrc", "#{destination}/.colordiffrc")
+File.symlink("#{source}/xvimrc", "#{destination}/.xvimrc")
+File.symlink("#{source}/psqlrc", "#{destination}/.psqlrc")
