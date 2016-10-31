@@ -80,25 +80,10 @@ augroup END
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-  set statusline=
-  set statusline+=%2*\ %n%H%M%R%W\ %*                  " buffer number & flags
-  set statusline+=%<\%{expand('%:h')}/                 " relative path
-  set statusline+=%<\%t%*                              " file name
-  set statusline+=%=                                   " seperate between right & left
-  set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
-  set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*%*  " file type or ???
-  set statusline+=\ \ %3(%c%)                          " column
-  set statusline+=%10(\ \ %l/%L%)                      " line
-  set statusline+=\ \ %P\ \                            " percentage through file
-endif
-
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
 if has("gui_running")
-  " set guifont=Source\ Code\ Pro:h12
   set guifont=PragmataPro:h14
   set guioptions=egmrt " turn off toolbar
   set guicursor+=n:blinkon0 " don't blink in normal mode
@@ -111,6 +96,23 @@ endif
 set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
+
+highlight SignColumn ctermbg=NONE
+highlight SignColumn guibg=NONE
+
+if has("statusline") && !&cp
+  set laststatus=2                                     " always show the status bar
+  set statusline=
+  set statusline+=%2*\ %n%H%M%R%W\ %*                  " buffer number & flags
+  set statusline+=%<\%{expand('%:h')}/                 " relative path
+  set statusline+=%<\%t%*                              " file name
+  set statusline+=%=                                   " seperate between right & left
+  set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
+  set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*    " file type or ???
+  set statusline+=\ \ %3(%c%)                          " column
+  set statusline+=%10(\ \ %l/%L%)                      " line
+  set statusline+=\ \ %P\ \                            " percentage through file
+endif
 
 "==============================================================================
 " ################################################### FILETYPE SPECIFIC OPTIONS
@@ -147,10 +149,9 @@ augroup END
 
 " For vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=NONE
-highlight SignColumn guibg=NONE
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+let g:gitgutter_sign_column_always = 1
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/Dropbox/Documents/Writing/Wiki/', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'journal/', 'diary_header': 'Journal', 'diary_index': 'index'}]
