@@ -4,7 +4,7 @@ root_path = "~/"
 plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/tpope/vim-endwise",
             "https://github.com/tpope/vim-rails",
-            "https://github.com/tomtom/tcomment_vim",
+            "https://github.com/tpope/vim-commentary",
             "https://github.com/tpope/vim-eunuch",
             "https://github.com/nathanaelkane/vim-indent-guides",
             "https://github.com/kana/vim-smartinput",
