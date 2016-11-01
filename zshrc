@@ -22,7 +22,7 @@ export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FP
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
 export GOPATH=$HOME/Dropbox/Code/Go
-export CDPATH=.:$HOME/Dropbox/Code:$HOME/Dropbox/Work
+export cdpath=($HOME/Dropbox/Code $HOME/Dropbox/Work)
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
