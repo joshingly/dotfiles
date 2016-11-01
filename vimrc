@@ -149,9 +149,8 @@ augroup END
 
 " For vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
+set updatetime=200
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/Dropbox/Documents/Writing/Wiki/', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'journal/', 'diary_header': 'Journal', 'diary_index': 'index'}]
@@ -330,10 +329,6 @@ endfunc
 " yank/paste to/from clipboard
 map <leader>y "*y
 map <leader>p "*p
-
-" Git Gutter
-nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
-nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 
 " ctrl u / ctrl d distance
 nnoremap <c-u> 10k
