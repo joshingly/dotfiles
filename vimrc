@@ -13,7 +13,6 @@ set hidden
 set magic
 set autoread " reload file if it was changed outside of vim
 set ttyfast
-set title
 set noesckeys " fix lag after hitting escape
 set splitbelow
 set splitright
@@ -149,7 +148,6 @@ augroup END
 
 " For vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_sign_column_always = 1
 set updatetime=200
 
 " vimwiki
