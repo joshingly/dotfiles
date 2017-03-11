@@ -4,7 +4,8 @@
 [github]
   user = joshingly
 [core]
-  pager = less -FRXS
+  ignorecase = false
+  pager = diff-so-fancy | less -FRXS
   editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore_global
 [branch]
@@ -31,6 +32,11 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color "status"]
   added = yellow
   changed = green
@@ -38,7 +44,6 @@
 [alias]
   l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s' --abbrev-commit --date=short --all"
   ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=short --all --stat"
-  ld = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=short --all --stat --diff-filter=D"
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]

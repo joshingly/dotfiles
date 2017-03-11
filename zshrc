@@ -101,7 +101,6 @@ alias gdc='git diff --color --cached'
 alias gl="git l"
 alias gll="git ll"
 alias glf="git ll -u"
-alias gld="git ld"
 alias gp="git push"
 alias gm="git merge"
 alias gss="git stash save -u"
