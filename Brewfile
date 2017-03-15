@@ -19,6 +19,7 @@ brew 'tig'
 brew 'ranger'
 brew 'trash'
 brew 'diff-so-fancy'
+brew 'heroku'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
 
 tap 'caskroom/cask'
