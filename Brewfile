@@ -21,9 +21,3 @@ brew 'trash'
 brew 'diff-so-fancy'
 brew 'heroku'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
-
-tap 'caskroom/cask'
-
-cask install 'vagrant'
-cask install 'macvim'
-cask install 'osxfuse'
