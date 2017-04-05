@@ -27,6 +27,7 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/tpope/vim-vinegar",
             "https://github.com/tpope/vim-dispatch",
             "https://github.com/cespare/vim-sbd",
+            "https://github.com/HerringtonDarkholme/yats.vim",
             "https://github.com/keith/swift.vim" ]
 
 def install_plugins(root_path, plugins)
