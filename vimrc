@@ -423,9 +423,6 @@ nnoremap <leader>sd :DiffSaved<cr>
 " ack word under cursor
 nnoremap <silent>K :Ack <cword><cr>
 
-" call dispatch
-nnoremap <leader>d :w <bar> :Dispatch bundle exec rspec --format progress --no-profile<cr>
-
 " Open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
