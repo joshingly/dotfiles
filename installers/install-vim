@@ -12,23 +12,14 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/ctrlpvim/ctrlp.vim",
             "https://github.com/tpope/vim-surround",
             "https://github.com/tpope/vim-unimpaired",
-            "https://github.com/tpope/vim-markdown",
-            "https://github.com/vim-ruby/vim-ruby",
-            "https://github.com/pangloss/vim-javascript",
-            "https://github.com/tpope/vim-haml",
-            "https://github.com/cakebaker/scss-syntax.vim",
-            "https://github.com/kchmck/vim-coffee-script",
-            "https://github.com/slim-template/vim-slim",
             "https://github.com/altercation/vim-colors-solarized",
             "https://github.com/airblade/vim-gitgutter",
             "https://github.com/vimwiki/vimwiki",
-            "https://github.com/fatih/vim-go",
             "https://github.com/godlygeek/tabular",
             "https://github.com/tpope/vim-vinegar",
             "https://github.com/cespare/vim-sbd",
             "https://github.com/HerringtonDarkholme/yats.vim",
-            "https://github.com/othree/yajs.vim",
-            "https://github.com/keith/swift.vim" ]
+            "https://github.com/sheerun/vim-polyglot" ]
 
 def install_plugins(root_path, plugins)
   Dir.chdir(File.expand_path("#{root_path}.vim/bundle/"))
