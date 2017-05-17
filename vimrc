@@ -129,6 +129,9 @@ augroup file_type
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
+  " Highlight JS object keys
+  au BufNewFile,BufRead *.{js,jsx} hi def link jsObjectKey Identifier
+
   " Treat Fastfile as Ruby
   au BufNewFile,BufRead Fastfile set ft=ruby
 
