@@ -56,7 +56,7 @@ set cmdheight=1
 set cursorline
 set colorcolumn=80
 set scrolloff=5
-set sidescrolloff=15
+set sidescrolloff=10
 
 set list
 set listchars=""
