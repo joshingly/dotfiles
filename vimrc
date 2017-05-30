@@ -37,6 +37,7 @@ set nowrap
 set expandtab
 set ai " autoindent
 set si " smartindent
+set nojoinspaces
 
 " searching
 set incsearch
