@@ -35,9 +35,9 @@ set wildignore+=.ds_store,.gitkeep
 set backspace=indent,eol,start "backspace through everything in indent mode
 set nowrap
 set expandtab
-set ai " autoindent
-set si " smartindent
 set nojoinspaces
+set autoindent
+set smartindent
 
 " searching
 set incsearch
