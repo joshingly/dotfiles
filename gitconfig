@@ -42,8 +42,8 @@
   changed = green
   untracked = cyan
 [alias]
-  l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s' --abbrev-commit --date=short --all"
-  ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cr) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=short --all --stat"
+  l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s' --abbrev-commit --date=local --all"
+  ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=local --all --stat"
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
