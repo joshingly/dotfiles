@@ -120,7 +120,7 @@ augroup file_type
   au!
 
   au filetype * set tabstop=2 | set shiftwidth=2
-  au filetype markdown,vimwiki set tabstop=4 | set shiftwidth=4
+  au filetype markdown set tabstop=4 | set shiftwidth=4
 
   au filetype make,go setlocal noexpandtab
   au filetype gitcommit,git,qf,go setlocal nolist
@@ -153,10 +153,6 @@ augroup END
 " For vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 set updatetime=200
-
-" vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/Documents/Writing/Wiki/', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'journal/', 'diary_header': 'Journal', 'diary_index': 'index'}]
-let g:vimwiki_global_ext = 0
 
 " load matchit plugin
 so $VIMRUNTIME/macros/matchit.vim
@@ -306,24 +302,6 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-
-" Open today's journal file, add header (date) if it is new, switch to index
-" file and update links, then switch back to today's journal file
-function! OpenTodaysJournal()
-  exe "VimwikiMakeDiaryNote"
-
-  if !filereadable(expand('%:p'))
-    exe ":normal i" . "# " . expand("%:t:r") . "\r"
-  endif
-
-  exe ":w"
-  exe "VimwikiDiaryIndex"
-  exe "VimwikiDiaryGenerateLinks"
-  exe ":w"
-
-  exe "VimwikiMakeDiaryNote"
-  exe ":normal G"
-endfunc
 
 "==============================================================================
 " #################################################################### MAPPINGS
