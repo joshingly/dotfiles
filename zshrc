@@ -26,8 +26,9 @@ export cdpath=($HOME/Dropbox/Code $HOME/Dropbox/Work)
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-export PATH=$HOME/.ruby/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
+
+eval "$(rbenv init -)"
 
 # remove duped path entries (caused by tmux)
 typeset -U PATH
