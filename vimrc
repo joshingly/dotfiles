@@ -183,7 +183,7 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_height = 15
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
-let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|bower_components$\|node_modules$\|\.keep$\|\.cache$\|Godeps$\|vendor$\|pkg$\|\.vagrant$\|assets/source_maps$'
+let g:ctrlp_user_command = 'ag %s --hidden -l --nocolor -g ""'
 let g:ctrlp_open_new_file = 'r'
 
 " vim-go options
@@ -194,6 +194,9 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" ack.vim options
+let g:ackprg = 'ag --nogroup --nocolor --column --hidden'
 
 "==============================================================================
 " ################################################################### FUNCTIONS

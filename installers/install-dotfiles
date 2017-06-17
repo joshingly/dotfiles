@@ -16,5 +16,6 @@ File.symlink("#{source}/ackrc", "#{destination}/.ackrc")
 File.symlink("#{source}/colordiffrc", "#{destination}/.colordiffrc")
 File.symlink("#{source}/xvimrc", "#{destination}/.xvimrc")
 File.symlink("#{source}/psqlrc", "#{destination}/.psqlrc")
+File.symlink("#{source}/agignore", "#{destination}/.agignore")
 
 File.symlink("#{source}/bin", "#{destination}/.bin")
