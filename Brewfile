@@ -19,4 +19,5 @@ brew 'tig'
 brew 'trash'
 brew 'diff-so-fancy'
 brew 'heroku'
+brew 'rbenv'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
