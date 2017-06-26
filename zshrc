@@ -30,6 +30,19 @@ export PATH=$GOPATH/bin:$PATH
 
 eval "$(rbenv init -)"
 
+# fzf
+export FZF_DEFAULT_OPTS='
+--color dark,hl:33,hl+:37,fg+:235,bg+:0,fg+:254
+--color info:254,prompt:37,spinner:108,pointer:166,marker:235
+--reverse
+--inline-info
+'
+
+export FZF_DEFAULT_COMMAND='
+rg --smart-case --files --no-ignore --hidden --follow \
+--glob "!.git/*" --glob "!.DS_Store" --glob "!**/node_modules/*"
+'
+
 # remove duped path entries (caused by tmux)
 typeset -U PATH
 

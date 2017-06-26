@@ -27,10 +27,6 @@ set backup
 set backupdir=~/.vim/_backup    " where to put backup files.
 set directory=~/.vim/_temp      " where to put swap files.
 
-set wildignore+=*.rbc,*.scssc,*.sassc,.rbx,.jhw-cache
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
-set wildignore+=.ds_store,.gitkeep
-
 " text
 set backspace=indent,eol,start "backspace through everything in indent mode
 set nowrap
@@ -176,15 +172,27 @@ if has("gui_running")
   let g:indent_guides_auto_colors=1
 endif
 
-" ctrlp options
-let g:ctrlp_extensions = ["tag"]
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_max_height = 15
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_cache_dir = $HOME.'/.vim/_cache/ctrlp'
-let g:ctrlp_user_command = 'ag %s --hidden -l --nocolor -g ""'
-let g:ctrlp_open_new_file = 'r'
+" fzf
+set rtp+=/usr/local/opt/fzf
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+\ }
+
+let g:fzf_colors = {
+  \ 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Identifier'],
+  \ 'fg+':     ['fg', 'White'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Constant'],
+  \ 'info':    ['fg', 'White'],
+  \ 'prompt':  ['fg', 'Constant'],
+  \ 'pointer': ['fg', 'PreProc'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment']
+\ }
 
 " vim-go options
 let g:go_fmt_command = "goimports"
@@ -354,23 +362,17 @@ nnoremap <leader><leader> <c-^>
 " rake routes
 map <leader>rr :call ShowRoutes()<cr><F5>
 
-" ctrlp mappings... f5 purges cache and gets new files
-map <leader>f :CtrlP .<cr><F5>
-map <leader>F :CtrlPCurFile<cr><F5>
-
-map <leader>sv :CtrlP app/views<cr><F5>
-map <leader>sc :CtrlP app/controllers<cr><F5>
-map <leader>sm :CtrlP app/models<cr><F5>
-map <leader>sh :CtrlP app/helpers<cr><F5>
-map <leader>ss :CtrlP app/assets/stylesheets<cr><F5>
-map <leader>sj :CtrlP app/assets/javascripts<cr><F5>
-map <leader>st :CtrlP spec<cr><F5>
-map <leader>sl :CtrlP lib<cr><F5>
-
 " fugitive mappings
 map <leader>gs :Gstatus<cr>
 map <leader>gd :Git diff %<cr>
-map <leader>gl :Git l<cr>
+
+" fzf mappings
+nnoremap <leader>f :FZF --reverse --inline-info<cr>
+nnoremap <leader>F :FZF --reverse --inline-info %:p:h<cr>
+nnoremap <leader>sc :FZF --reverse --inline-info app/controllers<cr>
+nnoremap <leader>sm :FZF --reverse --inline-info app/models<cr>
+nnoremap <leader>sv :FZF --reverse --inline-info app/views<cr>
+nnoremap <leader>st :FZF --reverse --inline-info spec<cr>
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
