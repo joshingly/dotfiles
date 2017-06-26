@@ -28,6 +28,8 @@ export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
+
+# rbenv
 eval "$(rbenv init -)"
 
 # fzf
