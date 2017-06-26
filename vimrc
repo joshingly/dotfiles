@@ -205,7 +205,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " ack.vim options
-let g:ackprg = 'ag --nogroup --nocolor --column --hidden'
+let g:ackprg = 'rg -S --no-heading --vimgrep'
 
 "==============================================================================
 " ################################################################### FUNCTIONS
