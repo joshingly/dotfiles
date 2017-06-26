@@ -95,6 +95,7 @@ colorscheme solarized
 
 highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
+highlight! link QuickFixLine Normal
 
 if has("statusline") && !&cp
   set laststatus=2                                     " always show the status bar
