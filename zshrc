@@ -129,9 +129,5 @@ alias grh="git reset --hard"
 alias grh1="git reset HEAD~ --hard"
 alias grh2="git reset HEAD~2 --hard"
 
-# rails
-alias rg="rails generate"
-alias rd="rails destroy"
-
 # tig
 alias tig="tig --all"
