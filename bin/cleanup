@@ -6,6 +6,9 @@ echo "------------------------"
 echo "remove zsh history"
 rm  ~/.zsh_history
 echo "------------------------"
+echo "remove zcompdump files"
+rm  ~/.zcompdump*
+echo "------------------------"
 echo "remove viminfo"
 rm  ~/.viminfo
 echo "------------------------"
@@ -30,6 +33,9 @@ rm ~/.sqlite_history
 echo "------------------------"
 echo "remove psql history"
 rm ~/.psql_history
+echo "------------------------"
+echo "remove mysql history"
+rm ~/.mysql_history
 echo "------------------------"
 echo "remove redis history"
 rm ~/.rediscli_history
