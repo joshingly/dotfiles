@@ -13,6 +13,7 @@ set hidden
 set magic
 set autoread " reload file if it was changed outside of vim
 set ttyfast
+set lazyredraw
 set noesckeys " fix lag after hitting escape
 set splitbelow
 set splitright
@@ -53,6 +54,7 @@ set cursorline
 set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=10
+set re=1
 
 set list
 set listchars=""
