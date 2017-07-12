@@ -23,3 +23,5 @@ brew 'rbenv'
 brew 'ripgrep'
 brew 'fzf'
 brew 'pgcli', args: ['build-from-source'] # use postgres.app instead of installing postgres from homebrew
+
+cask 'vagrant'
