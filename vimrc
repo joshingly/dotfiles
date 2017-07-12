@@ -372,12 +372,12 @@ map <leader>gs :Gstatus<cr>
 map <leader>gd :Git diff %<cr>
 
 " fzf mappings
-nnoremap <leader>f :FZF --reverse --inline-info<cr>
-nnoremap <leader>F :FZF --reverse --inline-info %:p:h<cr>
-nnoremap <leader>sc :FZF --reverse --inline-info app/controllers<cr>
-nnoremap <leader>sm :FZF --reverse --inline-info app/models<cr>
-nnoremap <leader>sv :FZF --reverse --inline-info app/views<cr>
-nnoremap <leader>st :FZF --reverse --inline-info spec<cr>
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>F :FZF %:p:h<cr>
+nnoremap <leader>sc :FZF app/controllers<cr>
+nnoremap <leader>sm :FZF app/models<cr>
+nnoremap <leader>sv :FZF app/views<cr>
+nnoremap <leader>st :FZF spec<cr>
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
