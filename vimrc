@@ -369,7 +369,6 @@ map <leader>rr :call ShowRoutes()<cr><F5>
 
 " fugitive mappings
 map <leader>gs :Gstatus<cr>
-map <leader>gd :Git diff %<cr>
 
 " fzf mappings
 nnoremap <leader>f :FZF<cr>
