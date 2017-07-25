@@ -107,7 +107,7 @@ if has("statusline") && !&cp
   set statusline+=%<\%{expand('%:h')}/                 " relative path
   set statusline+=%<\%t%*                              " file name
   set statusline+=%=                                   " seperate between right & left
-  set statusline+=\ \ %{fugitive#statusline()}\ \      " git status
+  set statusline+=\ \                                  " spacer
   set statusline+=%1*\ %{strlen(&ft)?&ft:'???'}\ %*    " file type or ???
   set statusline+=\ \ %3(%c%)                          " column
   set statusline+=%10(\ \ %l/%L%)                      " line
