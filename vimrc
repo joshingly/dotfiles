@@ -83,11 +83,11 @@ let g:solarized_visibility='high'
 
 if has("gui_running")
   set guifont=PragmataPro:h14
-  set guioptions=egmrt " turn off toolbar
+  set guioptions=egmrt      " turn off toolbar
   set guicursor+=n:blinkon0 " don't blink in normal mode
-  set vb " disable visual bell
+  set novisualbell
   set antialias
-  set guioptions-=r "don't show right scrollbar
+  set guioptions-=r         "don't show right scrollbar
   set showtabline=1
 endif
 
