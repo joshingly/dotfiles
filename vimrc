@@ -99,6 +99,9 @@ highlight SignColumn ctermbg=NONE
 highlight SignColumn guibg=NONE
 highlight! link QuickFixLine Normal
 highlight EndOfBuffer ctermfg=bg guifg=bg
+highlight! StatusLine ctermfg=6
+highlight! StatusLineNC ctermfg=3
+highlight! VertSplit ctermbg=3
 
 if has("statusline") && !&cp
   set laststatus=2                                     " always show the status bar
