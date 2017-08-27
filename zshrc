@@ -51,6 +51,9 @@ typeset -U PATH
 # make <C-s> work in terminal vim
 stty -ixon
 
+# fix <enter> producing ^M
+ttyctl -f
+
 # disable autocorrect
 unsetopt correct_all
 
