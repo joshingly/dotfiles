@@ -5,8 +5,6 @@ filetype plugin indent on
 "==============================================================================
 " ######################################################## GENERAL EDITOR STUFF
 syntax enable
-syntax sync minlines=256
-" set synmaxcol=300
 set nocompatible
 set encoding=utf-8
 set hidden
@@ -44,6 +42,7 @@ set smartcase
 
 "==============================================================================
 " ########################################################################## UI
+set rnu
 set number
 set ruler
 set showmatch
@@ -54,6 +53,8 @@ set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=10
 set re=1
+set foldlevel=0
+set foldmethod=manual
 
 set list
 set listchars=""
