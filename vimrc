@@ -135,13 +135,6 @@ augroup file_type
 
   " Highlight JS object keys
   au BufNewFile,BufRead *.{js,jsx} hi def link jsObjectKey Identifier
-
-  " Treat Fastfile as Ruby
-  au BufNewFile,BufRead Fastfile set ft=ruby
-
-  " Highlighting for rspec files
-  au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-  highlight def link rubyRspec Function
 augroup END
 
 "==============================================================================
