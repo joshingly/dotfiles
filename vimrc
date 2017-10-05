@@ -81,7 +81,7 @@ let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
 if has("gui_running")
-  set guifont=PragmataPro:h14
+  set guifont=PragmataPro:h15
   set guioptions=egmrt      " turn off toolbar
   set guicursor+=n:blinkon0 " don't blink in normal mode
   set novisualbell
