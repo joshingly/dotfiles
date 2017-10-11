@@ -57,7 +57,7 @@ set foldmethod=manual
 
 set list
 set listchars=""
-set listchars+=tab:▸\
+set listchars+=tab:▸▸
 set listchars+=extends:>
 set listchars+=precedes:<
 
