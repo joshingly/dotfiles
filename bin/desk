@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 tmux start-server
 tmux -u new -d -s general
@@ -11,4 +11,6 @@ tmux rename-window -t general:1 vim
 tmux rename-window -t general:2 zsh
 
 tmux select-window -t general:1
+
+echo -ne "\033]0;tmux\007"
 tmux attach-session -t general

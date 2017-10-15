@@ -100,6 +100,7 @@ alias cl="fc -e -|pbcopy" # copy output of last command
 alias cpwd='pwd|tr -d "\n"|pbcopy' # copy working dir
 
 # tmux
+alias tmux='echo -ne "\033]0;tmux\007"; tmux'
 alias ta="tmux attach-session -t"
 alias tls="tmux list-sessions"
 
@@ -134,3 +135,6 @@ alias grh2="git reset HEAD~2 --hard"
 
 # tig
 alias tig="tig --all"
+
+# terminal title
+precmd() { eval 'echo -ne "\033]0;${PWD##*/}\007"' }

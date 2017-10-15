@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
+echo -ne "\033]0;tmux\007"
 tmux -u new -s general-alt -t general
