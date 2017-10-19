@@ -54,5 +54,5 @@ echo "remove safari js console history"
 rm -rf ~/Library/WebKit/com.apple.Safari/WebsiteData/LocalStorage/*
 echo "------------------------"
 echo "remove chrome js console history"
-rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/chrome-devtools_devtools_*
+rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*
 echo "------------------------"
