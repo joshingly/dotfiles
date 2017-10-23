@@ -12,6 +12,9 @@ echo "------------------------"
 echo "remove viminfo"
 rm  ~/.viminfo
 echo "------------------------"
+echo "remove tig history"
+rm  ~/.tig_history
+echo "------------------------"
 echo "remove atom data"
 rm -rf ~/Library/Application\ Support/Atom/
 rm -rf ~/.atom/storage/*
