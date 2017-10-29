@@ -15,7 +15,9 @@ plugins = [ "https://github.com/tpope/vim-fugitive",
             "https://github.com/airblade/vim-gitgutter",
             "https://github.com/tpope/vim-vinegar",
             "https://github.com/cespare/vim-sbd",
-            "https://github.com/sheerun/vim-polyglot" ]
+            "https://github.com/sheerun/vim-polyglot",
+            "https://github.com/justinmk/vim-sneak"
+          ]
 
 def install_plugins(root_path, plugins)
   Dir.chdir(File.expand_path("#{root_path}.vim/bundle/"))

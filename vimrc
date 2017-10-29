@@ -145,6 +145,10 @@ augroup plugins
   au BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
+" sneak
+let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1
+
 " For vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 set updatetime=200
@@ -372,6 +376,10 @@ nnoremap <leader>sc :FZF app/controllers<cr>
 nnoremap <leader>sm :FZF app/models<cr>
 nnoremap <leader>sv :FZF app/views<cr>
 nnoremap <leader>st :FZF spec<cr>
+
+" sneak
+map s <Plug>Sneak_s
+map S <Plug>Sneak_S
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
