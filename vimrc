@@ -241,8 +241,8 @@ function! OutputWindow()
     for window in windows_array
       if window =~ "output"
         let indexnum = split(window, ' ')[0]
-        call system("tmux send-keys -t " . indexnum . " \"clear\" C-m")
-        call system("tmux send-keys -t " . indexnum . " \"" . g:outputcmd . "\" C-m")
+        call system("tmux send-keys -t " . indexnum . ".0 \"clear\" C-m")
+        call system("tmux send-keys -t " . indexnum . ".0 \"" . g:outputcmd . "\" C-m")
         if g:outputswitch == 1
           call system("tmux select-window -t " . indexnum)
         endif
@@ -253,7 +253,7 @@ function! OutputWindow()
     if found == 0
       let output = system("tmux neww -n output -d -P -F '#I' -c " . getcwd())
       let indexnum = split(output, '\n')[0] " remove the newline
-      call system("tmux send-keys -t " . indexnum . " \"" . g:outputcmd . "\" C-m")
+      call system("tmux send-keys -t " . indexnum . ".0 \"" . g:outputcmd . "\" C-m")
       if g:outputswitch == 1
         call system("tmux select-window -t " . indexnum)
       endif
