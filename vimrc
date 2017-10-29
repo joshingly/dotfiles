@@ -439,6 +439,8 @@ command! OutputWindow :call OutputWindow()
 command! OutputPane :call OutputPane()
 command! CloseOutputWindow :call CloseOutputWindow()
 command! Path :echo expand('%:p')
+command! CopyRPath :call system("echo \"" . expand('%') . "\" | tr -d '\n' | pbcopy")
+command! CopyAPath :call system("echo \"" . expand('%:p') . "\" | tr -d '\n' | pbcopy")
 command! ReloadAll :call ReloadAll()
 command! JSONPretty :normal :.!jsonpp %<cr>
 command! -range=% SoftWrap
