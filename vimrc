@@ -15,6 +15,7 @@ set lazyredraw
 set noesckeys " fix lag after hitting escape
 set splitbelow
 set splitright
+set updatetime=200
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
@@ -62,7 +63,7 @@ set listchars+=extends:>
 set listchars+=precedes:<
 
 " don't show trailing spaces in insert mode
-augroup trailing
+augroup hide_trailing_spaces_in_insert_mode
   au!
   au InsertEnter * :set listchars-=trail:·
   au InsertLeave,BufReadPost * :set listchars+=trail:·
@@ -149,14 +150,13 @@ augroup END
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 
-" For vim-gitgutter
+" gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
-set updatetime=200
 
-" load matchit plugin
+" matchit
 so $VIMRUNTIME/macros/matchit.vim
 
-" indent-guides config
+" indent guides
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
@@ -170,7 +170,6 @@ augroup highlights
   au BufEnter *.go hi IndentGuidesOdd ctermbg=8
 augroup END
 
-" use auto colors for indent guides in the gui
 if has("gui_running")
   let g:indent_guides_auto_colors=1
 endif
@@ -198,7 +197,7 @@ let g:fzf_colors = {
   \ 'header':  ['fg', 'Comment']
 \ }
 
-" vim-go options
+" vim-go
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -207,7 +206,7 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" ack.vim options
+" ack.vim
 let g:ackprg = 'rg -S --no-heading --vimgrep'
 
 "==============================================================================
@@ -277,7 +276,7 @@ function! CloseOutputWindow()
   endif
 endfunction
 
-" Remap the tab key to do autocompletion or indentation depending on the
+" remap the tab key to do autocompletion or indentation depending on the
 " context (from http://overstimulate.com/articles/vim-ruby)
 function! InsertTabWrapper()
   let col = col('.') - 1
@@ -336,13 +335,12 @@ nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
 
-" `^ prevents cursuring from moving left
+" `^ prevents cursoring from moving left
 inoremap jk <Esc>`^
+
 " gV prevents reselection
 vnoremap <tab> <Esc>gV
 nnoremap <tab> <Esc>
-
-set pastetoggle=<F2>
 
 " remap j and k to move up and down DISPLAYED lines
 " without having to press 2 keys
@@ -351,7 +349,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" cowboy coding!!!
+" save and run
 nnoremap <leader>t :w <bar> ! ruby % <cr>
 
 " open alternate file
@@ -366,7 +364,7 @@ nnoremap <leader><leader> <c-^>
 " rake routes
 map <leader>rr :call ShowRoutes()<cr><F5>
 
-" fugitive mappings
+" fugitive
 map <leader>gs :Gstatus<cr>
 
 " fzf mappings
@@ -387,28 +385,25 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " don't use Ex mode, use Q for formatting
 map Q gq
 
-" Window splitting shortcuts
+" window splitting
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
 
-" Window movement shortcuts
+" window movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " disable cursor keys in normal mode
-map <Left>  :echo "BAD"<cr>
-map <Right> :echo "BAD"<cr>
-map <Up>    :echo "BAD"<cr>
-map <Down>  :echo "BAD"<cr>
+map <Left>  :echo "NOPE"<cr>
+map <Right> :echo "NOPE"<cr>
+map <Up>    :echo "NOPE"<cr>
+map <Down>  :echo "NOPE"<cr>
 
 " command-line mode history completion
 cmap <c-n> <down>
 cmap <c-p> <up>
-
-" run jshint on current file
-nnoremap <leader>js :w <bar> :JSHint<cr>
 
 " diff current file against saved version
 nnoremap <leader>sd :DiffSaved<cr>
@@ -416,15 +411,11 @@ nnoremap <leader>sd :DiffSaved<cr>
 " ack word under cursor
 nnoremap <silent>K :Ack <cword><cr>
 
-" Open a Quickfix window for the last search.
+" open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
-" Annoyance
+" annoyance
 nnoremap <F1> <nop>
-
-" split join
-nmap sj :SplitjoinSplit<cr>
-nmap sk :SplitjoinJoin<cr>
 
 "==============================================================================
 " #################################################################### COMMANDS
