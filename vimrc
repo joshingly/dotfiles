@@ -232,7 +232,7 @@ endfunction
 
 " run command in a new tmux window
 let g:outputswitch = 1
-let g:outputcmd = "bundle exec rubocop && bundle exec rspec"
+let g:outputcmd = "bundle exec rspec"
 function! OutputWindow()
   if exists('$TMUX')
     let windows = system("tmux list-windows -F '#I #W'")
