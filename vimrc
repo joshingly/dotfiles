@@ -262,6 +262,17 @@ function! OutputWindow()
   endif
 endfunction
 
+let g:outputpane = -1
+" run command in a tmux pane
+function! OutputPane()
+  if exists('$TMUX') && g:outputpane != -1
+    let output = system("tmux display-message -p '#I'")
+    let current_window = split(output, '\n')[0]
+    call system("tmux send-keys -t " . current_window . "." . g:outputpane . " \"clear\" C-m")
+    call system("tmux send-keys -t " . current_window . "." . g:outputpane . " \"" . g:outputcmd . "\" C-m")
+  endif
+endfunction
+
 " close window created by OutputWindow
 function! CloseOutputWindow()
   if exists('$TMUX')
@@ -425,6 +436,7 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! DiffSaved :call DiffSaved()
 command! RenameFile :call RenameFile()
 command! OutputWindow :call OutputWindow()
+command! OutputPane :call OutputPane()
 command! CloseOutputWindow :call CloseOutputWindow()
 command! Path :echo expand('%:p')
 command! ReloadAll :call ReloadAll()
