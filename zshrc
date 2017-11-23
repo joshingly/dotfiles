@@ -27,7 +27,7 @@ export cdpath=($HOME/Dropbox/Code $HOME/Dropbox/Work)
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
-
+export VAGRANT_VMWARE_CLONE_DIRECTORY=$HOME/Documents/Virtual\ Machines.localized/.vagrant
 
 # rbenv
 eval "$(rbenv init -)"
