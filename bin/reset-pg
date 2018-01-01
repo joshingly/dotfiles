@@ -1,5 +1,0 @@
-#!/bin/bash
-
-osascript -e 'tell application "Postgres" to quit'
-rm -r ~/Library/Application\ Support/Postgres
-osascript -e 'tell application "Postgres" to activate'
