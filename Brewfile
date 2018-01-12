@@ -22,3 +22,5 @@ brew 'docker-completion'
 brew 'docker-compose-completion'
 
 cask 'vagrant'
+cask 'virtualbox'
+cask 'virtualbox-extension-pack'
