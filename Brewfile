@@ -18,5 +18,7 @@ brew 'rbenv'
 brew 'ripgrep'
 brew 'fzf'
 brew 'dnsmasq'
+brew 'docker-completion'
+brew 'docker-compose-completion'
 
 cask 'vagrant'
