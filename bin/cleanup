@@ -1,19 +1,22 @@
 #!/bin/bash
 
 echo "remove bash history"
-rm  ~/.bash_history
+rm ~/.bash_history
+echo "------------------------"
+echo "remove bash_sessions"
+rm -rf ~/.bash_sessions
 echo "------------------------"
 echo "remove zsh history"
-rm  ~/.zsh_history
+rm ~/.zsh_history
 echo "------------------------"
 echo "remove zcompdump files"
-rm  ~/.zcompdump*
+rm ~/.zcompdump*
 echo "------------------------"
 echo "remove viminfo"
-rm  ~/.viminfo
+rm ~/.viminfo
 echo "------------------------"
 echo "remove tig history"
-rm  ~/.tig_history
+rm ~/.tig_history
 echo "------------------------"
 echo "remove atom data"
 rm -rf ~/Library/Application\ Support/Atom/
@@ -42,6 +45,9 @@ rm ~/.mysql_history
 echo "------------------------"
 echo "remove redis history"
 rm ~/.rediscli_history
+echo "------------------------"
+echo "remove .v8flags files"
+rm ~/.v8flags*
 echo "------------------------"
 echo "remove vim backups and plugin cache"
 rm -rf ~/.vim/_cache/*
