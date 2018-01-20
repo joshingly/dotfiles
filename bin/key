@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require 'readline'
+
+key_dirs = [
+  '~/Dropbox/Work/Keys',
+  '~/Dropbox/System/Keys'
+].map do |dir|
+  Dir.glob("#{File.expand_path(dir)}/*")
+end.flatten.map do |dir|
+  Pathname.new(dir)
+end
+
+completions = proc do |s|
+  key_dirs.map { |dir| dir.basename.to_s.downcase }.grep(/^#{Regexp.escape(s)}/)
+end
+
+Readline.completion_append_character = nil
+Readline.completion_proc = completions
+
+input = Readline.readline('> ', true)
+dir = key_dirs.select { |dir| input == dir.basename.to_s.downcase }.first
+key = Dir.glob("#{dir}/*").select { |file| !file.match?(/.*\.pub/) }.first
+
+if key
+  system("chmod 600 #{key}")
+  system("ssh-add #{key}")
+end
