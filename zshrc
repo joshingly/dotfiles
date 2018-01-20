@@ -18,6 +18,9 @@ source ~/.zsh/prompt.zsh
 # load completions (homebrew)
 export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
 
+# load completions (custom)
+source $HOME/.zsh/rake-completion.zsh
+
 # case insensitive completions
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
@@ -42,7 +45,7 @@ export FZF_DEFAULT_OPTS='
 export FZF_DEFAULT_COMMAND='
 rg --smart-case --files --no-ignore --hidden --follow \
 --glob "!.git/*" --glob "!.DS_Store" --glob "!**/node_modules/*" \
---glob "!**/tmp/*"
+--glob "!**/tmp/*" --glob "!.rake_tasks"
 '
 
 # remove duped path entries (caused by tmux)

@@ -1,5 +1,6 @@
 .ds_store
 .rvmrc
+.rake_tasks
 .rbx/
 .sass-cache/
 .jhw-cache/
