@@ -21,7 +21,9 @@ Readline.completion_proc = completions
 
 input = Readline.readline('> ', true)
 dir = key_dirs.select { |dir| input == dir.basename.to_s.downcase }.first
-key = Dir.glob("#{dir}/*").select { |file| !file.match?(/.*\.pub/) }.first
+exit unless dir
+
+key = Dir.glob("#{dir}/*").select { |file| !file.match?(/.*\.pub$/) }.first
 
 if key
   system("chmod 600 #{key}")
