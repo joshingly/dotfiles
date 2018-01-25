@@ -9,9 +9,6 @@ export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 eval `gdircolors -b ~/.zsh/dircolors.256dark`
 
-# plugins
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # load prompt
 source ~/.zsh/prompt.zsh
 

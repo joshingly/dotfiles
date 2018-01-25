@@ -1,5 +1,4 @@
 brew 'zsh-completions'
-brew 'zsh-syntax-highlighting'
 brew 'coreutils'
 brew 'git'
 brew 'zsh'
