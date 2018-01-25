@@ -66,7 +66,7 @@ SAVEHIST=10000
 HISTSIZE=10000
 HISTIGNORE="heroku config*set*:"
 setopt histignoredups
-setopt APPEND_HISTORY
+setopt incappendhistory
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
