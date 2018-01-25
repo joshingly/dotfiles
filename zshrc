@@ -11,8 +11,6 @@ eval `gdircolors -b ~/.zsh/dircolors.256dark`
 
 # plugins
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=24'
 
 # load prompt
 source ~/.zsh/prompt.zsh
