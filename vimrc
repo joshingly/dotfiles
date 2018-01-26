@@ -398,7 +398,7 @@ map Q gq
 
 " window splitting
 nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
+nnoremap <silent> __ <C-w>s
 
 " window movement
 nnoremap <c-j> <c-w>j
