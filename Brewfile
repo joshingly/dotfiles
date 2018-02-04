@@ -1,3 +1,4 @@
+brew 'rsync'
 brew 'zsh-completions'
 brew 'coreutils'
 brew 'git'
