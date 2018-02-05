@@ -21,7 +21,7 @@ source $HOME/.zsh/rake-completion.zsh
 # case insensitive completions
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
-export GOPATH=$HOME/Dropbox/Code/Go
+export GOPATH=$HOME/Dropbox/Code/go
 export cdpath=($HOME/Dropbox)
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
