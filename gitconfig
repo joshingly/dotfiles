@@ -44,19 +44,3 @@
 [alias]
   l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s' --abbrev-commit --date=local --all --max-count=1000"
   ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=local --all --stat --max-count=300"
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-  tool = Kaleidoscope
-  renames = copies
-  mnemonicprefix = true
-[difftool]
-  prompt = false
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-[mergetool]
-  prompt = false
-[merge]
-  tool = Kaleidoscope
-  stat = true
