@@ -22,7 +22,7 @@ source $HOME/.zsh/rake-completion.zsh
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
 export GOPATH=$HOME/Dropbox/Code/Go
-export cdpath=($HOME/Dropbox/Code $HOME/Dropbox/Work)
+export cdpath=($HOME/Dropbox)
 
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
