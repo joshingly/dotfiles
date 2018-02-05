@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-fail 'must provide name' unless name = ARGV[0]
-
-system "middleman init -T joshingly/middleman-template #{name}"
