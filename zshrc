@@ -5,8 +5,6 @@ setopt menucomplete
 
 # directory / file colors
 alias ls=' gls -C -F -h --color=always'
-export CLICOLOR=1
-export LSCOLORS="gxfxcxdxbxegedabagacad"
 eval `gdircolors -b ~/.zsh/dircolors.ansi-dark`
 
 # load prompt
