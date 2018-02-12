@@ -7,7 +7,7 @@ setopt menucomplete
 alias ls=' gls -C -F -h --color=always'
 export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
-eval `gdircolors -b ~/.zsh/dircolors.256dark`
+eval `gdircolors -b ~/.zsh/dircolors.ansi-dark`
 
 # load prompt
 source ~/.zsh/prompt.zsh
