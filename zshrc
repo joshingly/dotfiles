@@ -4,7 +4,7 @@ setopt nocasematch
 setopt menucomplete
 
 # directory / file colors
-alias ls=' gls -C -F -h --color=always'
+alias ls='gls -C -F -h --color=always'
 eval `gdircolors -b ~/.zsh/dircolors.ansi-dark`
 
 # load prompt
