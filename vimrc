@@ -55,6 +55,7 @@ set sidescrolloff=10
 set re=1
 set foldlevel=0
 set foldmethod=manual
+set signcolumn=yes
 
 set list
 set listchars=""
