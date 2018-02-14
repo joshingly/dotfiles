@@ -5,7 +5,7 @@ setopt menucomplete
 
 # directory / file colors
 alias ls='gls -C -F -h --color=always'
-eval `gdircolors -b ~/.zsh/dircolors.ansi-dark`
+eval `gdircolors -b ~/.zsh/dircolors`
 
 # load prompt
 source ~/.zsh/prompt.zsh
