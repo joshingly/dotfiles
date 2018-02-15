@@ -91,6 +91,7 @@ alias rm="trash"
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
 
 # tmux
+alias tmux='echo -ne "\033]0;tmux\007"; tmux'
 alias ta="tmux attach-session -t"
 alias tls="tmux list-sessions"
 
