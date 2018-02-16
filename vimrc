@@ -15,7 +15,7 @@ set lazyredraw
 set noesckeys " fix lag after hitting escape
 set splitbelow
 set splitright
-set updatetime=200
+set updatetime=100
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
