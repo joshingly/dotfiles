@@ -16,6 +16,7 @@ set noesckeys " fix lag after hitting escape
 set splitbelow
 set splitright
 set updatetime=100
+set shortmess=I
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
