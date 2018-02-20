@@ -32,6 +32,12 @@ export PATH=$GOPATH/bin:$PATH
 # rbenv
 eval "$(rbenv init -)"
 
+# asdf
+export PATH=$HOME/.asdf/bin:$PATH
+export PATH=$HOME/.asdf/shims:$PATH
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
 # fzf
 export FZF_DEFAULT_OPTS='
 --color dark,hl:33,hl+:37,fg+:235,bg+:0,fg+:254
