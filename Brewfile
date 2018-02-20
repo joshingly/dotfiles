@@ -6,7 +6,6 @@ brew 'zsh'
 brew 'vim', args: ['with-lua', 'HEAD']
 brew 'colordiff'
 brew 'jsonpp'
-brew 'node'
 brew 'tree'
 brew 'tmux'
 brew 'reattach-to-user-namespace'
