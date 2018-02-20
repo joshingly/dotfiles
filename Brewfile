@@ -19,6 +19,7 @@ brew 'yarn', args: ['without-node']
 brew 'ripgrep'
 brew 'fzf'
 brew 'dnsmasq'
+brew 'gnupg'
 brew 'docker-completion'
 brew 'docker-compose-completion'
 
