@@ -3,6 +3,7 @@ brew 'zsh-completions'
 brew 'coreutils'
 brew 'git'
 brew 'zsh'
+brew 'vim', args: ['with-lua', 'HEAD']
 brew 'colordiff'
 brew 'jsonpp'
 brew 'node'
