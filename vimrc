@@ -228,8 +228,8 @@ function! DiffSaved()
 endfunction
 
 function! ReloadAll()
-  :GitGutterAll
   :checktime
+  :GitGutterAll
 endfunction
 
 " run command in a new tmux window
