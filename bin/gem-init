@@ -4,4 +4,4 @@ location = `which ruby`
 
 fail "don't use the system ruby" if location =~ /\/usr\/bin\/ruby/
 
-system 'gem install awesome_print pry pry-byebug'
+system 'gem install bundler awesome_print pry pry-byebug'
