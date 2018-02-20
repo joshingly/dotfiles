@@ -19,11 +19,14 @@ source $HOME/.zsh/rake-completion.zsh
 # case insensitive completions
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
-export GOPATH=$HOME/Dropbox/Code/go
+# cdpath
 export cdpath=($HOME/Dropbox)
 
+# PATH
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
-export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
+# go
+export GOPATH=$HOME/Dropbox/Code/go
 export PATH=$GOPATH/bin:$PATH
 
 # rbenv
