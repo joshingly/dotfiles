@@ -15,6 +15,7 @@ brew 'trash'
 brew 'diff-so-fancy'
 brew 'heroku'
 brew 'rbenv'
+brew 'yarn', args: ['without-node']
 brew 'ripgrep'
 brew 'fzf'
 brew 'dnsmasq'
