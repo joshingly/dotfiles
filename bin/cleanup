@@ -31,7 +31,7 @@ echo "------------------------"
 echo "remove node repl history"
 rm ~/.node_repl_history
 echo "------------------------"
-echo "guard history"
+echo "remove guard history"
 rm ~/.guard_history
 echo "------------------------"
 echo "remove less history"
