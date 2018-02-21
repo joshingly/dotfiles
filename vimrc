@@ -158,6 +158,9 @@ let g:gitgutter_override_sign_column_highlight = 0
 " matchit
 so $VIMRUNTIME/macros/matchit.vim
 
+" delimitmate
+let g:delimitMate_expand_cr = 2
+
 " indent guides
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
