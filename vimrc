@@ -18,10 +18,6 @@ set splitright
 set updatetime=100
 set shortmess=I
 
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
-
 set history=10000
 set swapfile
 set backup
