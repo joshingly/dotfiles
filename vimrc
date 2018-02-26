@@ -231,7 +231,7 @@ function! DiffSaved()
 endfunction
 
 function! ReloadAll()
-  :checktime
+  :silent! checktime
   :GitGutterAll
 endfunction
 
