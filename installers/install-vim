@@ -4,6 +4,7 @@ root_path = "~/"
 plugins = [
   "https://github.com/mileszs/ack.vim",
   "https://github.com/raimondi/delimitmate",
+  "https://github.com/wincent/terminus",
   "https://github.com/altercation/vim-colors-solarized",
   "https://github.com/tpope/vim-commentary",
   "https://github.com/tpope/vim-endwise",
