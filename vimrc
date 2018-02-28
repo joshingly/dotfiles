@@ -148,6 +148,7 @@ augroup END
 let g:TerminusCursorShape = 0
 let g:TerminusMouse = 0
 let g:TerminusAssumeITerm = 0
+let g:TerminusBracketedPaste = 0
 
 " sneak
 let g:sneak#label = 1
