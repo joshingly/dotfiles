@@ -156,6 +156,7 @@ let g:sneak#use_ic_scs = 1
 
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_terminal_reports_focus = 0
 
 " matchit
 so $VIMRUNTIME/macros/matchit.vim
