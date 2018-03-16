@@ -3,10 +3,6 @@ setopt auto_cd
 setopt nocasematch
 setopt menucomplete
 
-# directory / file colors
-alias ls='gls -C -F -h --color=always'
-eval `gdircolors -b ~/.zsh/dircolors`
-
 # load prompt
 source ~/.zsh/prompt.zsh
 
@@ -54,6 +50,10 @@ rg --smart-case --files --no-ignore --hidden --follow \
 
 # remove duped path entries (caused by tmux)
 typeset -U PATH
+
+# directory / file colors
+alias ls='gls -C -F -h --color=always'
+eval `gdircolors -b ~/.zsh/dircolors`
 
 # make <C-s> work in terminal vim
 stty -ixon
