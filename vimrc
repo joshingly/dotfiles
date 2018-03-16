@@ -53,6 +53,7 @@ set re=1
 set foldlevel=0
 set foldmethod=manual
 set signcolumn=yes
+set fillchars+=vert:\ 
 
 set list
 set listchars=""
