@@ -9,7 +9,7 @@ set nocompatible
 set encoding=utf-8
 set hidden
 set magic
-set autoread " reload file if it was changed outside of vim
+set autoread
 set ttyfast
 set lazyredraw
 set noesckeys " fix lag after hitting escape
@@ -21,11 +21,11 @@ set shortmess=I
 set history=10000
 set swapfile
 set backup
-set backupdir=~/.vim/_backup    " where to put backup files.
+set backupdir=~/.vim/_backup
 set directory=~/.vim/_temp      " where to put swap files.
 
 " text
-set backspace=indent,eol,start "backspace through everything in indent mode
+set backspace=indent,eol,start  "b ackspace through everything in indent mode
 set nowrap
 set expandtab
 set nojoinspaces
@@ -61,7 +61,6 @@ set listchars+=tab:▸▸
 set listchars+=extends:>
 set listchars+=precedes:<
 
-" don't show trailing spaces in insert mode
 augroup hide_trailing_spaces_in_insert_mode
   au!
   au InsertEnter * :set listchars-=trail:·
@@ -74,8 +73,8 @@ augroup hide_cursor_line
   au InsertLeave * :set cursorline
 augroup END
 
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
+set wildmenu
+set wildmode=list:longest
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
@@ -86,7 +85,7 @@ if has("gui_running")
   set guicursor+=n:blinkon0 " don't blink in normal mode
   set novisualbell
   set antialias
-  set guioptions-=r         "don't show right scrollbar
+  set guioptions-=r         " don't show right scrollbar
   set showtabline=1
 endif
 
@@ -123,16 +122,10 @@ augroup file_type
 
   au filetype * set tabstop=2 | set shiftwidth=2
   au filetype markdown set tabstop=4 | set shiftwidth=4
-
   au filetype make,go setlocal noexpandtab
   au filetype gitcommit,git,qf,go setlocal nolist
-
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call SetupWrapping()
-
-  " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
-
-  " Highlight JS object keys
   au BufNewFile,BufRead *.{js,jsx} hi def link jsObjectKey Identifier
 augroup END
 
@@ -239,7 +232,6 @@ function! ReloadAll()
   :GitGutterAll
 endfunction
 
-" run command in a new tmux window
 let g:outputswitch = 1
 let g:outputcmd = "bundle exec rspec"
 function! OutputWindow()
@@ -272,7 +264,6 @@ function! OutputWindow()
 endfunction
 
 let g:outputpane = -1
-" run command in a tmux pane
 function! OutputPane()
   if exists('$TMUX') && g:outputpane != -1
     let output = system("tmux display-message -p '#I'")
@@ -282,7 +273,6 @@ function! OutputPane()
   endif
 endfunction
 
-" close window created by OutputWindow
 function! CloseOutputWindow()
   if exists('$TMUX')
     let windows = system("tmux list-windows -F '#I #W'")
@@ -347,6 +337,7 @@ map <leader>p "*p
 nnoremap <c-u> 10k
 nnoremap <c-d> 10j
 
+" Y yanks whole line
 nnoremap Y y$
 
 " center after jumping
@@ -425,7 +416,6 @@ map <Down>  :echo "NOPE"<cr>
 cmap <c-n> <down>
 cmap <c-p> <up>
 
-" diff current file against saved version
 nnoremap <leader>sd :DiffSaved<cr>
 
 " ack word under cursor
