@@ -68,6 +68,3 @@ echo "------------------------"
 echo "remove chrome js console history"
 rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*
 echo "------------------------"
-echo "remove cached rake tasks"
-find $HOME -iname '.rake_tasks' -print0 | xargs -0 rm
-echo "------------------------"

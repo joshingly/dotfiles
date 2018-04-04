@@ -9,9 +9,6 @@ source ~/.zsh/prompt.zsh
 # load completions (homebrew)
 export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
 
-# load completions (custom)
-source $HOME/.zsh/rake-completion.zsh
-
 # case insensitive completions
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
