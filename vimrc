@@ -6,6 +6,7 @@ filetype plugin indent on
 " ######################################################## GENERAL EDITOR STUFF
 syntax enable
 set nocompatible
+set complete-=i
 set encoding=utf-8
 set hidden
 set magic
