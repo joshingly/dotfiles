@@ -16,7 +16,7 @@ plugins = [
   "https://github.com/tpope/vim-rails",
   "https://github.com/tpope/vim-repeat",
   "https://github.com/mhinz/vim-sayonara",
-  "https://github.com/justinmk/vim-sneak"
+  "https://github.com/justinmk/vim-sneak",
   "https://github.com/tpope/vim-surround",
   "https://github.com/tpope/vim-unimpaired",
   "https://github.com/tpope/vim-vinegar"
