@@ -1,0 +1,85 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'pathname'
+
+class Reset < Thor
+  desc 'reset docker', ''
+  def docker
+    System.run  'docker ps -aq | xargs docker stop && docker system prune -af --volumes'
+  end
+end
+
+module Update
+  extend self
+
+  def vim_plugins
+    path = Pathname.new(File.expand_path('~/.vim/bundle')).join('*')
+    entries = Dir.glob(path).delete_if { |entry| !File.directory?(entry) }
+
+    entries.each do |entry|
+      puts Pathname.new(entry).basename
+      Dir.chdir(entry) { System.run 'git pull' }
+    end
+  end
+
+  def brew
+    System.run 'brew update && brew upgrade && brew cask upgrade && brew cleanup -f && brew prune'
+  end
+end
+
+module System
+  extend self
+
+  def run(command)
+    puts '-' * command.length
+    puts command
+    puts '-' * command.length
+
+    system(command)
+
+    puts "\n"
+  end
+end
+
+class LocalCLI < Thor
+  register(Reset, 'reset', 'reset <command>', '')
+
+  desc 'update', ''
+  def update
+    Update.vim_plugins
+    Update.brew
+  end
+
+  desc 'clean', ''
+  def clean
+    [
+      'rm ~/.bash_history',
+      'rm -rf ~/.bash_sessions',
+      'rm ~/.zsh_history',
+      'rm ~/.zcompdump*',
+      'rm ~/.viminfo',
+      'rm ~/.tig_history',
+      'rm -rf ~/Library/Application\ Support/Atom/',
+      'rm -rf ~/.atom/storage/*',
+      'rm ~/.pry_history',
+      'rm ~/.irb-history',
+      'rm ~/.node_repl_history',
+      'rm ~/.guard_history',
+      'rm ~/.lesshst',
+      'rm ~/.sqlite_history',
+      'rm ~/.psql_history',
+      'rm ~/.mysql_history',
+      'rm ~/.rediscli_history',
+      'rm ~/.v8flags*',
+      'rm -rf ~/.vim/_cache/*',
+      'rm ~/.vim/_backup/*',
+      'rm -rf ~/Library/Developer/Xcode/DerivedData',
+      'find ~/Dropbox -type f -name "* conflicted *" -exec rm -f {} \;',
+      'rm -rf ~/Library/WebKit/com.apple.Safari/WebsiteData/LocalStorage/*',
+      'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*'
+    ].each { |command| System.run(command) }
+  end
+end
+
+LocalCLI.start(ARGV)
