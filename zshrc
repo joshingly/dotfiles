@@ -3,18 +3,6 @@ setopt auto_cd
 setopt nocasematch
 setopt menucomplete
 
-# load prompt
-source ~/.zsh/prompt.zsh
-
-# load completions (homebrew)
-export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
-
-# case insensitive completions
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
-
-# cdpath
-export cdpath=($HOME/Dropbox)
-
 # PATH
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 
@@ -31,6 +19,20 @@ export PATH=$HOME/.asdf/shims:$PATH
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+# load prompt
+source ~/.zsh/prompt.zsh
+
+# load completions (homebrew)
+export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
+
+# load completions (custom)
+source $HOME/.zsh/custom-completions.zsh
+
+# case insensitive completions
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
+
+# cdpath
+export cdpath=($HOME/Dropbox)
 # fzf
 export FZF_DEFAULT_OPTS='
 --color dark,hl:33,hl+:37,fg+:235,bg+:0,fg+:254
