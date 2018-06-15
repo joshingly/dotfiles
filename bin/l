@@ -43,7 +43,7 @@ module System
 end
 
 class LocalCLI < Thor
-  register(Reset, 'reset', 'reset <command>', '')
+  register(Reset, 'reset', 'reset [COMMAND]', '')
 
   desc 'update', ''
   def update
