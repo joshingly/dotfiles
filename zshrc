@@ -1,4 +1,4 @@
-autoload -U compinit && compinit
+autoload -U compinit && compinit -u
 setopt auto_cd
 setopt nocasematch
 setopt menucomplete
