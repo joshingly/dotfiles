@@ -10,14 +10,11 @@ export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export GOPATH=$HOME/Dropbox/Code/go
 export PATH=$GOPATH/bin:$PATH
 
+# nodenv
+eval "$(nodenv init -)"
+
 # rbenv
 eval "$(rbenv init -)"
-
-# asdf
-export PATH=$HOME/.asdf/bin:$PATH
-export PATH=$HOME/.asdf/shims:$PATH
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 # load prompt
 source ~/.zsh/prompt.zsh
