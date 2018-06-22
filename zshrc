@@ -129,8 +129,5 @@ alias grh="git reset --hard"
 alias grh1="git reset HEAD~ --hard"
 alias grh2="git reset HEAD~2 --hard"
 
-# tig
-alias tig="tig --all"
-
 # terminal title
 precmd() { eval 'echo -ne "\033]0;${PWD##*/}\007"' }
