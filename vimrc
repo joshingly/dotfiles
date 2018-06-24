@@ -49,7 +49,7 @@ set cmdheight=1
 set cursorline
 set colorcolumn=80
 set scrolloff=5
-set sidescrolloff=10
+set sidescrolloff=5
 set re=1
 set foldlevel=0
 set foldmethod=manual
