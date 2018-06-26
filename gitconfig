@@ -10,6 +10,10 @@
   excludesfile = ~/.gitignore_global
 [branch]
   autosetupmerge = true
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+  prompt = false
 [push]
   default = simple
 [pull]
