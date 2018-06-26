@@ -5,7 +5,6 @@
   user = joshingly
 [core]
   ignorecase = false
-  pager = diff-so-fancy | less -FRXS
   editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore_global
 [branch]
@@ -18,8 +17,9 @@
   default = simple
 [pull]
   rebase = true
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 [color]
-  ui = auto
   diff = auto
   branch = auto
   log = auto
@@ -33,6 +33,7 @@
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
+  commit = yellow bold
   old = red bold
   new = green bold
   whitespace = red reverse
@@ -48,3 +49,4 @@
 [alias]
   l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s' --abbrev-commit --date=local"
   ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=local --stat"
+  patch = !git --no-pager diff --no-color
