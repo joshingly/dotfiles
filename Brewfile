@@ -1,3 +1,4 @@
+brew 'pv'
 brew 'rsync'
 brew 'jq'
 brew 'zsh-completions'
