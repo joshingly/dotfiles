@@ -26,7 +26,7 @@ set backupdir=~/.vim/_backup
 set directory=~/.vim/_temp      " where to put swap files.
 
 " text
-set backspace=indent,eol,start  "b ackspace through everything in indent mode
+set backspace=indent,eol,start  " backspace through everything in indent mode
 set nowrap
 set expandtab
 set nojoinspaces
