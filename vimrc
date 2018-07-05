@@ -145,9 +145,18 @@ let g:TerminusMouse = 0
 let g:TerminusAssumeITerm = 0
 let g:TerminusBracketedPaste = 0
 
-" sneak
-let g:sneak#label = 1
-let g:sneak#use_ic_scs = 1
+" easymotion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping = 0
+
+hi link EasyMotionTarget Search
+hi link EasyMotionShade Comment
+
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second Search
+
+hi link EasyMotionMoveHL Search
+hi link EasyMotionIncSearch Search
 
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
@@ -387,9 +396,8 @@ nnoremap <leader>sm :FZF app/models<cr>
 nnoremap <leader>sv :FZF app/views<cr>
 nnoremap <leader>st :FZF spec<cr>
 
-" sneak
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
+" easymotion
+nmap s <Plug>(easymotion-overwin-f2)
 
 " tab completion
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
