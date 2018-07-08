@@ -1,11 +1,11 @@
-# https://wikimatze.de/writing-zsh-completion-for-padrino/
+# https://github.com/wikimatze/padrino-zsh-completion/blob/master/_padrino
 
 _l() {
   typeset -A opt_args
 
   _arguments -C \
     '1:cmd:->cmds' \
-    '2:reset:->reset_list' \
+    '2:sub_cmd:->sub_cmds' \
   && ret=0
 
   case "$state" in
@@ -19,12 +19,16 @@ _l() {
 
        _describe -t commands 'command' commands && ret=0
     ;;
-    (reset_list)
-      local resets; resets=(
-        'docker'
-      )
+    (sub_cmds)
+      case $line[1] in
+        (reset)
+          local reset; resets=(
+            'docker'
+          )
 
-      _describe -t resets 'reset' resets && ret=0
+          _describe -t resets 'reset' resets && ret=0
+        ;;
+      esac
     ;;
   esac
 
