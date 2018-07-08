@@ -137,6 +137,7 @@ augroup plugins
 
   " auto clean fugitive buffers
   au BufReadPost fugitive://* set bufhidden=delete
+  au BufWritePost * GitGutter
 augroup END
 
 " terminus
