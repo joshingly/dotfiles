@@ -94,6 +94,7 @@ bindkey -M vicmd '!' edit-command-line
 # ALIASES
 alias rm="trash"
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
+alias dc="docker-compose"
 
 # tmux
 alias tmux='echo -ne "\033]0;tmux\007"; tmux'
