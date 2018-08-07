@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 
+require 'fileutils'
+
 source = File.expand_path(File.dirname(__FILE__) + '/..')
 destination = File.expand_path('~')
 
+FileUtils.mkdir_p("#{destination}/.config/kitty")
+
+File.symlink("#{source}/kitty.conf", "#{destination}/.config/kitty/kitty.conf")
 File.symlink("#{source}/gemrc", "#{destination}/.gemrc")
 File.symlink("#{source}/gitconfig", "#{destination}/.gitconfig")
 File.symlink("#{source}/gitignore_global", "#{destination}/.gitignore_global")
