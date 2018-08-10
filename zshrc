@@ -1,4 +1,15 @@
-autoload -U compinit && compinit -u
+autoload -Uz compinit
+
+if [ ! -f ~/.zcompdump ]; then
+  compinit -u
+fi
+
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit -u
+else
+  compinit -C
+fi
+
 setopt auto_cd
 setopt nocasematch
 setopt menucomplete
