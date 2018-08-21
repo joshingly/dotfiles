@@ -24,7 +24,7 @@ module Update
   end
 
   def brew
-    System.run 'brew update && brew upgrade && brew cask upgrade && brew cleanup -s && brew cask cleanup && brew prune'
+    System.run 'brew update && brew upgrade && brew cask upgrade && brew cleanup -s && brew prune'
   end
 end
 
