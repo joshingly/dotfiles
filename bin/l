@@ -75,7 +75,8 @@ class LocalCLI < Thor
       'rm -rf ~/Library/Developer/Xcode/DerivedData',
       'find ~/Dropbox -type f -name "* conflicted *" -exec rm -f {} \;',
       'rm -rf ~/Library/WebKit/com.apple.Safari/WebsiteData/LocalStorage/*',
-      'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*'
+      'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*',
+      'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Favicons*'
     ].each { |command| System.run(command) }
   end
 end
