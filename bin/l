@@ -24,7 +24,13 @@ module Update
   end
 
   def brew
-    System.run 'brew update && brew upgrade && brew cask upgrade && brew cleanup -s && brew prune'
+    [
+      'brew update',
+      'brew upgrade',
+      'brew cask upgrade',
+      'brew cleanup -s',
+      'brew prune'
+    ].each { |command| System.run(command) }
   end
 end
 
