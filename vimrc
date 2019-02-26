@@ -94,8 +94,8 @@ set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
 
-highlight SignColumn ctermbg=NONE
-highlight SignColumn guibg=NONE
+highlight SignColumn ctermbg=8
+highlight SignColumn guibg=NONE guifg=NONE
 highlight! link QuickFixLine Normal
 highlight EndOfBuffer ctermfg=bg guifg=bg
 highlight! StatusLine ctermfg=6
@@ -162,6 +162,9 @@ hi link EasyMotionIncSearch Search
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_terminal_reports_focus = 0
+highlight GitGutterAdd    guifg=#009900 guibg=NONE ctermfg=2 ctermbg=NONE
+highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=NONE
+highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=NONE
 
 " matchit
 so $VIMRUNTIME/macros/matchit.vim
