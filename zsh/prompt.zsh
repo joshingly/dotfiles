@@ -1,10 +1,10 @@
+# https://gist.github.com/joshdick/4415470
+
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 
 setopt prompt_subst
 
-# Git prompt from: https://gist.github.com/joshdick/4415470
-# Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$reset_color%}on "
 GIT_PROMPT_PREFIX="%{$fg[white]%}(%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg[white]%})%{$reset_color%}"
@@ -15,14 +15,11 @@ GIT_PROMPT_UNTRACKED="%{$fg[red]%}●%{$reset_color%}"
 GIT_PROMPT_MODIFIED="%{$fg[yellow]%}●%{$reset_color%}"
 GIT_PROMPT_STAGED="%{$fg[green]%}●%{$reset_color%}"
 
-# Show Git branch/tag, or name-rev if on detached head
 parse_git_branch() {
   (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
-# Show different symbols as appropriate for various Git repository states
 parse_git_state() {
-  # Compose this value via multiple conditional appends.
   local GIT_STATE=""
 
   local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
@@ -57,7 +54,6 @@ parse_git_state() {
   fi
 }
 
-# If inside a Git repository, print its branch and state
 git_prompt_string() {
   local git_where="$(parse_git_branch)"
   [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL%{$fg[blue]%}${git_where#(refs/heads/|tags/)} $(parse_git_state)"
