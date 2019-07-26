@@ -22,11 +22,13 @@ set shortmess=I
 set history=10000
 set swapfile
 set backup
+set undofile
 set backupdir=~/.vim/_backup
-set directory=~/.vim/_temp      " where to put swap files.
+set directory=~/.vim/_temp
+set undodir=~/.vim/_undo
 
 " text
-set backspace=indent,eol,start  " backspace through everything in indent mode
+set backspace=indent,eol,start
 set nowrap
 set expandtab
 set nojoinspaces
@@ -54,7 +56,7 @@ set re=1
 set foldlevel=0
 set foldmethod=manual
 set signcolumn=yes
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 set list
 set listchars=""
@@ -123,9 +125,9 @@ augroup file_type
 
   au filetype * set tabstop=2 | set shiftwidth=2
   au filetype markdown set tabstop=4 | set shiftwidth=4
-  au filetype make,go setlocal noexpandtab
-  au filetype gitcommit,git,qf,go setlocal nolist
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call SetupWrapping()
+  au filetype make,go,markdown setlocal noexpandtab
+  au filetype gitcommit,git,qf,go,markdown,netrw setlocal nolist
+  au BufRead,BufNewFile *.{md,txt} call SetupWrapping()
   au BufNewFile,BufRead *.json set ft=javascript
   au BufNewFile,BufRead *.{js,jsx} hi def link jsObjectKey Identifier
 augroup END
@@ -139,6 +141,11 @@ augroup plugins
   au BufReadPost fugitive://* set bufhidden=delete
   au BufWritePost * GitGutter
 augroup END
+
+" scratch
+let g:scratch_persistence_file = '/Users/josh/Dropbox/Scratch/vim.txt'
+let g:scratch_no_mappings = 1
+let g:scratch_top = 0
 
 " terminus
 let g:TerminusCursorShape = 0
@@ -389,9 +396,6 @@ nnoremap <leader><leader> <c-^>
 " rake routes
 map <leader>rr :call ShowRoutes()<cr><F5>
 
-" fugitive
-map <leader>gs :Gstatus<cr>
-
 " fzf mappings
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>F :FZF %:p:h<cr>
@@ -440,9 +444,12 @@ nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " annoyance
 nnoremap <F1> <nop>
 
+" scratch
+nnoremap <leader>gs :Scratch<cr>
+nnoremap <leader>gS :ScratchPreview<cr>
+
 "==============================================================================
 " #################################################################### COMMANDS
-
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 command! DiffSaved :call DiffSaved()
