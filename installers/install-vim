@@ -39,6 +39,7 @@ def do_install(root_path, plugins)
   Dir.chdir(File.expand_path(root_path))
 
   puts "\n\ncreating directory structure\n\n"
+  system "mkdir -p #{root_path}.vim/_undo"
   system "mkdir -p #{root_path}.vim/_backup"
   system "mkdir -p #{root_path}.vim/_temp"
   system "mkdir -p #{root_path}.vim/_cache"
