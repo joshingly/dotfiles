@@ -57,13 +57,16 @@ class LocalCLI < Thor
   end
 
   desc 'clean', ''
+  method_option :all, type: :boolean, required: false, default: false, aliases: '-a'
   def clean
-    [
+    commands = [
       'rm ~/.bash_history',
+      'rm -rf ~/.local',
       'rm -rf ~/.bash_sessions',
-      'rm ~/.zsh_history',
+      'rm -rf ~/.kube',
+      'rm -rf ~/.cache',
+      'rm -rf ~/.gem',
       'rm ~/.zcompdump*',
-      'rm ~/.viminfo',
       'rm ~/.tig_history',
       'rm ~/.pry_history',
       'rm ~/.irb-history',
@@ -79,10 +82,24 @@ class LocalCLI < Thor
       'rm ~/.vim/_backup/*',
       'rm -rf ~/Library/Developer/Xcode/DerivedData',
       'find ~/Dropbox -type f -name "* conflicted *" -exec rm -f {} \;',
-      'rm -rf ~/Library/WebKit/com.apple.Safari/WebsiteData/LocalStorage/*',
       'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*',
-      'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Favicons*'
-    ].each { |command| System.run(command) }
+      'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Favicons*',
+      'rm -rf ~/Library/WebKit/LocalStorage/*',
+      'rm -rf ~/Library/Safari/LocalStorage/*',
+      'rm -rf ~/Library/Safari/Favicon\ Cache/*',
+      'rm -rf ~/Library/Safari/Touch\ Icons\ Cache/*',
+      'rm -rf /Users/josh/Library/Containers/com.apple.Safari/Data/Library/WebKit/WebsiteData/*',
+      'rm -rf /Users/josh/Library/Application\ Support/Sublime\ Text\ 3/Local/*'
+    ]
+
+    commands.concat([
+      'rm ~/.viminfo',
+      'echo "" > ~/.z',
+      'rm ~/.zsh_history',
+      'rm ~/.vim/undo/*'
+    ]) if options.all
+
+    commands.each { |command| System.run(command) }
   end
 end
 
