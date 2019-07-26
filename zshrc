@@ -143,5 +143,50 @@ alias grh1="git reset HEAD~ --hard"
 alias grh2="git reset HEAD~2 --hard"
 alias gcd="cd \$(git rev-parse --show-toplevel)"
 
-# terminal title
-precmd() { eval 'echo -ne "\033]0;${PWD##*/}\007"' }
+# nnn
+export NNN_USE_EDITOR=1
+export NNN_RESTRICT_NAV_OPEN=1
+
+n() {
+    export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
+
+    nnn "$@"
+
+    if [ -f $NNN_TMPFILE ]; then
+            . $NNN_TMPFILE
+            rm $NNN_TMPFILE
+    fi
+}
+
+# z
+export _Z_NO_PROMPT_COMMAND=1
+export _Z_EXCLUDE_DIRS=(
+  $HOME/Downloads
+  $HOME/Desktop
+  $HOME/Library
+  /usr
+)
+
+. /usr/local/etc/profile.d/z.sh
+
+_z_add() {
+  local wd="${PWD:A}"
+
+  # fix for z dir excluding, see z.sh line 45
+  # - Removed quotes around $exclude*
+  # - $* (args) -> $wd (var)
+  local exclude
+  for exclude in "${_Z_EXCLUDE_DIRS[@]}"; do
+    case $wd in $exclude*) return;; esac
+  done
+
+  _z --add $wd
+}
+
+precmd() {
+  # terminal title
+  eval 'echo -ne "\033]0;${PWD##*/}\007"'
+
+  # z
+  _z_add
+}
