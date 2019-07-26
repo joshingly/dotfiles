@@ -14,8 +14,8 @@ setopt auto_cd
 setopt nocasematch
 setopt menucomplete
 
-# PATH
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
+export EDITOR=/usr/local/bin/vim
 
 # go
 export GOPATH=$HOME/Dropbox/Code/go
