@@ -3,12 +3,14 @@
 tmux start-server
 tmux -u new -d -s general
 tmux neww -t general
+tmux neww -t general
 
 tmux send-keys -t general:1 C-m
 tmux send-keys -t general:1 "vim" C-m
 
 tmux rename-window -t general:1 vim
 tmux rename-window -t general:2 zsh
+tmux rename-window -t general:3 services
 
 tmux select-window -t general:1
 
