@@ -28,7 +28,7 @@ module Update
       'brew update',
       'brew upgrade',
       'brew cask upgrade',
-      'brew cleanup -s'
+      'brew cleanup -sv --prune 0'
     ].each { |command| System.run(command) }
   end
 end
