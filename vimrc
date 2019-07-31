@@ -49,6 +49,7 @@ set showmatch
 set showcmd
 set cmdheight=1
 set cursorline
+set showtabline=1
 set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=5
@@ -141,6 +142,9 @@ augroup plugins
   au BufReadPost fugitive://* set bufhidden=delete
   au BufWritePost * GitGutter
 augroup END
+
+" zoomwintab
+let g:zoomwintab_hidetabbar = 0
 
 " scratch
 let g:scratch_persistence_file = '/Users/josh/Dropbox/Scratch/vim.txt'
