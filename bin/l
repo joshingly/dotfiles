@@ -96,7 +96,7 @@ class LocalCLI < Thor
       'rm ~/.viminfo',
       'echo "" > ~/.z',
       'rm ~/.zsh_history',
-      'rm ~/.vim/undo/*'
+      'rm ~/.vim/_undo/*'
     ]) if options.all
 
     commands.each { |command| System.run(command) }
