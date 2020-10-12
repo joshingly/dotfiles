@@ -23,6 +23,8 @@ setopt menucomplete
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export EDITOR=/usr/local/bin/vim
 
+# nnn
+export NNN_FCOLORS="040404a60005050ca0040400"
 
 # rbenv
 eval "$(rbenv init -)"
@@ -137,19 +139,31 @@ alias grh1="git reset HEAD~ --hard"
 alias grh2="git reset HEAD~2 --hard"
 alias gcd="cd \$(git rev-parse --show-toplevel)"
 
-# nnn
-export NNN_USE_EDITOR=1
-export NNN_RESTRICT_NAV_OPEN=1
-
-n() {
-    export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
-
-    nnn "$@"
-
-    if [ -f $NNN_TMPFILE ]; then
-            . $NNN_TMPFILE
-            rm $NNN_TMPFILE
+print_colors() {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}m%3d " "${i}"
+    if (( $i == 15 )) || (( $i > 15 )) && (( ($i-15) % 12 == 0 )); then
+      echo;
     fi
+  done
+}
+
+# nnn
+n () {
+  # Block nesting of nnn in subshells
+  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+    echo "nnn is already running"
+    return
+  fi
+
+  export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+  nnn -o "$@" -e -H -d
+
+  if [ -f "$NNN_TMPFILE" ]; then
+    . "$NNN_TMPFILE"
+    rm -f "$NNN_TMPFILE" > /dev/null
+  fi
 }
 
 # z
