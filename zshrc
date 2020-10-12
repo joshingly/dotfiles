@@ -23,12 +23,6 @@ setopt menucomplete
 export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
 export EDITOR=/usr/local/bin/vim
 
-# go
-export GOPATH=$HOME/Dropbox/Code/go
-export PATH=$GOPATH/bin:$PATH
-
-# nodenv
-eval "$(nodenv init -)"
 
 # rbenv
 eval "$(rbenv init -)"
