@@ -7,6 +7,7 @@
   ignorecase = false
   editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore_global
+  pager = delta
 [branch]
   autosetupmerge = true
 [merge]
@@ -17,8 +18,10 @@
   default = simple
 [pull]
   rebase = true
-[pager]
-  diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+[diff]
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only
 [color]
   diff = auto
   branch = auto
@@ -30,23 +33,33 @@
   current = yellow reverse
   local = yellow
   remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  commit = yellow bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
+[delta]
+  syntax-theme = none
+  inspect-raw-lines = false
+
+  commit-style                  = raw
+  hunk-header-style             = raw
+  minus-style                   = bold red
+  minus-non-emph-style          = bold red
+  minus-emph-style              = bold red 52
+  minus-empty-line-marker-style = raw
+  zero-style                    = raw
+  plus-style                    = bold green
+  plus-non-emph-style           = bold green
+  plus-emph-style               = bold green 22
+  plus-empty-line-marker-style  = raw
+  whitespace-error-style        = bold green
+  line-numbers                  = true
+  line-numbers-minus-style      = 124
+  line-numbers-zero-style       = raw
+  line-numbers-plus-style       = 28
+  line-numbers-left-style       = blue
+  line-numbers-right-style      = blue
+
 [alias]
   l = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s' --abbrev-commit --date=local"
   ll = "log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset \n%Cgreen(%cd) %C(blue)<%an>%Creset %s\n' --abbrev-commit --date=local --stat"
-  patch = !git --no-pager diff --no-color
