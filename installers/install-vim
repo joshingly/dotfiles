@@ -2,7 +2,7 @@
 
 root_path = "~/"
 plugins = [
-  "https://github.com/mileszs/ack.vim",
+  "https://github.com/mhinz/vim-grepper",
   "https://github.com/raimondi/delimitmate",
   "https://github.com/wincent/terminus",
   "https://github.com/altercation/vim-colors-solarized",
@@ -21,7 +21,6 @@ plugins = [
   "https://github.com/tpope/vim-unimpaired",
   "https://github.com/tpope/vim-vinegar",
   "https://github.com/tpope/vim-rhubarb",
-  "https://github.com/mtth/scratch.vim",
   "https://github.com/troydm/zoomwintab.vim"
 ]
 
