@@ -1,3 +1,6 @@
+# load completions (homebrew)
+export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
+
 autoload -Uz compinit
 
 if [ ! -f ~/.zcompdump ]; then
@@ -9,6 +12,9 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
 else
   compinit -C
 fi
+
+# load completions (custom)
+source $HOME/.zsh/custom-completions.zsh
 
 setopt auto_cd
 setopt nocasematch
@@ -29,12 +35,6 @@ eval "$(rbenv init -)"
 
 # load prompt
 source ~/.zsh/prompt.zsh
-
-# load completions (homebrew)
-export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
-
-# load completions (custom)
-source $HOME/.zsh/custom-completions.zsh
 
 # case insensitive completions
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
