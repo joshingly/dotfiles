@@ -88,8 +88,7 @@ class LocalCLI < Thor
       'rm -rf ~/Library/Safari/LocalStorage/*',
       'rm -rf ~/Library/Safari/Favicon\ Cache/*',
       'rm -rf ~/Library/Safari/Touch\ Icons\ Cache/*',
-      'rm -rf /Users/josh/Library/Containers/com.apple.Safari/Data/Library/WebKit/WebsiteData/*',
-      'rm -rf /Users/josh/Library/Application\ Support/Sublime\ Text\ 3/Local/*'
+      'rm -rf /Users/josh/Library/Containers/com.apple.Safari/Data/Library/WebKit/WebsiteData/*'
     ]
 
     commands.concat([
