@@ -1,3 +1,6 @@
+" polyglot
+let g:polyglot_disabled = ['csv']
+
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
@@ -54,7 +57,7 @@ set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=5
 set re=1
-set foldlevel=0
+set nofoldenable
 set foldmethod=manual
 set signcolumn=yes
 set fillchars+=vert:\
@@ -83,24 +86,19 @@ set wildmode=list:longest
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
-if has("gui_running")
-  set guifont=PragmataPro:h15
-  set guioptions=egmrt      " turn off toolbar
-  set guicursor+=n:blinkon0 " don't blink in normal mode
-  set novisualbell
-  set antialias
-  set guioptions-=r         " don't show right scrollbar
-  set showtabline=1
+if $BLINK == 'true'
+  let g:solarized_termtrans=1
 endif
 
 set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
 
-highlight SignColumn ctermbg=8
-highlight SignColumn guibg=NONE guifg=NONE
+highlight! EndOfBuffer ctermfg=8
+highlight! Visual ctermbg=NONE
+highlight! SignColumn ctermbg=NONE
+highlight! CursorLineNr ctermfg=15 cterm=bold
 highlight! link QuickFixLine Normal
-highlight EndOfBuffer ctermfg=bg guifg=bg
 highlight! StatusLine ctermfg=6
 highlight! StatusLineNC ctermfg=3
 highlight! VertSplit ctermbg=3
@@ -130,6 +128,7 @@ augroup file_type
   au filetype gitcommit,git,qf,go,markdown,netrw setlocal nolist
   au BufRead,BufNewFile *.{md,txt} call SetupWrapping()
   au BufNewFile,BufRead *.json set ft=javascript
+  au BufNewFile,BufRead Dockerfile* set ft=Dockerfile
   au BufNewFile,BufRead *.{js,jsx} hi def link jsObjectKey Identifier
 augroup END
 
@@ -145,11 +144,6 @@ augroup END
 
 " zoomwintab
 let g:zoomwintab_hidetabbar = 0
-
-" scratch
-let g:scratch_persistence_file = '/Users/josh/Dropbox/Scratch/vim.txt'
-let g:scratch_no_mappings = 1
-let g:scratch_top = 0
 
 " terminus
 let g:TerminusCursorShape = 0
@@ -197,10 +191,6 @@ augroup highlights
   au BufEnter *.go hi IndentGuidesOdd ctermbg=8
 augroup END
 
-if has("gui_running")
-  let g:indent_guides_auto_colors=1
-endif
-
 " fzf
 set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '~20%' }
@@ -236,6 +226,12 @@ let g:go_highlight_build_constraints = 1
 " ack.vim
 let g:ackprg = 'rg -S --no-heading --vimgrep'
 
+" grepper
+let g:grepper               = {}
+let g:grepper.tools         = ['rg']
+let g:grepper.rg = {}
+let g:grepper.rg.grepprg = 'rg -H -S --no-heading --vimgrep'
+
 "==============================================================================
 " ################################################################### FUNCTIONS
 function! SetupWrapping()
@@ -245,11 +241,7 @@ function! SetupWrapping()
 endfunction
 
 function! DiffSaved()
-  if has("gui_running")
-    :w !diff % - -u
-  else
-    :w !diff % - -u | colordiff
-  endif
+  :w !diff % - -u | colordiff
 endfunction
 
 function! ReloadAll()
@@ -439,8 +431,9 @@ cmap <c-p> <up>
 
 nnoremap <leader>sd :DiffSaved<cr>
 
-" ack word under cursor
-nnoremap <silent>K :Ack <cword><cr>
+" grepper
+nnoremap <silent>K :Grepper -tool rg -cword -noprompt<cr>
+nnoremap <leader>g :Grepper -tool rg<cr>
 
 " open a Quickfix window for the last search.
 nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
@@ -448,9 +441,8 @@ nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " annoyance
 nnoremap <F1> <nop>
 
-" scratch
-nnoremap <leader>gs :Scratch<cr>
-nnoremap <leader>gS :ScratchPreview<cr>
+" Set netrw refresh so it doesn't overwrite ctrl-l
+map <unique> <c-e> <Plug>NetrwRefresh
 
 "==============================================================================
 " #################################################################### COMMANDS
