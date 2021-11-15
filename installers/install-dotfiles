@@ -4,20 +4,32 @@ require 'fileutils'
 
 source = File.expand_path(File.dirname(__FILE__) + '/..')
 destination = File.expand_path('~')
+host = `hostname -s`.strip
 
 FileUtils.mkdir_p("#{destination}/.config/kitty")
 
-File.symlink("#{source}/kitty.conf", "#{destination}/.config/kitty/kitty.conf")
-File.symlink("#{source}/gemrc", "#{destination}/.gemrc")
-File.symlink("#{source}/gitconfig", "#{destination}/.gitconfig")
-File.symlink("#{source}/gitignore_global", "#{destination}/.gitignore_global")
-File.symlink("#{source}/tmux.conf", "#{destination}/.tmux.conf")
-File.symlink("#{source}/vimrc", "#{destination}/.vimrc")
-File.symlink("#{source}/zshrc", "#{destination}/.zshrc")
-File.symlink("#{source}/zprofile", "#{destination}/.zprofile")
-File.symlink("#{source}/zsh", "#{destination}/.zsh")
-File.symlink("#{source}/pryrc", "#{destination}/.pryrc")
-File.symlink("#{source}/colordiffrc", "#{destination}/.colordiffrc")
-File.symlink("#{source}/psqlrc", "#{destination}/.psqlrc")
+def symlink(s, d)
+  if File.exist?(d)
+    puts "#{d} exists"
+    puts "#{d} #{File.symlink?(d) ? 'is' : 'is not' } a symlink"
+  else
+    puts "creating symlink #{d} -> #{s}"
+    File.symlink(s, d)
+  end
+  puts '--'
+end
 
-File.symlink("#{source}/bin", "#{destination}/.bin")
+symlink("#{source}/kitty.conf", "#{destination}/.config/kitty/kitty.conf")
+symlink("#{source}/kitty-#{host}.conf", "#{destination}/.config/kitty/this-machine.conf")
+symlink("#{source}/gemrc", "#{destination}/.gemrc")
+symlink("#{source}/gitconfig", "#{destination}/.gitconfig")
+symlink("#{source}/gitignore_global", "#{destination}/.gitignore_global")
+symlink("#{source}/tmux.conf", "#{destination}/.tmux.conf")
+symlink("#{source}/vimrc", "#{destination}/.vimrc")
+symlink("#{source}/zshrc", "#{destination}/.zshrc")
+symlink("#{source}/zprofile", "#{destination}/.zprofile")
+symlink("#{source}/zsh", "#{destination}/.zsh")
+symlink("#{source}/pryrc", "#{destination}/.pryrc")
+symlink("#{source}/colordiffrc", "#{destination}/.colordiffrc")
+symlink("#{source}/psqlrc", "#{destination}/.psqlrc")
+symlink("#{source}/bin", "#{destination}/.bin")
