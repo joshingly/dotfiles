@@ -194,7 +194,9 @@ augroup highlights
 augroup END
 
 " fzf
-set rtp+=/usr/local/opt/fzf
+let g:homebrew = $HOMEBREW_PREFIX
+let &rtp.= ',' . homebrew . '/opt/fzf'
+
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_action = {
   \ 'ctrl-s': 'split',

@@ -1,5 +1,11 @@
+if [ ! -f /opt/homebrew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+else
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # load completions (homebrew)
-export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
+export FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$HOMEBREW_PREFIX/share/zsh/functions:$FPATH
 
 autoload -Uz compinit
 
@@ -20,8 +26,8 @@ setopt auto_cd
 setopt nocasematch
 setopt menucomplete
 
-export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH
-export EDITOR=/usr/local/bin/vim
+export PATH=$HOME/.bin:$PATH
+export EDITOR=$HOMEBREW_PREFIX/bin/vim
 
 # nnn
 export NNN_FCOLORS="040404a60005050ca0040400"
@@ -175,7 +181,7 @@ export _Z_EXCLUDE_DIRS=(
   /usr
 )
 
-. /usr/local/etc/profile.d/z.sh
+. $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
 _z_add() {
   local wd="${PWD:A}"
