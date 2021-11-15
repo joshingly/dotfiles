@@ -42,7 +42,8 @@ source ~/.zsh/prompt.zsh
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
 # cdpath
-export cdpath=($HOME/Dropbox)
+export cdpath=($HOME/Sync $HOME/Dropbox)
+
 # fzf
 export FZF_DEFAULT_OPTS='
 --color dark,hl:33,hl+:37,fg+:235,bg+:0,fg+:254
