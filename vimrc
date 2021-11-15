@@ -101,6 +101,8 @@ highlight! CursorLineNr ctermfg=15 cterm=bold
 highlight! link QuickFixLine Normal
 highlight! StatusLine ctermfg=6
 highlight! StatusLineNC ctermfg=3
+highlight! StatusLineTerm ctermbg=6 cterm=NONE term=NONE
+highlight! StatusLineTermNC ctermbg=3 cterm=NONE term=NONE
 highlight! VertSplit ctermbg=3
 
 if has("statusline") && !&cp
