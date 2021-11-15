@@ -110,6 +110,7 @@ alias rm="trash"
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
 alias dc="docker-compose"
 alias d="docker"
+alias ds="$HOME/.rbenv/versions/$(rbenv global)/bin/docker-sync"
 
 # tmux
 alias tmux='echo -ne "\033]0;tmux\007"; tmux'
