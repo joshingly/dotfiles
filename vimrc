@@ -203,20 +203,12 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
 \ }
 
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Identifier'],
-  \ 'fg+':     ['fg', 'White'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Constant'],
-  \ 'info':    ['fg', 'White'],
-  \ 'prompt':  ['fg', 'Constant'],
-  \ 'pointer': ['fg', 'PreProc'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment']
-\ }
+let g:terminal_ansi_colors = [
+  \ '#073642', '#dc322f', '#859900', '#b58900',
+  \ '#268bd2', '#d33682', '#2aa198', '#eee8d5',
+  \ '#002b36', '#cb4b16', '#586e75', '#657b83',
+  \ '#839496', '#6c71c4', '#93a1a1', '#fdf6e3'
+\ ]
 
 " vim-go
 let g:go_fmt_command = "goimports"
