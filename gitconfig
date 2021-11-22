@@ -5,7 +5,7 @@
   user = joshingly
 [core]
   ignorecase = false
-  editor = /usr/local/bin/vim
+  editor = vim
   excludesfile = ~/.gitignore_global
   pager = delta
 [branch]
