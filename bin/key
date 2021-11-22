@@ -5,7 +5,9 @@ require 'readline'
 
 key_dirs = [
   '~/Dropbox/Work/Keys',
-  '~/Dropbox/System/Keys'
+  '~/Dropbox/System/Keys',
+  '~/Sync/Work/Keys',
+  '~/Sync/System/Keys'
 ].map do |dir|
   Dir.glob("#{File.expand_path(dir)}/*")
 end.flatten.map do |dir|
