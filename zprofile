@@ -1,3 +1,3 @@
-if [ -f ~/.zshrc ]; then
+if [[ ! $- == *i* ]]; then
   source ~/.zshrc
 fi
