@@ -5,5 +5,4 @@
 .sass-cache/
 .jhw-cache/
 *.taskpaper
-docker-sync.yml
-.docker-sync
+/mg.sh

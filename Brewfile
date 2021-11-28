@@ -28,6 +28,7 @@ brew 'mosh'
 brew 'youtube-dl'
 brew 'ffmpeg'
 brew 'doctl'
+brew 'mutagen-io/mutagen/mutagen'
 
 cask 'kitty'
 cask 'ngrok'
