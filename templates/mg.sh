@@ -12,8 +12,9 @@ case "$1" in
   "setup")
     (
       set -x
+      sidecar_version=$(curl -L -s https://registry.hub.docker.com/v1/repositories/mutagenio/sidecar/tags | jq --raw-output '.[]["name"]' | sort -r | head -n 1)
       docker volume create ${name}
-      docker container create --name ${name}-container -v ${name}:/volumes/${name} mutagenio/sidecar
+      docker container create --name ${name}-container -v ${name}:/volumes/${name} mutagenio/sidecar:${sidecar_version}
       docker container start ${name}-container
       mutagen sync create \
         --name ${name} \
