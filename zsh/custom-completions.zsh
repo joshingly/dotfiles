@@ -24,6 +24,7 @@ _l() {
         (reset)
           local reset; resets=(
             'docker'
+            'xcode'
           )
 
           _describe -t resets 'reset' resets && ret=0
