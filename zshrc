@@ -128,6 +128,7 @@ alias gaa="git add --all"
 alias gap="git add -p"
 alias gs="git status -sbu"
 alias gb="git branch"
+alias gbp="git branch | fzf | xargs git checkout"
 alias gd='git diff --color'
 alias gdc='git diff --color --cached'
 alias gl="git l"
