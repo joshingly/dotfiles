@@ -6,7 +6,13 @@ require 'pathname'
 class Reset < Thor
   desc 'reset docker', ''
   def docker
-    System.run  'docker ps -aq | xargs docker stop && docker system prune -af --volumes'
+    System.run 'docker ps -aq | xargs docker stop && docker system prune -af --volumes'
+  end
+
+  desc 'reset xcode', ''
+  def xcode
+    System.run 'trash ~/Library/Caches/org.swift.swiftpm'
+    System.run 'trash ~/Library/Developer/Xcode/DerivedData'
   end
 end
 
