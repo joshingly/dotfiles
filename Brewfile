@@ -27,7 +27,13 @@ brew 'mediainfo'
 brew 'mosh'
 brew 'youtube-dl'
 brew 'ffmpeg'
+brew 'mkvtoolnix'
 brew 'doctl'
+brew 'qemu'
+brew 'gcc'
+brew 'libvirt'
+
+tap 'mutagen-io/mutagen'
 brew 'mutagen-io/mutagen/mutagen'
 
 cask 'kitty'
