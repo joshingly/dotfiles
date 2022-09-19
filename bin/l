@@ -87,7 +87,7 @@ class LocalCLI < Thor
       'rm -rf ~/.vim/_cache/*',
       'rm ~/.vim/_backup/*',
       'rm -rf ~/Library/Developer/Xcode/DerivedData',
-      'find ~/Dropbox -type f -name "* conflicted *" -exec rm -f {} \;',
+      'find ~/Sync -type f -name "* conflicted *" -exec rm -f {} \;',
       'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*',
       'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Favicons*',
       'rm -rf ~/Library/WebKit/LocalStorage/*',
