@@ -1,5 +1,5 @@
 if [ ! -d /opt/homebrew ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 else
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
