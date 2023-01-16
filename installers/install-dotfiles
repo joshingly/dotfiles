@@ -19,8 +19,12 @@ def symlink(s, d)
   puts '--'
 end
 
-symlink("#{source}/kitty.conf", "#{destination}/.config/kitty/kitty.conf")
-symlink("#{source}/kitty-#{host}.conf", "#{destination}/.config/kitty/this-machine.conf")
+kitty_machine_conf = "#{source}/kitty-#{host}.conf"
+if File.exist?(kitty_machine_conf)
+  symlink("#{source}/kitty.conf", "#{destination}/.config/kitty/kitty.conf")
+  symlink(kitty_machine_conf, "#{destination}/.config/kitty/this-machine.conf")
+end
+
 symlink("#{source}/gemrc", "#{destination}/.gemrc")
 symlink("#{source}/gitconfig", "#{destination}/.gitconfig")
 symlink("#{source}/gitignore_global", "#{destination}/.gitignore_global")
