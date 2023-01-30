@@ -4,7 +4,7 @@ brew 'rsync'
 brew 'jq'
 brew 'zsh-completions'
 brew 'git'
-brew 'vim'
+brew 'vim', args: ['head']
 brew 'colordiff'
 brew 'jsonpp'
 brew 'tmux'
@@ -27,3 +27,18 @@ brew 'gcc'
 brew 'libvirt'
 
 cask 'ngrok'
+
+if OS.mac?
+  brew 'zsh'
+  brew 'tree'
+  brew 'coreutils'
+  brew 'reattach-to-user-namespace'
+  brew 'trash'
+  brew 'dnsmasq'
+  brew 'htop'
+
+  tap 'mutagen-io/mutagen'
+  brew 'mutagen-io/mutagen/mutagen'
+
+  cask 'kitty'
+end
