@@ -26,8 +26,6 @@ brew 'qemu'
 brew 'gcc'
 brew 'libvirt'
 
-cask 'ngrok'
-
 if OS.mac?
   brew 'zsh'
   brew 'tree'
@@ -41,4 +39,5 @@ if OS.mac?
   brew 'mutagen-io/mutagen/mutagen'
 
   cask 'kitty'
+  cask 'ngrok'
 end
