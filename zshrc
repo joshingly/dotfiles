@@ -8,16 +8,7 @@ fi
 export FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$HOMEBREW_PREFIX/share/zsh/functions:$FPATH
 
 autoload -Uz compinit
-
-if [ ! -f ~/.zcompdump ]; then
-  compinit -u
-fi
-
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit -u
-else
-  compinit -C
-fi
+compinit -u
 
 # load completions (custom)
 source $HOME/.zsh/custom-completions.zsh
@@ -62,8 +53,13 @@ rg --smart-case --files --no-ignore --hidden --follow \
 typeset -U PATH
 
 # directory / file colors
-alias ls='gls -C -F -h --color=always'
-eval `gdircolors -b ~/.zsh/dircolors`
+if [ ! -d /opt/homebrew ]; then
+  alias ls='ls -C -F -h --color=always'
+  eval `dircolors -b ~/.zsh/dircolors`
+else
+  alias ls='gls -C -F -h --color=always'
+  eval `gdircolors -b ~/.zsh/dircolors`
+fi
 
 # make <C-s> work in terminal vim
 stty -ixon
@@ -106,7 +102,11 @@ zle -N edit-command-line
 bindkey -M vicmd '!' edit-command-line
 
 # ALIASES
-alias rm="trash"
+if [ ! -d /opt/homebrew ]; then
+else
+  alias rm="trash"
+fi
+
 alias psgrep="ps -Aco pid,comm | sed 's/^ *//'| sed 's/:/ /'|grep -iE"
 alias dc="docker compose"
 alias d="docker"
