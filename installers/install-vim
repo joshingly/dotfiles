@@ -56,4 +56,4 @@ def do_install(root_path, plugins)
   extra_steps(root_path)
 end
 
-do_install(root_path, plugins) unless Dir.exists?(File.expand_path("#{root_path}.vim"))
+do_install(root_path, plugins) unless Dir.exist?(File.expand_path("#{root_path}.vim"))
