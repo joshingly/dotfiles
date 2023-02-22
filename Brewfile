@@ -1,6 +1,5 @@
 brew 'z'
 brew 'pv'
-brew 'rsync'
 brew 'jq'
 brew 'zsh-completions'
 brew 'git'
@@ -22,6 +21,7 @@ brew 'libvirt'
 
 if OS.mac?
   brew 'zsh'
+  brew 'rsync'
   brew 'tree'
   brew 'coreutils'
   brew 'reattach-to-user-namespace'
