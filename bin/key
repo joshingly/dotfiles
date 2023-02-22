@@ -4,8 +4,6 @@ require 'pathname'
 require 'readline'
 
 key_dirs = [
-  '~/Dropbox/Work/Keys',
-  '~/Dropbox/System/Keys',
   '~/Sync/Work/Keys',
   '~/Sync/System/Keys'
 ].map do |dir|
