@@ -18,6 +18,7 @@ brew 'mosh'
 brew 'qemu'
 brew 'gcc'
 brew 'libvirt'
+brew 'duf'
 
 if OS.mac?
   brew 'zsh'
