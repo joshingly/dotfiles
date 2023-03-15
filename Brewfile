@@ -19,6 +19,7 @@ brew 'qemu'
 brew 'gcc'
 brew 'libvirt'
 brew 'duf'
+brew 'rclone'
 
 if OS.mac?
   brew 'zsh'
