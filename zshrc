@@ -52,6 +52,18 @@ rg --smart-case --files --no-ignore --hidden --follow \
 # remove duped path entries (caused by tmux)
 typeset -U PATH
 
+# ssh-agent, https://unix.stackexchange.com/a/534822
+if [ ! -d /opt/homebrew ]; then
+  # set SSH_AUTH_SOCK env var to a fixed value
+  export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+
+  # test whether $SSH_AUTH_SOCK is valid
+  ssh-add -l 2>/dev/null >/dev/null
+
+  # if not valid, then start ssh-agent using $SSH_AUTH_SOCK
+  [ $? -ge 2 ] && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+fi
+
 # directory / file colors
 if [ ! -d /opt/homebrew ]; then
   alias ls='ls -C -F -h --color=always'
