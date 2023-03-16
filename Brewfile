@@ -22,6 +22,8 @@ brew 'duf'
 brew 'rclone'
 
 if OS.mac?
+  brew 'git-annex'
+  brew 'gnupg'
   brew 'zsh'
   brew 'rsync'
   brew 'tree'
