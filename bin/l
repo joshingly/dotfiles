@@ -85,7 +85,6 @@ class LocalCLI < Thor
       'rm ~/.rediscli_history',
       'rm ~/.v8flags*',
       'rm -rf ~/.vim/_cache/*',
-      'rm ~/.vim/_backup/*',
       'rm -rf ~/Library/Developer/Xcode/DerivedData',
       'find ~/Sync -type f -name "* conflicted *" -exec rm -f {} \;',
       'rm -rf ~/Library/Application\ Support/Google/Chrome/Default/Local\ Storage/*',
@@ -95,14 +94,22 @@ class LocalCLI < Thor
       'rm -rf ~/Library/Safari/Favicon\ Cache/*',
       'rm -rf ~/Library/Safari/Touch\ Icons\ Cache/*',
       'rm -rf /Users/josh/Library/Containers/com.apple.Safari/Data/Library/WebKit/WebsiteData/*'
-    ]
+    ].tap do |commands|
+      if options.all
+        if File.exist?('/data/secrets/zsh_history')
+          commands << 'rm /data/secrets/zsh_history'
+        else
+          commands << 'rm ~/.zsh_history'
+        end
 
-    commands.concat([
-      'rm ~/.viminfo',
-      'echo "" > ~/.z',
-      'rm ~/.zsh_history',
-      'rm ~/.vim/_undo/*'
-    ]) if options.all
+        commands << 'rm ~/.viminfo' if File.exist?('~/.viminfo')
+        commands << 'rm /data/secrets/viminfo' if File.exist?('/data/secrets/viminfo')
+        commands << 'echo "" > ~/.z'
+        commands << 'rm ~/.vim/_undo/*'
+        commands << 'rm ~/.vim/_backup/*'
+        commands << 'rm ~/.vim/_temp/*'
+      end
+    end
 
     commands.each { |command| System.run(command) }
   end
