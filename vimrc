@@ -30,6 +30,12 @@ set backupdir=~/.vim/_backup
 set directory=~/.vim/_temp
 set undodir=~/.vim/_undo
 
+let host=trim(system('hostname'))
+
+if host == 'titan'
+  set viminfofile=/data/secrets/viminfo
+endif
+
 " text
 set backspace=indent,eol,start
 set nowrap
