@@ -29,6 +29,7 @@ set undofile
 set backupdir=~/.vim/_backup
 set directory=~/.vim/_temp
 set undodir=~/.vim/_undo
+let g:netrw_dirhistmax = 0
 
 let host=trim(system('hostname'))
 
