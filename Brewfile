@@ -37,6 +37,7 @@ if OS.mac?
   brew 'youtube-dl'
   brew 'ffmpeg'
   brew 'mkvtoolnix'
+  brew 'git-remote-gcrypt'
 
   tap 'mutagen-io/mutagen'
   brew 'mutagen-io/mutagen/mutagen'
