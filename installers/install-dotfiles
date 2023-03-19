@@ -6,8 +6,6 @@ source = File.expand_path(File.dirname(__FILE__) + '/..')
 destination = File.expand_path('~')
 host = `hostname -s`.strip
 
-FileUtils.mkdir_p("#{destination}/.config/kitty")
-
 def symlink(s, d)
   if File.exist?(d)
     puts "#{d} exists"
@@ -21,6 +19,7 @@ end
 
 kitty_machine_conf = "#{source}/kitty-#{host}.conf"
 if File.exist?(kitty_machine_conf)
+  FileUtils.mkdir_p("#{destination}/.config/kitty")
   symlink("#{source}/kitty.conf", "#{destination}/.config/kitty/kitty.conf")
   symlink(kitty_machine_conf, "#{destination}/.config/kitty/this-machine.conf")
 end
