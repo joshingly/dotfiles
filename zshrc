@@ -213,24 +213,7 @@ export _Z_EXCLUDE_DIRS=(
 
 . $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
-_z_add() {
-  local wd="${PWD:A}"
-
-  # fix for z dir excluding, see z.sh line 45
-  # - Removed quotes around $exclude*
-  # - $* (args) -> $wd (var)
-  local exclude
-  for exclude in "${_Z_EXCLUDE_DIRS[@]}"; do
-    case $wd in $exclude*) return;; esac
-  done
-
-  _z --add $wd
-}
-
 precmd() {
   # terminal title
   eval 'echo -ne "\033]0;${PWD##*/}\007"'
-
-  # z
-  _z_add
 }
