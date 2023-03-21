@@ -95,14 +95,12 @@ class LocalCLI < Thor
       'rm -rf /Users/josh/Library/Containers/com.apple.Safari/Data/Library/WebKit/WebsiteData/*'
     ].tap do |commands|
       if options.all
-        if File.exist?('/data/secrets/zsh_history')
-          commands << 'rm /data/secrets/zsh_history'
-        else
-          commands << 'rm ~/.zsh_history'
-        end
+        commands << 'rm ~/.zsh_history'
+        commands << 'rm /data/secrets/zsh_history'
 
-        commands << 'rm ~/.viminfo' if File.exist?('~/.viminfo')
-        commands << 'rm /data/secrets/viminfo' if File.exist?('/data/secrets/viminfo')
+        commands << 'rm ~/.viminfo'
+        commands << 'rm /data/secrets/viminfo'
+
         commands << 'echo "" > ~/.z'
         commands << 'rm ~/.vim/_undo/*'
         commands << 'rm ~/.vim/_backup/*'
