@@ -187,16 +187,16 @@ alias grh2="git reset HEAD~2 --hard"
 alias gcd="cd \$(git rev-parse --show-toplevel)"
 
 # nnn
+# https://github.com/jarun/nnn/blob/master/misc/quitcd/quitcd.bash_zsh
 n () {
-  # Block nesting of nnn in subshells
-  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+  if [[ "${NNNLVL:-0}" -ge 1 ]]; then
     echo "nnn is already running"
     return
   fi
 
   export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
-  nnn -o "$@" -e -H -d
+  \nnn -o "$@" -e -H -d
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"
