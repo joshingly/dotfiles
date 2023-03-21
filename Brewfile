@@ -17,9 +17,9 @@ brew 'nnn'
 brew 'gcc'
 brew 'duf'
 brew 'rclone'
+brew 'mosh'
 
 if OS.mac?
-  brew 'mosh'
   brew 'qemu'
   brew 'libvirt'
   brew 'git-annex'
