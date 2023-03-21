@@ -83,9 +83,21 @@ ttyctl -f
 unsetopt correct_all
 
 # history
-HISTFILE=~/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
+
+if [ "$(hostname)" = "titan" ]; then
+  if [ ! -d /data/secrets ]; then
+    HISTSIZE=0
+    SAVEHIST=0
+    HISTFILE=/dev/null
+  else
+    HISTFILE=/data/secrets/zsh_history
+  fi
+else
+  HISTFILE=~/.zsh_history
+fi
+
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
