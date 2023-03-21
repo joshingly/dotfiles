@@ -207,8 +207,6 @@ n () {
 # z
 export _Z_NO_PROMPT_COMMAND=1
 export _Z_EXCLUDE_DIRS=(
-  $HOME/Downloads
-  $HOME/Desktop
   $HOME/Library
   /usr
 )
