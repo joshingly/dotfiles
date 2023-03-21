@@ -1,7 +1,22 @@
-if [ ! -d /opt/homebrew ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-else
+case "$(uname -a)" in
+   Darwin*)
+     local os='mac'
+     ;;
+
+   Linux*)
+     local os='linux'
+     ;;
+
+   *)
+     local os='unknown'
+     echo 'Unknown OS!'
+     ;;
+esac
+
+if [ $os = 'mac' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # load completions (homebrew)
@@ -53,7 +68,7 @@ rg --smart-case --files --no-ignore --hidden --follow \
 typeset -U PATH
 
 # ssh-agent, https://unix.stackexchange.com/a/534822
-if [ ! -d /opt/homebrew ]; then
+if [ $os = 'linux' ]; then
   # set SSH_AUTH_SOCK env var to a fixed value
   export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 
@@ -65,7 +80,7 @@ if [ ! -d /opt/homebrew ]; then
 fi
 
 # directory / file colors
-if [ ! -d /opt/homebrew ]; then
+if [ $os = 'linux' ]; then
   alias ls='ls -C -F -h --color=always'
   eval `dircolors -b ~/.zsh/dircolors`
 else
@@ -126,7 +141,7 @@ zle -N edit-command-line
 bindkey -M vicmd '!' edit-command-line
 
 # ALIASES
-if [ ! -d /opt/homebrew ]; then
+if [ $os = 'linux' ]; then
 else
   alias rm="trash"
 fi
