@@ -1,16 +1,16 @@
 case "$(uname -a)" in
-   Darwin*)
-     local os='mac'
-     ;;
+  Darwin*)
+    local os='mac'
+    ;;
 
-   Linux*)
-     local os='linux'
-     ;;
+  Linux*)
+    local os='linux'
+    ;;
 
-   *)
-     local os='unknown'
-     echo 'Unknown OS!'
-     ;;
+  *)
+    local os='unknown'
+    echo 'Unknown OS!'
+    ;;
 esac
 
 if [ $os = 'mac' ]; then
