@@ -35,6 +35,9 @@ setopt menucomplete
 export PATH=$HOME/.bin:$PATH
 export EDITOR=$HOMEBREW_PREFIX/bin/vim
 
+# GPG (w/o this signing will fail because pinentry won't come up)
+export GPG_TTY=$(tty)
+
 # nnn
 export NNN_FCOLORS="040404a60005050ca0040400"
 
