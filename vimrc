@@ -319,24 +319,6 @@ endfunction
 
 " taken and modified from
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-function! ShowRoutes()
-  :topleft 100 :split __Routes__
-  " Make sure Vim doesn't write __Routes__ as a file
-  :set buftype=nofile
-  " Delete everything
-  :normal 1GdG
-  " Put routes output in buffer
-  :0r! bundle exec rake -s routes
-  " Size window to number of lines (1 plus rake output length)
-  :exec ":resize " . line("$")
-  " Move cursor to bottom
-  :normal 1GG
-  " Delete empty trailing line
-  :normal dd
-endfunction
-
-" taken and modified from
-" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'), 'file')
@@ -391,9 +373,6 @@ nnoremap <silent> <Space> :let @/ = ""<bar>:nohlsearch<Bar>:echo<CR>
 
 " Switch between last two buffers
 nnoremap <leader><leader> <c-^>
-
-" rake routes
-map <leader>rr :call ShowRoutes()<cr><F5>
 
 " fzf mappings
 nnoremap <leader>f :FZF<cr>
