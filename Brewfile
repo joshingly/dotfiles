@@ -18,12 +18,13 @@ brew 'gcc'
 brew 'duf'
 brew 'rclone'
 brew 'mosh'
+brew 'gnupg'
+brew 'git-remote-gcrypt'
 
 if OS.mac?
   brew 'qemu'
   brew 'libvirt'
   brew 'git-annex'
-  brew 'gnupg'
   brew 'zsh'
   brew 'rsync'
   brew 'tree'
@@ -37,7 +38,6 @@ if OS.mac?
   brew 'youtube-dl'
   brew 'ffmpeg'
   brew 'mkvtoolnix'
-  brew 'git-remote-gcrypt'
 
   tap 'mutagen-io/mutagen'
   brew 'mutagen-io/mutagen/mutagen'
