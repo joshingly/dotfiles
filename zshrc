@@ -13,6 +13,8 @@ case "$(uname -a)" in
     ;;
 esac
 
+export TZ=/usr/share/zoneinfo/US/Central
+
 if [ $os = 'mac' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
