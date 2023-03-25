@@ -62,6 +62,16 @@ class LocalCLI < Thor
     Update.brew
   end
 
+  desc 'conflicted', ''
+  method_option :remove, type: :boolean, required: false, default: false, aliases: '-r'
+  def conflicted
+    if options.remove
+      System.run('find ~/Sync -type f -name "* conflicted *" -exec rm -f {} \;')
+    else
+      System.run('find ~/Sync -type f -name "* conflicted *"')
+    end
+  end
+
   desc 'clean', ''
   method_option :all, type: :boolean, required: false, default: false, aliases: '-a'
   def clean

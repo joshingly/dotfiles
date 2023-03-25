@@ -14,6 +14,7 @@ _l() {
         'help'
         'update'
         'clean'
+        'conflicted'
         'reset'
        )
 
