@@ -93,16 +93,13 @@ set wildmode=list:longest
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
-
-if $BLINK == 'true'
-  let g:solarized_termtrans=1
-endif
+let g:solarized_termtrans=1
 
 set t_Co=256 " 256 colors
 set background=dark
 colorscheme solarized
 
-highlight! EndOfBuffer ctermfg=8
+highlight! EndOfBuffer ctermfg=11
 highlight! Visual ctermbg=NONE
 highlight! SignColumn ctermbg=NONE
 highlight! CursorLineNr ctermfg=15 cterm=bold
