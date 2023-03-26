@@ -58,7 +58,7 @@ export cdpath=($HOME/Sync $HOME/Dropbox)
 # fzf
 export FZF_DEFAULT_OPTS='
 --color dark,hl:33,hl+:37,fg+:235,bg+:0,fg+:254
---color info:254,prompt:37,spinner:108,pointer:166,marker:235
+--color info:254,prompt:37,spinner:108,pointer:166,marker:235,border:37
 --reverse
 --inline-info
 '
