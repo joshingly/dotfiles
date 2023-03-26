@@ -333,8 +333,14 @@ endfunction
 "==============================================================================
 " #################################################################### MAPPINGS
 " yank/paste to/from clipboard
-map <leader>y "*y
-map <leader>p "*p
+if os == 'Darwin'
+  map <leader>y "*y
+  map <leader>p "*p
+else
+  " https://github.com/tpope/vim-tbone/issues/11#issuecomment-780939888
+  vnoremap <leader>y "zy:tabnew<CR>"zP:w !xargs -0 tmux set-buffer<CR><CR>:bdelete!<CR>
+  nnoremap <silent> <leader>p :let @z = trim(system("tmux show-buffer"))<CR>"zp<CR>
+endif
 
 " ctrl u / ctrl d distance
 nnoremap <c-u> 10k
