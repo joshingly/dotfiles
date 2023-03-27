@@ -334,9 +334,8 @@ if os == 'Darwin'
   map <leader>y "*y
   map <leader>p "*p
 else
-  " https://github.com/tpope/vim-tbone/issues/11#issuecomment-780939888
-  vnoremap <leader>y "zy:tabnew<CR>"zP:w !xargs -0 tmux set-buffer<CR><CR>:bdelete!<CR>
-  nnoremap <silent> <leader>p :let @z = trim(system("tmux show-buffer"))<CR>"zp<CR>
+  nnoremap <leader>p :let @0 = system("tmux save-buffer -")<cr>"0p<bar>g;
+  vnoremap <leader>y y<bar>:call system("tmux load-buffer -", @0)<cr>
 endif
 
 " ctrl u / ctrl d distance
