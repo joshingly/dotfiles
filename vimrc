@@ -24,6 +24,7 @@ set splitbelow
 set splitright
 set updatetime=100
 set shortmess=I
+set switchbuf=useopen
 
 set history=10000
 set swapfile
@@ -148,6 +149,11 @@ augroup plugins
   au BufReadPost fugitive://* set bufhidden=delete
   au BufWritePost * GitGutter
 augroup END
+
+"ruby
+let g:ruby_indent_block_style = 'do'
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_hanging_elements = 0
 
 " zoomwintab
 let g:zoomwintab_hidetabbar = 0
