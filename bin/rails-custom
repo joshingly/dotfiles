@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-
-system('rails new -m ~/Dropbox/Code/rails-template/base.rb --skip-action-mailer --skip-action-cable --skip-turbolinks --skip-test --skip-spring --database=postgresql ' + ARGV.join(' '))
