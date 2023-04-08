@@ -321,7 +321,6 @@ function! InsertTabWrapper()
   endif
 endfunction
 
-" taken and modified from
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 function! RenameFile()
   let old_name = expand('%')
