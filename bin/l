@@ -29,6 +29,13 @@ module Update
     end
   end
 
+  def tools
+    path = File.expand_path('~/Sync/Code/tools')
+    fail 'tools repo not found' if !Dir.exist?(path)
+
+    Dir.chdir(path) { System.run('make') }
+  end
+
   def brew
     [
       'brew update',
@@ -58,6 +65,7 @@ class LocalCLI < Thor
 
   desc 'update', ''
   def update
+    Update.tools
     Update.vim_plugins
     Update.brew
   end
