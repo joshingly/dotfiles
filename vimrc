@@ -133,7 +133,7 @@ augroup file_type
   au filetype * set tabstop=2 | set shiftwidth=2
   au filetype markdown set tabstop=4 | set shiftwidth=4
   au filetype make,go,markdown setlocal noexpandtab
-  au filetype gitcommit,git,qf,go,markdown,netrw setlocal nolist
+  au filetype gitcommit,git,qf,go,markdown,netrw,make setlocal nolist
   au BufRead,BufNewFile *.{md,txt} call SetupWrapping()
   au BufNewFile,BufRead *.json set ft=javascript
   au BufNewFile,BufRead Dockerfile* set ft=Dockerfile
