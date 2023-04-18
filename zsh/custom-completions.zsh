@@ -12,6 +12,7 @@ _l() {
     (cmds)
        local commands; commands=(
         'help'
+        'gpt'
         'update'
         'clean'
         'conflicted'

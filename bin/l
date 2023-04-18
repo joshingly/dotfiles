@@ -63,6 +63,11 @@ end
 class LocalCLI < Thor
   register(Reset, 'reset', 'reset [COMMAND]', '')
 
+  desc 'gpt QUERY', ''
+  def gpt(query = '-i')
+    System.run("docker run --rm -it --pull never gpt-cli #{query.dump}")
+  end
+
   desc 'update', ''
   def update
     Update.tools
