@@ -95,6 +95,8 @@ class LocalCLI < Thor
       'rm -rf ~/.kube',
       'rm -rf ~/.cache',
       'rm -rf ~/.gem',
+      'rm -rf ~/Docker/.tmp',
+      'rm -rf ~/Docker/.cache',
       'rm ~/.zcompdump*',
       'rm ~/.tig_history',
       'rm ~/.pry_history',
