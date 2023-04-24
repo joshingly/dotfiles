@@ -1,4 +1,5 @@
 # https://github.com/wikimatze/padrino-zsh-completion/blob/master/_padrino
+# https://github.com/Homebrew/brew/blob/master/completions/zsh/_brew
 
 _l() {
   typeset -A opt_args
