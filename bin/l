@@ -69,9 +69,44 @@ end
 class LocalCLI < Thor
   register(Reset, 'reset', 'reset [COMMAND]', '')
 
-  desc 'gpt QUERY', ''
-  def gpt(query = '-i')
-    System.run("docker run --rm -it --pull never gpt-cli #{query.dump}")
+  desc 'gpt', ''
+  method_option :query, type: :string, required: false, aliases: '-q'
+  method_option :context, type: :string, required: false, aliases: '-c'
+  method_option :last, type: :boolean, required: false, aliases: '-l'
+  def gpt
+    query = options.query.to_s
+    context = options.context.to_s
+    command = "chatblade #{'-l' if options.last}"
+
+    tmp_dir = File.expand_path('~/Docker/.tmp')
+    cache_dir = File.expand_path('~/Docker/.cache/gpt-cli')
+
+    FileUtils.mkdir_p(tmp_dir)
+    FileUtils.mkdir_p(cache_dir)
+
+    if context.empty? && query.empty?
+      command << " -i"
+    else
+      command = "#{command} #{query.dump}"
+
+      if !context.empty?
+        fail 'context file does not exist' if !File.exist?(context)
+        FileUtils.cp(context, "#{tmp_dir}/gpt-context")
+        command << " < /root/gpt-context"
+      end
+    end
+
+    command = <<~CMD
+      docker run \\
+      --rm -it --pull never \\
+      -v '#{cache_dir}:/root/.cache/chatblade' \\
+      #{ context.empty? ? '' : "-v '#{tmp_dir}/gpt-context:/root/gpt-context'" } \\
+      gpt-cli \\
+      -c #{command.dump}
+    CMD
+
+    System.run(command)
+    FileUtils.rm_f("#{tmp_dir}/gpt-context")
   end
 
   desc 'update', ''
