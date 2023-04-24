@@ -50,9 +50,15 @@ module System
   extend self
 
   def run(command)
-    puts '-' * command.length
+    length = if command.include?("\n")
+      command.split("\n").map(&:length).sort.last
+    else
+      command.length
+    end
+
+    puts '-' * length
     puts command
-    puts '-' * command.length
+    puts '-' * length
 
     system(command)
 
