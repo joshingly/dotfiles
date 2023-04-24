@@ -25,7 +25,7 @@ _l() {
     (sub_cmds)
       case $line[1] in
         (reset)
-          local reset; resets=(
+          local resets; resets=(
             'docker'
             'xcode'
           )
