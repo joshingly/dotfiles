@@ -52,6 +52,10 @@ source ~/.zsh/prompt.zsh
 # case insensitive completions
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
 
+# fall back to filename completion
+# from https://zsh.sourceforge.io/FAQ/zshfaq04.html
+zstyle ':completion:*' completer _complete _ignored _files
+
 # cdpath
 export cdpath=($HOME/Sync $HOME/Dropbox)
 
