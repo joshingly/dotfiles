@@ -91,6 +91,7 @@ class LocalCLI < Thor
 
       if !context.empty?
         fail 'context file does not exist' if !File.exist?(context)
+
         FileUtils.cp(context, "#{tmp_dir}/gpt-context")
         command << " < /root/gpt-context"
       end
