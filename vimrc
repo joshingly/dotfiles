@@ -230,9 +230,6 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" ack.vim
-let g:ackprg = 'rg -S --no-heading --vimgrep'
-
 " grepper
 let g:grepper               = {}
 let g:grepper.tools         = ['rg']
