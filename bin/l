@@ -76,7 +76,7 @@ class LocalCLI < Thor
   def gpt
     query = options.query.to_s
     context = options.context.to_s
-    command = "chatblade #{'-l' if options.last}"
+    command = "chatblade #{'-l' if options.last}".strip
 
     tmp_dir = File.expand_path('~/Docker/.tmp')
     cache_dir = File.expand_path('~/Docker/.cache/gpt-cli')
