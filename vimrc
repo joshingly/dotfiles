@@ -231,8 +231,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " grepper
-let g:grepper               = {}
-let g:grepper.tools         = ['rg']
+let g:grepper = {}
+let g:grepper.tools = ['rg']
 let g:grepper.rg = {}
 let g:grepper.rg.grepprg = 'rg -H -S --no-heading --vimgrep'
 
