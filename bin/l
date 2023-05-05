@@ -73,10 +73,14 @@ class LocalCLI < Thor
   method_option :query, type: :string, required: false, aliases: '-q'
   method_option :context, type: :string, required: false, aliases: '-c'
   method_option :last, type: :boolean, required: false, aliases: '-l'
+  method_option :four, type: :boolean, required: false
   def gpt
     query = options.query.to_s
     context = options.context.to_s
-    command = "chatblade #{'-l' if options.last}".strip
+    command = 'chatblade'.tap do |c|
+      c << ' -l' if options.last
+      c << ' -c 4' if options.four
+    end.strip
 
     tmp_dir = File.expand_path('~/Docker/.tmp')
     cache_dir = File.expand_path('~/Docker/.cache/gpt-cli')
