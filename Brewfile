@@ -35,7 +35,7 @@ if OS.mac?
   brew 'htop'
   brew 'exiftool'
   brew 'mediainfo'
-  brew 'youtube-dl'
+  brew 'yt-dlp'
   brew 'ffmpeg'
   brew 'mkvtoolnix'
 
