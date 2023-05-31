@@ -200,8 +200,8 @@ hi IndentGuidesEven ctermbg=0
 hi IndentGuidesOdd ctermbg=0
 augroup highlights
   au!
-  au BufLeave *.go hi IndentGuidesOdd ctermbg=0
-  au BufEnter *.go hi IndentGuidesOdd ctermbg=NONE
+  au BufLeave *.{go,md} hi IndentGuidesOdd ctermbg=0
+  au BufEnter *.{go,md} hi IndentGuidesOdd ctermbg=NONE
 augroup END
 
 " fzf
