@@ -1,9 +1,6 @@
 let host=trim(system('hostname'))
 let os=trim(system('uname'))
 
-" polyglot
-let g:polyglot_disabled = ['csv']
-
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
