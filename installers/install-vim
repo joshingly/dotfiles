@@ -20,6 +20,7 @@ plugins = [
   "https://github.com/tpope/vim-haml",
   "https://github.com/hashivim/vim-terraform",
   "https://github.com/cakebaker/scss-syntax.vim",
+  "https://github.com/preservim/vim-markdown",
   "https://github.com/tpope/vim-rails",
   "https://github.com/tpope/vim-repeat",
   "https://github.com/mhinz/vim-sayonara",
