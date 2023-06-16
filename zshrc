@@ -70,7 +70,7 @@ export FZF_DEFAULT_OPTS='
 export FZF_DEFAULT_COMMAND='
 rg --smart-case --files --no-ignore --hidden --follow \
 --glob "!.git/*" --glob "!.DS_Store" --glob "!**/node_modules/*" \
---glob "!**/tmp/*"
+--glob "!**/tmp/*" --glob "!**/.yarn/*"
 '
 
 # remove duped path entries (caused by tmux)
