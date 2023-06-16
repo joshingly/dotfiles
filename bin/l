@@ -77,7 +77,7 @@ class LocalCLI < Thor
   def gpt
     query = options.query.to_s
     context = options.context.to_s
-    command = 'chatblade'.tap do |c|
+    command = 'chatblade -s'.tap do |c|
       c << ' -l' if options.last
       c << ' -c 4' if options.four
     end.strip
