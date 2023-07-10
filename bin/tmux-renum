@@ -2,11 +2,12 @@
 
 def get_windows
   windows = `tmux list-windows -F '#I #W #F'`.split("\n").map do |window|
-    data = window.split(" ")
+    data = window.split(' ')
+
     {
       number: data.first.to_i,
       name: data[1],
-      current: data.last == "*" ? true : false
+      current: data.last == '*' ? true : false
     }
   end
 end
@@ -19,6 +20,7 @@ def fill_holes(windows)
     if (current) != window[:number]
       (current).upto(window[:number] - 1).each do |i|
         `tmux new-window -d -n padding`
+
         padding_indices << i
         current = window[:number] + 1
       end
@@ -32,11 +34,14 @@ end
 
 def swap_windows(windows, padding_indices)
   current = 1
+
   windows.each do |window|
     next if window[:name] == "padding"
+
     if window[:number] != current
       target = padding_indices.pop
       `tmux swap-window #{!window[:current] ? "-d" : ""} -s #{window[:number]} -t #{target}`
+
       padding_indices << window[:number]
       padding_indices = padding_indices.sort.reverse
     elsif
