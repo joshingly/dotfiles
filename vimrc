@@ -22,6 +22,7 @@ set splitright
 set updatetime=100
 set shortmess=I
 set switchbuf=useopen
+set shortmess=atT
 
 set history=10000
 set swapfile
