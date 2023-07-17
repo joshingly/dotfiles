@@ -60,6 +60,10 @@ colors:
     cyan:    '0x2aa198'
     white:   '0xeee8d5'
 
+  # Regarding using #60757b for color8 instead of #002b36:
+  # * This resolves not seeing htop meter detail #s.
+  # * Also see: https://github.com/blinksh/blink/issues/381.
+  # * This forces usage of `let g:solarized_termtrans=1` in .vimrc.
   bright:
     black:   '0x60757b'
     red:     '0xcb4b16'
