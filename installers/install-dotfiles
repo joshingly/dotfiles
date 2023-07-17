@@ -24,6 +24,13 @@ if File.exist?(kitty_machine_conf)
   symlink(kitty_machine_conf, "#{destination}/.config/kitty/this-machine.conf")
 end
 
+alacritty_machine_conf = "#{source}/alacritty-#{host}.yml"
+if File.exist?(alacritty_machine_conf)
+  FileUtils.mkdir_p("#{destination}/.config/alacritty")
+  symlink("#{source}/alacritty.yml", "#{destination}/.config/alacritty/alacritty.yml")
+  symlink(alacritty_machine_conf, "#{destination}/.config/alacritty/this-machine.yml")
+end
+
 symlink("#{source}/gemrc", "#{destination}/.gemrc")
 symlink("#{source}/gitconfig", "#{destination}/.gitconfig")
 symlink("#{source}/gitignore_global", "#{destination}/.gitignore_global")
