@@ -14,8 +14,7 @@ window:
     y: 0
 
   padding:
-   x: 5
-   y: 1
+    x: 2
 
   title: Alacritty
 
