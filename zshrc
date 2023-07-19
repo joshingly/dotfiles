@@ -13,6 +13,8 @@ case "$(uname -a)" in
     ;;
 esac
 
+eval "/usr/bin/tic -x ~/Sync/System/Config/Tmux/tmux-256color"
+
 export TZ=/usr/share/zoneinfo/US/Central
 
 if [ $os = 'mac' ]; then
