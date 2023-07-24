@@ -65,7 +65,6 @@ set showtabline=1
 set colorcolumn=80
 set scrolloff=5
 set sidescrolloff=5
-set re=1
 set nofoldenable
 set foldmethod=manual
 set signcolumn=yes
