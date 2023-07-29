@@ -240,7 +240,8 @@ let g:grepper.rg.grepprg = 'rg -H -S --no-heading --vimgrep'
 function! SetupWrapping()
   setlocal wrap
   setlocal wrapmargin=2
-  setlocal textwidth=72
+  setlocal textwidth=80
+  setlocal breakindent
 endfunction
 
 function! DiffSaved()
