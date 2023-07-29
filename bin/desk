@@ -1,19 +1,33 @@
 #!/usr/bin/env zsh
 
+simple=false
+
+for arg in "$@"
+do
+  if [ "$arg" = "--simple" ]
+  then
+    simple=true
+  fi
+done
+
 if tmux has-session -t desk 2>/dev/null; then
   echo "desk session is already running"
 else
   tmux start-server
   tmux -u new -d -s desk
-  tmux neww -t desk
-  tmux neww -t desk
 
-  tmux send-keys -t desk:1 C-m
-  tmux send-keys -t desk:1 "vim" C-m
+  if $simple; then
+    tmux rename-window -t desk:1 zsh
+  else
+    tmux neww -t desk
+    tmux neww -t desk
 
-  tmux rename-window -t desk:1 vim
-  tmux rename-window -t desk:2 zsh
-  tmux rename-window -t desk:3 services
+    tmux send-keys -t desk:1 "vim" C-m
+
+    tmux rename-window -t desk:1 vim
+    tmux rename-window -t desk:2 zsh
+    tmux rename-window -t desk:3 services
+  fi
 
   tmux select-window -t desk:1
 
