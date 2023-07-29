@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
 
-echo -ne "\033]0;tmux\007"
-tmux -u new -s general-alt -t general
+if tmux has-session -t desk 2>/dev/null; then
+  echo -ne "\033]0;tmux\007"
+  tmux -u new -s desk-alt -t desk
+else
+  echo "no desk session is running"
+fi

@@ -1,18 +1,22 @@
 #!/usr/bin/env zsh
 
-tmux start-server
-tmux -u new -d -s general
-tmux neww -t general
-tmux neww -t general
+if tmux has-session -t desk 2>/dev/null; then
+  echo "desk session is already running"
+else
+  tmux start-server
+  tmux -u new -d -s desk
+  tmux neww -t desk
+  tmux neww -t desk
 
-tmux send-keys -t general:1 C-m
-tmux send-keys -t general:1 "vim" C-m
+  tmux send-keys -t desk:1 C-m
+  tmux send-keys -t desk:1 "vim" C-m
 
-tmux rename-window -t general:1 vim
-tmux rename-window -t general:2 zsh
-tmux rename-window -t general:3 services
+  tmux rename-window -t desk:1 vim
+  tmux rename-window -t desk:2 zsh
+  tmux rename-window -t desk:3 services
 
-tmux select-window -t general:1
+  tmux select-window -t desk:1
 
-echo -ne "\033]0;tmux\007"
-tmux attach-session -t general
+  echo -ne "\033]0;tmux\007"
+  tmux attach-session -t desk
+fi
