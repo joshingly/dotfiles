@@ -238,9 +238,11 @@ let g:grepper.rg.grepprg = 'rg -H -S --no-heading --vimgrep'
 "==============================================================================
 " ################################################################### FUNCTIONS
 function! SetupWrapping()
+  setlocal wrap
   setlocal wrapmargin=2
   setlocal textwidth=80
   setlocal breakindent
+  setlocal showbreak=\ \ 
 endfunction
 
 function! DiffSaved()
