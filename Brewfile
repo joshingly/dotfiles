@@ -40,6 +40,5 @@ if OS.mac?
   brew 'mutagen-io/mutagen/mutagen'
 
   cask 'kitty'
-  cask 'alacritty'
   cask 'ngrok'
 end
