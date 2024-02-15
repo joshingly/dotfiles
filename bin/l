@@ -76,8 +76,8 @@ class LocalCLI < Thor
   def gpt
     query = options.query.to_s
     context = options.context.to_s
-    command = 'chatblade -s -c 4t -p standard'.tap do |c|
-      c << ' -l' if options.last
+    command = 'chatblade -s -c gpt-4-turbo-preview'.tap do |c|
+      c << (options.last ? ' -l' : ' -p standard')
     end.strip
 
     tmp_dir = File.expand_path('~/Docker/.tmp')
